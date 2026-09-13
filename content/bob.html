@@ -3,7 +3,10 @@
 
 <h2 id="states">What he does</h2>
 <ul>
-  <li><b>Patrol.</b> Wanders the halls, sweeping a torch and humming. Speed <code>1.5 + min(0.7, (night&minus;1)&times;0.12)</code>. From night 2, 45% of the time he heads for a lit room instead of a random hall corner (if the generator is running) &mdash; and once there, if it isn't your classroom, the boiler room or a hallway, he switches its lights off and moves on, roughly every 5 seconds of patrolling.</li>
+  <li><b>Patrol.</b> Walks the halls and any <em>dark</em> rooms, sweeping a torch and humming, favouring rooms he hasn't checked for a while. Speed <code>1.5 + min(0.7, (night&minus;1)&times;0.12)</code>.</li>
+  <li><b>He never walks into a lit room.</b> Lit rooms are walls as far as his pathfinding is concerned. If someone switches the lights on while he is inside a room, he squints and backs out into the corridor.</li>
+  <li><b>Lights out (from night 2).</b> Every 18&ndash;34 seconds of patrolling he picks a lit room <em>with nobody in it</em> (never your classroom or the boiler room), walks to the corridor outside its door, reaches round the frame and switches the lights off. A room with a player in it keeps its lights.</li>
+  <li><b>Search.</b> After investigating a noise he checks the one or two hiding spots nearest to it (a locker he actually <em>saw</em> you get into is always opened). Noises from inside a lit room are ignored, and walls muffle what he hears.</li>
   <li><b>Investigate.</b> Triggered by a noise, or by losing sight of someone he was chasing. Heads to the noise's location (or the nearest unchecked hiding spot, with a growing chance of finding whoever's inside &mdash; see <a href="hiding.html">Hiding</a>) and gives up after about 6&ndash;10 seconds if he finds nothing. Speed 2.0 (+ overtime bonus).</li>
   <li><b>Chase.</b> Triggered the moment he spots someone not hidden and not standing in a lit room (unless he's already chasing, in which case a lit room won't stop the spot &mdash; only reaching one while he's chasing does). Speed <code>3.6 + min(1.0, (night&minus;1)&times;0.16)</code> (+ overtime bonus). He gives up and returns to patrol if you reach a lit room while he isn't already adjacent to you, or if he loses sight of you for more than 4.5 seconds (after which he investigates your last known position for a further 6 seconds).</li>
 </ul>
@@ -15,7 +18,7 @@
 <p>Bob deals <b>28 damage</b>, forcibly un-hides you, drops roughly 70% of your bag items and your held item onto the floor, and teleports you to Lost &amp; Found &mdash; not a game over by itself, just a costly reset, plus your fear jumps to 100.</p>
 
 <h2 id="grumble">What he says</h2>
-<p>Bob has 3 recorded voice lines &mdash; see <a href="voicelines.html#bob">Voice Lines</a>. Two are the classic "GET BACK TO YOUR CLASSROOM" (when he spots someone) and a scream (on a grab). The third &mdash; <i>"These darn kids, leaving the lights on and making a mess"</i> &mdash; plays (on a 35 second cooldown) whenever he personally switches off a room's lights while patrolling, or walks within about 3.2 units of a mess nobody has cleaned up yet. It's flavour, not a mechanic, but it's a reliable tell that he's nearby.</p>
+<p>Bob has 3 recorded voice lines &mdash; see <a href="voicelines.html#bob">Voice Lines</a>. Two are the classic "GET BACK TO YOUR CLASSROOM" (when he spots someone) and a scream (on a grab). The third &mdash; <i>"These darn kids, leaving the lights on and making a mess"</i> &mdash; plays (on a 35 second cooldown) whenever he reaches round a door frame to switch off an empty room's lights, or walks within about 3.2 units of a mess nobody has cleaned up yet. It's flavour, not a mechanic, but it's a reliable tell that he's nearby.</p>
 
 <h2 id="hiding-vs-bob">Getting past him</h2>
 <p>Every rule for how Bob checks a hiding spot &mdash; the guaranteed find if he watched you get in, versus the scaling percentage chance if he's only investigating a noise &mdash; is documented in full on <a href="hiding.html#bob-checks">Hiding</a>.</p>
