@@ -1,0 +1,60 @@
+<h1>Grump the Baby Destroyer &mdash; Wiki</h1>
+<p class="lead">It is the last day of school. Everyone got picked up. Except you.</p>
+
+<p><a class="playbtn" style="display:inline-block;width:auto;margin:6px 0 18px" href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">&#9654; Play Grump the Baby Destroyer now</a></p>
+
+<h2 id="what-it-is">What the game is</h2>
+<p><b>Grump the Baby Destroyer</b> is a browser-based 3D survival-horror game. You play a baby left behind in an empty school. Runs entirely in the browser &mdash; no build step, no backend, no install &mdash; and multiplayer is peer-to-peer, so it works the same way hosted on GitHub Pages as it does locally.</p>
+<p>Everything in the school is procedural: textures are painted into canvases at load time, models are built from boxes, and the school itself is a pure function of a random seed &mdash; the same seed always builds the exact same building, which is what makes co-op possible without a real server.</p>
+
+<h2 id="premise">The premise</h2>
+<p>You are a baby. Everyone else went home. There is a janitor named <b>Bob</b> who wants you back in your classroom and will hurt you if he catches you out of one at night. There is a boy in green dungarees named <b>Grump</b> who wants to ask you questions &mdash; and who, after day 4, stops asking and starts hunting. There is a generator that will not feed itself, a teacher's to-do list that never runs out, and other toddlers who need carrying home before dark.</p>
+
+<h2 id="the-loop">The loop</h2>
+<div class="grid">
+  <div class="card">
+    <h4>Day</h4>
+    <p>Search the school, feed the generator, clean up messes, carry other toddlers home, and work through Mrs. Honeywell's list. Length depends on difficulty (3m25s&ndash;5m).</p>
+  </div>
+  <div class="card">
+    <h4>Night</h4>
+    <p>You cannot leave. Your classroom is safe only while the lights are on. Bob patrols. Grump watches (until he turns). Length depends on difficulty (2m30s&ndash;3m35s).</p>
+  </div>
+</div>
+<p>Repeat for 3, 5, 7, 10, 15 or 20 nights &mdash; or Endless. See <a href="difficulty.html">Nights &amp; Difficulty</a> for the exact numbers, and <a href="night.html">The Night</a> / <a href="day.html">The Day</a> for what happens in each phase.</p>
+
+<h2 id="quick-start">Quick start</h2>
+<ol>
+  <li>Click the game canvas to lock your mouse pointer &mdash; the game will not respond to WASD until it is locked.</li>
+  <li>Check Mrs. Honeywell's list (Tab) and the map (M).</li>
+  <li>Search containers for fuel and parts, get the generator running in the boiler room, and keep an eye on your tummy.</li>
+  <li>When it gets dark, get to your classroom and keep the lights on. Hide in lockers, under desks, or in boxes if something is coming.</li>
+  <li>Talk to Grump if you see him &mdash; ignoring him all day costs more resentment than answering does.</li>
+</ol>
+<p>See the full <a href="controls.html">Controls</a> page and the in-game "How to Survive" screen for more.</p>
+
+<h2 id="contents">Wiki contents</h2>
+<div class="toc">
+  <ol>
+    <li><a href="controls.html">Controls</a> &mdash; the full key table.</li>
+    <li><a href="day.html">The Day</a> &mdash; the day loop, every job type, food and hunger.</li>
+    <li><a href="night.html">The Night</a> &mdash; light as safety, hiding, noise, fear.</li>
+    <li><a href="difficulty.html">Nights &amp; Difficulty</a> &mdash; night counts, the difficulty table, night modifiers, escaping.</li>
+    <li><a href="generator.html">The Generator &amp; Power</a> &mdash; the fuel burn formula with a worked example.</li>
+    <li><a href="items.html">Items</a> &mdash; every item, with numbers.</li>
+    <li><a href="loot.html">Loot Tables</a> &mdash; odds per container kind, and search times.</li>
+    <li><a href="characters.html">Characters</a> &mdash; Bob, Grump, the Card Kid, the Taker, the toddlers.</li>
+    <li><a href="questions.html">Grump's Questions</a> &mdash; every question, answer and cost. <b>Spoilers.</b></li>
+    <li><a href="rooms.html">Rooms &amp; The School</a> &mdash; every room, its furniture and hiding spots.</li>
+    <li><a href="lore.html">Lore</a> &mdash; all twelve crayon drawings. <b>Spoilers.</b></li>
+    <li><a href="coop.html">Co-op</a> &mdash; hosting, joining, host authority, spectating, revives.</li>
+    <li><a href="map.html">The Map</a> &mdash; the legend.</li>
+    <li><a href="tips.html">Tips &amp; Strategy</a> &mdash; derived from the real mechanics.</li>
+    <li><a href="faq.html">FAQ / Troubleshooting</a></li>
+    <li><a href="changelog.html">Changelog</a> &mdash; what's changed in the game, commit by commit.</li>
+  </ol>
+</div>
+
+<div class="callout tip">
+  <strong>About this wiki.</strong> Every number and rule on this site is read directly out of the game's own source code (not guessed), and is cross-checked against the commit named in the footer of every page. If the game changes, the numbers here may go stale until this wiki is rebuilt against the new commit &mdash; check the footer.
+</div>

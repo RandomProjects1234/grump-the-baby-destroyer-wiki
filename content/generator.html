@@ -1,0 +1,62 @@
+<h1>The Generator &amp; Power</h1>
+<p class="lead">One machine, in the boiler room, powers every light in the school. It starts each run at 62% fuel and 74% condition.</p>
+
+<h2 id="burn-formula">The fuel burn formula</h2>
+<p>Straight from the game's own comments: burn is deliberately transparent and <i>additive</i> rather than multiplicative, so the numbers stay legible. In fuel-percent per second, while the generator is running:</p>
+<div class="tablewrap">
+<table>
+<tr><th>Component</th><th>Rate</th></tr>
+<tr><td>Base</td><td>0.20 / s (a full tank alone lasts 8m20s)</td></tr>
+<tr><td>+ wear</td><td>up to 0.12 / s, scaling with <code>1 &minus; condition/100</code></td></tr>
+<tr><td>+ each mess left uncleaned</td><td>0.012 / s per mess</td></tr>
+<tr><td>+ each lit room over 4</td><td>0.008 / s per room past the 4th</td></tr>
+</table>
+</div>
+<p>That raw total is then multiplied by <code>1 + min(9, night&minus;1) &times; 0.10</code> for how deep into the run you are (up to &times;1.9 by night 10), and during the <b>day</b> phase the whole thing is further multiplied by <b>0.6</b> (lights matter less in daylight, so the machine idles lower).</p>
+<pre style="white-space:pre-wrap;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;padding:12px 16px;font-size:0.86rem;">burnRate = (0.20 + 0.12&times;wear + 0.012&times;messes + 0.008&times;max(0, litRooms&minus;4))
+           &times; (1 + min(9, night&minus;1) &times; 0.10)
+           &times; (phase === 'day' ? 0.6 : 1)</pre>
+
+<h3 id="worked-example">Worked example</h3>
+<p>Night 5, generator at 50% condition (wear = 0.5), 3 messes left uncleaned, 6 rooms lit (2 over the free allowance of 4), at night:</p>
+<pre style="white-space:pre-wrap;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;padding:12px 16px;font-size:0.86rem;">raw = 0.20 + 0.12&times;0.5 + 0.012&times;3 + 0.008&times;2
+    = 0.20 + 0.06 + 0.036 + 0.016 = 0.312 %/s
+night scale = 1 + min(9,4)&times;0.10 = 1.40
+burnRate = 0.312 &times; 1.40 = 0.437 %/s
+A full tank (100%) would last 100 / 0.437 &asymp; 229s &asymp; 3m49s.</pre>
+<p>Compare that to a tidy machine on night 1 (100% condition, 0 messes, &le;4 rooms lit): burn rate is exactly the 0.20/s base, so a full tank lasts a clean 8m20s &mdash; roughly two and a half nights' worth on Normal difficulty. Per the developer's own comment: "a tidy school on a healthy machine with only the rooms you need switched on lasts roughly two and a half nights. Neglect it on every axis at once and a full tank barely covers one."</p>
+
+<h2 id="wear-and-stalling">Wear and stalling</h2>
+<p>Condition decays at a flat <b>0.07 per second</b> while the generator runs (doubled to <b>0.14/s</b> during a Storm night), regardless of anything else &mdash; "about one spare part a day keeps it healthy," per the source comments.</p>
+<div class="callout danger"><strong>Stalling.</strong> Once condition drops below 30%, the generator can stall on its own: a countdown timer (22&ndash;48 seconds, randomised, and ticking faster the lower condition gets) periodically fires a stall check. If it triggers, you get "THE GENERATOR STALLS" and it shuts off completely, exactly like running out of fuel.</div>
+<p>If fuel hits 0% at any point, the generator stops immediately with "THE LIGHTS GO OUT" &mdash; no countdown, no warning beyond the "running dry" toast that appears whenever the estimated time left drops under 30 seconds.</p>
+
+<h2 id="starting">Starting it</h2>
+<p>You can only pull the starter cord if fuel &gt; 1% and condition &gt; 12% (otherwise: "No fuel in it." / "Too broken to turn over."). Even then it isn't guaranteed: the start chance is <code>clamp(0.35 + condition/140, 0.35, 0.98)</code> &mdash; 35% at rock-bottom condition, rising to a capped 98% once condition passes about 88%. At the generator's starting condition of 74%, that's about an 88% chance per pull.</p>
+<p>A failed pull ("It coughs and dies. Pull again.") makes a noise (level 0.7) and does not cost you anything except time &mdash; but <b>after 3 failed pulls in a row, the next pull always succeeds</b>, regardless of condition.</p>
+
+<h2 id="refuel-repair">Refuelling and repairing</h2>
+<div class="tablewrap">
+<table>
+<tr><th>Action</th><th>Needs</th><th>Restores</th><th>Hold time</th></tr>
+<tr><td>Pour in fuel</td><td>A fuel can in your hands</td><td>+38% fuel (clamped to 100%)</td><td>2.2s</td></tr>
+<tr><td>Repair it (no wrench)</td><td>A spare part in the bag</td><td>+26% condition (clamped to 100%)</td><td>2.6s</td></tr>
+<tr><td>Repair it (with wrench)</td><td>A spare part + a wrench in the bag</td><td>+26% condition</td><td>1.3s (wrench halves repair time)</td></tr>
+</table>
+</div>
+<p>Each of these also triggers a roughly 28% chance of the Pokémon-card boy (the "Card Kid") turning up nearby &mdash; see <a href="characters.html">Characters</a>.</p>
+
+<h2 id="light-switches-fusebox">Light switches and the fusebox</h2>
+<p>Every non-hallway room has its own light switch, toggleable for free (no hold time) &mdash; but it only actually lights up if the generator is running. The boiler room's <b>fusebox</b> resets every breaker in the school at once (1.6s hold), switching every room's lights back on in one go &mdash; useful after Bob has been through switching things off, but it burns fuel faster the instant it's done since more rooms end up lit.</p>
+<p>Bob will physically switch a room's lights off as he leaves it, from night 2 onward (see <a href="characters.html">Characters</a>). Grump, once turned, pops light bulbs near himself as he walks (roughly every 9&ndash;18 seconds), disabling that fixture for 25 seconds.</p>
+
+<h2 id="portable-lights">Portable lights</h2>
+<p>Your own private grid, independent of the generator:</p>
+<div class="tablewrap">
+<table>
+<tr><th>Light</th><th>Needs</th><th>Radius</th><th>Brightness</th><th>Lifespan</th></tr>
+<tr><td>Glow Stick</td><td>Nothing &mdash; just throw it (thrown ~3.2 units ahead of you)</td><td>4.2 units</td><td>0.55 (starts flickering in its last 20 seconds)</td><td>150 seconds</td></tr>
+<tr><td>Night Light</td><td>1 battery, consumed on placement</td><td>5.5 units</td><td>0.8</td><td>Effectively permanent for a run (999s)</td></tr>
+</table>
+</div>
+<p>Batteries also recharge your torch by +58% when used directly, and a Torch (flashlight) itself drains at 2.6% battery per second while switched on (5.2%/s on a Cold night).</p>

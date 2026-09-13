@@ -1,0 +1,49 @@
+<h1>Nights &amp; Difficulty</h1>
+<p class="lead">Choose how many nights to survive, and how hard the game leans on you while you do it.</p>
+
+<h2 id="night-options">Night options</h2>
+<p>Both Survive Alone and Host Co-op let you pick a target: <b>3, 5, 7 (default), 10, 15, 20</b>, or <b>Endless</b> (stored internally as 0). Once you survive the final required night, the chains come off the front doors and you can walk out for a bonus &mdash; or keep playing for score, since Endless never opens the doors on its own until you choose to stop... actually the doors open the morning after the last required night even outside Endless. In Endless mode there is no required-night count, so the doors never open and the run continues until everyone is caught.</p>
+
+<h2 id="difficulty-table">Difficulty table</h2>
+<div class="tablewrap">
+<table>
+<tr><th>Difficulty</th><th>Day length</th><th>Night length</th><th>Base nightly resentment</th><th>Bob active from</th></tr>
+<tr><td>Gentle</td><td>300s (5m00s)</td><td>150s (2m30s)</td><td>+8</td><td>Night 1</td></tr>
+<tr><td>Normal</td><td>240s (4m00s)</td><td>180s (3m00s)</td><td>+11</td><td>Night 1</td></tr>
+<tr><td>Nasty</td><td>205s (3m25s)</td><td>215s (3m35s)</td><td>+15</td><td>Night 1</td></tr>
+</table>
+</div>
+<p>Bob is a threat from night 1 in <i>every</i> difficulty &mdash; difficulty does not delay him. What difficulty actually changes is how long you have each day and night, and how much resentment Grump accrues automatically every night.</p>
+
+<h2 id="how-things-scale">How things scale with the night number</h2>
+<p>Nothing in the game reads difficulty beyond the table above; almost everything else scales off the current night number instead:</p>
+<ul>
+  <li><b>Bob's patrol speed:</b> <code>1.5 + min(0.7, (night&minus;1) &times; 0.12)</code> &mdash; caps out around night 7.</li>
+  <li><b>Bob's chase speed:</b> <code>3.6 + min(1.0, (night&minus;1) &times; 0.16)</code> &mdash; caps around night 8.</li>
+  <li><b>Bob starts turning lights off behind him</b> from night 2 onward.</li>
+  <li><b>Bob's chance to find you</b> if you're hiding nearby when he investigates: <code>clamp(0.18 + night &times; 0.025, 0.18, 0.42)</code>.</li>
+  <li><b>Generator fuel burn</b> is multiplied by <code>1 + min(9, night&minus;1) &times; 0.10</code> &mdash; up to 1.9&times; by night 10. See <a href="generator.html">The Generator &amp; Power</a>.</li>
+  <li><b>Messes per day:</b> <code>clamp(3 + night, 3, 10)</code> &mdash; 3 on night 1, capped at 10 from night 7.</li>
+  <li><b>Toddlers per day:</b> <code>clamp(2 + floor(night/2), 2, 5)</code> &mdash; 2 on nights 1&ndash;2, capped at 5 from night 7.</li>
+  <li><b>Loot scarcity:</b> the "nothing found" weight in every loot table multiplies by <code>1 + min(7, night&minus;1) &times; 0.32</code>, so searches get leaner every night up to night 8. See <a href="loot.html">Loot Tables</a>.</li>
+  <li><b>Grump's hunt speed</b> (once turned): <code>clamp(3.3 + night &times; 0.18, 3.3, 5.2)</code>, further &times;0.85 during daylight hours &mdash; caps around night 11.</li>
+  <li><b>Grump's tolerance for standing under lights</b> (once turned) before he retreats: <code>4 + min(10, night) &times; 0.6</code> seconds.</li>
+</ul>
+
+<h2 id="night-modifiers">Night modifiers</h2>
+<p>From <b>night 5</b> onward, every night rolls one twist. From <b>night 10</b> onward, it rolls two (picked without repeats). Modifiers are chosen deterministically from the seed, so the same seed always rolls the same modifiers on the same night.</p>
+<div class="tablewrap">
+<table>
+<tr><th>Modifier</th><th>Effect</th></tr>
+<tr><td><b>Storm</b></td><td>Thunder outside; the lights stutter and the generator's condition wears down twice as fast (0.14/s instead of 0.07/s).</td></tr>
+<tr><td><b>Overtime</b></td><td>Bob is on a double shift: his hearing radius and lock-onto-a-hiding-spot chance are &times;1.6, and he gets a speed bonus &mdash; a flat +0.45 while chasing, +0.225 while patrolling or investigating.</td></tr>
+<tr><td><b>Hungry night</b></td><td>Toddlers get hungry twice as fast.</td></tr>
+<tr><td><b>The long night</b></td><td>This night's timer is 50 seconds longer than normal.</td></tr>
+<tr><td><b>He is closer</b></td><td>Grump starts the night standing right outside your classroom door instead of wherever he was.</td></tr>
+<tr><td><b>Cold night</b></td><td>Your torch battery drains twice as fast (5.2/s instead of 2.6/s while it's on).</td></tr>
+</table>
+</div>
+
+<h2 id="escaping">Escaping</h2>
+<p>The morning after you survive the final required night, the chains come off the front doors (<i>"The front doors are open"</i>) and you can walk out through them (hold <kbd class="key">E</kbd> for 2 seconds) to end the run as a win, or keep playing for more score. In co-op, one player escaping ends the run as a win for everyone still alive. In Endless mode there is no final night, so the doors never unlock.</p>
+<p>Getting caught by Bob does not end a run by itself &mdash; he drops you (and some of your things) in Lost &amp; Found and knocks you to 100% fear. Grump catching you deals heavy damage and can end the run if it drops you to 0 health while downed timers run out. See <a href="characters.html">Characters</a> for what each catch actually does.</p>

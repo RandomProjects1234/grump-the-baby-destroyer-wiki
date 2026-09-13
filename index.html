@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home · Grump the Baby Destroyer Wiki</title>
+<meta name="description" content="The complete wiki for Grump the Baby Destroyer: a browser survival-horror game about a baby left behind in an empty school.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230d1210'/><rect x='3' y='5' width='3' height='3' fill='%23e5a83a'/><rect x='10' y='5' width='3' height='3' fill='%23e5a83a'/><rect x='4' y='11' width='8' height='2' fill='%236f8f5a'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-base="">
+<div class="navtoggle">&#9776;&nbsp; Grump Wiki</div>
+<div class="sidebar-scrim"></div>
+<div class="wrap">
+  <nav class="sidebar">
+    <a class="brand" href="index.html">GRUMP<span class="sub">the baby destroyer &middot; wiki</span></a>
+    <a class="playbtn" href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">&#9654; Play the game</a>
+<div class="searchbox">
+<input id="search-input" type="text" placeholder="Search the wiki..." autocomplete="off">
+<div id="search-results" class="searchresults"></div>
+</div>
+<ul class="navlist">
+<li><a href="index.html" class="active">Home</a></li>
+</ul>
+<h5 style="margin-top:16px">Playing</h5>
+<ul class="navlist">
+<li><a href="controls.html"><span class="num">01</span>Controls</a></li>
+<li><a href="day.html"><span class="num">02</span>The Day</a></li>
+<li><a href="night.html"><span class="num">03</span>The Night</a></li>
+<li><a href="difficulty.html"><span class="num">04</span>Nights & Difficulty</a></li>
+<li><a href="generator.html"><span class="num">05</span>The Generator & Power</a></li>
+<li><a href="coop.html"><span class="num">06</span>Co-op</a></li>
+</ul>
+<h5 style="margin-top:16px">Reference</h5>
+<ul class="navlist">
+<li><a href="items.html"><span class="num">07</span>Items</a></li>
+<li><a href="loot.html"><span class="num">08</span>Loot Tables</a></li>
+<li><a href="characters.html"><span class="num">09</span>Characters</a></li>
+<li><a href="questions.html"><span class="num">10</span>Grump's Questions</a></li>
+<li><a href="rooms.html"><span class="num">11</span>Rooms & The School</a></li>
+<li><a href="lore.html"><span class="num">12</span>Lore</a></li>
+<li><a href="map.html"><span class="num">13</span>The Map</a></li>
+</ul>
+<h5 style="margin-top:16px">Guides</h5>
+<ul class="navlist">
+<li><a href="tips.html"><span class="num">14</span>Tips & Strategy</a></li>
+<li><a href="faq.html"><span class="num">15</span>FAQ / Troubleshooting</a></li>
+<li><a href="changelog.html"><span class="num">16</span>Changelog</a></li>
+</ul>
+    <div class="sidebar-foot">
+      Fan wiki, not an official site.<br>
+      Matches game commit <code>a84a5b6</code><br>
+      Updated 2026-09-12
+    </div>
+  </nav>
+  <main>
+    <div class="breadcrumb"><a href="index.html">Wiki</a> / Home</div>
+    <h1>Grump the Baby Destroyer &mdash; Wiki</h1>
+<p class="lead">It is the last day of school. Everyone got picked up. Except you.</p>
+
+<p><a class="playbtn" style="display:inline-block;width:auto;margin:6px 0 18px" href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">&#9654; Play Grump the Baby Destroyer now</a></p>
+
+<h2 id="what-it-is">What the game is</h2>
+<p><b>Grump the Baby Destroyer</b> is a browser-based 3D survival-horror game. You play a baby left behind in an empty school. Runs entirely in the browser &mdash; no build step, no backend, no install &mdash; and multiplayer is peer-to-peer, so it works the same way hosted on GitHub Pages as it does locally.</p>
+<p>Everything in the school is procedural: textures are painted into canvases at load time, models are built from boxes, and the school itself is a pure function of a random seed &mdash; the same seed always builds the exact same building, which is what makes co-op possible without a real server.</p>
+
+<h2 id="premise">The premise</h2>
+<p>You are a baby. Everyone else went home. There is a janitor named <b>Bob</b> who wants you back in your classroom and will hurt you if he catches you out of one at night. There is a boy in green dungarees named <b>Grump</b> who wants to ask you questions &mdash; and who, after day 4, stops asking and starts hunting. There is a generator that will not feed itself, a teacher's to-do list that never runs out, and other toddlers who need carrying home before dark.</p>
+
+<h2 id="the-loop">The loop</h2>
+<div class="grid">
+  <div class="card">
+    <h4>Day</h4>
+    <p>Search the school, feed the generator, clean up messes, carry other toddlers home, and work through Mrs. Honeywell's list. Length depends on difficulty (3m25s&ndash;5m).</p>
+  </div>
+  <div class="card">
+    <h4>Night</h4>
+    <p>You cannot leave. Your classroom is safe only while the lights are on. Bob patrols. Grump watches (until he turns). Length depends on difficulty (2m30s&ndash;3m35s).</p>
+  </div>
+</div>
+<p>Repeat for 3, 5, 7, 10, 15 or 20 nights &mdash; or Endless. See <a href="difficulty.html">Nights &amp; Difficulty</a> for the exact numbers, and <a href="night.html">The Night</a> / <a href="day.html">The Day</a> for what happens in each phase.</p>
+
+<h2 id="quick-start">Quick start</h2>
+<ol>
+  <li>Click the game canvas to lock your mouse pointer &mdash; the game will not respond to WASD until it is locked.</li>
+  <li>Check Mrs. Honeywell's list (Tab) and the map (M).</li>
+  <li>Search containers for fuel and parts, get the generator running in the boiler room, and keep an eye on your tummy.</li>
+  <li>When it gets dark, get to your classroom and keep the lights on. Hide in lockers, under desks, or in boxes if something is coming.</li>
+  <li>Talk to Grump if you see him &mdash; ignoring him all day costs more resentment than answering does.</li>
+</ol>
+<p>See the full <a href="controls.html">Controls</a> page and the in-game "How to Survive" screen for more.</p>
+
+<h2 id="contents">Wiki contents</h2>
+<div class="toc">
+  <ol>
+    <li><a href="controls.html">Controls</a> &mdash; the full key table.</li>
+    <li><a href="day.html">The Day</a> &mdash; the day loop, every job type, food and hunger.</li>
+    <li><a href="night.html">The Night</a> &mdash; light as safety, hiding, noise, fear.</li>
+    <li><a href="difficulty.html">Nights &amp; Difficulty</a> &mdash; night counts, the difficulty table, night modifiers, escaping.</li>
+    <li><a href="generator.html">The Generator &amp; Power</a> &mdash; the fuel burn formula with a worked example.</li>
+    <li><a href="items.html">Items</a> &mdash; every item, with numbers.</li>
+    <li><a href="loot.html">Loot Tables</a> &mdash; odds per container kind, and search times.</li>
+    <li><a href="characters.html">Characters</a> &mdash; Bob, Grump, the Card Kid, the Taker, the toddlers.</li>
+    <li><a href="questions.html">Grump's Questions</a> &mdash; every question, answer and cost. <b>Spoilers.</b></li>
+    <li><a href="rooms.html">Rooms &amp; The School</a> &mdash; every room, its furniture and hiding spots.</li>
+    <li><a href="lore.html">Lore</a> &mdash; all twelve crayon drawings. <b>Spoilers.</b></li>
+    <li><a href="coop.html">Co-op</a> &mdash; hosting, joining, host authority, spectating, revives.</li>
+    <li><a href="map.html">The Map</a> &mdash; the legend.</li>
+    <li><a href="tips.html">Tips &amp; Strategy</a> &mdash; derived from the real mechanics.</li>
+    <li><a href="faq.html">FAQ / Troubleshooting</a></li>
+    <li><a href="changelog.html">Changelog</a> &mdash; what's changed in the game, commit by commit.</li>
+  </ol>
+</div>
+
+<div class="callout tip">
+  <strong>About this wiki.</strong> Every number and rule on this site is read directly out of the game's own source code (not guessed), and is cross-checked against the commit named in the footer of every page. If the game changes, the numbers here may go stale until this wiki is rebuilt against the new commit &mdash; check the footer.
+</div>
+
+    <div class="pagefoot">
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-12 &middot; matches game commit <code>a84a5b6</code></span>
+      <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
+    </div>
+  </main>
+</div>
+<script src="js/site.js"></script>
+</body>
+</html>

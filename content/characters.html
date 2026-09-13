@@ -1,0 +1,84 @@
+<h1>Characters</h1>
+<p class="lead">Two threats, one silent encounter, one grown-up on your side, and the other children you're trying to keep alive.</p>
+
+<div class="callout tip"><strong>Voice acting.</strong> Everything in the game is procedural except <b>10 recorded voice lines</b>: Grump has 3 (greeting, mean, angry), Bob has 3 (classroom warning, scream, and a grumble about lights/mess), Mrs. Honeywell has 2 (the morning announcement, the "it's dark in here" line), and the Card Kid has 2 (his line, his scream). Every other sound &mdash; footsteps, breathing, ambience &mdash; is synthesised.</div>
+
+<h2 id="honeywell">Mrs. Honeywell</h2>
+<p>Your teacher, and the one grown-up in the building who is actually on your side. She stands at the chalkboard in your own classroom every morning, reading out the day's list in a recorded voice line: <i>"Can you get all these quests done for me? You can go home at the end of the day, but look out for Grump. He's kind of a special one."</i> She lives entirely on each player's own machine &mdash; her spot and her routine follow the school layout and the phase clock, so nothing about her needs to be sent over the network in co-op.</p>
+<ul>
+  <li><b>Talk to her</b> and she cycles through seven lines (<i>"Off you go, then. The list will not do itself." "Stay busy, little one. Busy is safe." "Mind the boy in the green dungarees. Be polite. It will not help, but be polite."</i> and others) while showing the objectives list.</li>
+  <li><b>She notices a dark classroom.</b> If your own classroom is unlit (light switch off, or the generator not running) and you've been standing in it for more than 45 seconds into the day, she'll tell you about it herself &mdash; <i>"Hey, make sure there's electricity, okay? It's kind of dark in here."</i> &mdash; with a 60 second cooldown between nags. Talking to her directly while it's dark triggers the same line immediately.</li>
+  <li><b>She leaves before dark.</b> She disappears 25 seconds before the day phase ends, and nobody sees her go.</li>
+  <li>She has 2 of the game's 10 recorded voice lines: the morning announcement and the "it's dark in here" line.</li>
+</ul>
+
+<h2 id="bob">Bob the Janitor</h2>
+<p>Bob is the danger of the night, from night 1 onward, on every difficulty. He is never shown on the map (see <a href="map.html">The Map</a>).</p>
+<h3 id="bob-states">What he does</h3>
+<ul>
+  <li><b>Patrol.</b> Wanders the halls, sweeping a torch and humming. Speed <code>1.5 + min(0.7, (night&minus;1)&times;0.12)</code>. From night 2, 45% of the time he heads for a lit room instead of a random hall corner (if the generator is running) &mdash; and once there, if it isn't your classroom, the boiler room or a hallway, he switches its lights off and moves on, roughly every 5 seconds of patrolling.</li>
+  <li><b>Investigate.</b> Triggered by a noise, or by losing sight of someone he was chasing. Heads to the noise's location (or the nearest unchecked hiding spot, with a growing chance of finding whoever's inside &mdash; see <a href="night.html">The Night</a>) and gives up after about 6&ndash;10 seconds if he finds nothing. Speed 2.0 (+ overtime bonus).</li>
+  <li><b>Chase.</b> Triggered the moment he spots someone not hidden and not standing in a lit room (unless he's already chasing, in which case a lit room won't stop the spot &mdash; only reaching one while he's chasing does). Speed <code>3.6 + min(1.0, (night&minus;1)&times;0.16)</code> (+ overtime bonus). He gives up and returns to patrol if you reach a lit room while he isn't already adjacent to you, or if he loses sight of you for more than 4.5 seconds (after which he investigates your last known position for a further 6 seconds).</li>
+</ul>
+<h3 id="bob-spot">How he sees and hears</h3>
+<p>He can spot anyone not hidden, not in a lit room (brightness &gt; 0.55, unless already chasing), within a forward cone or a close radius, reduced if you're crawling. He hears noise within <code>(7 + level&times;16) &times; hearMult</code> units (hearMult 1.6 on an Overtime night) whenever he isn't already chasing someone.</p>
+<h3 id="bob-catch">If he catches you</h3>
+<p>Bob deals <b>28 damage</b>, forcibly un-hides you, drops roughly 70% of your bag items and your held item onto the floor, and teleports you to Lost &amp; Found &mdash; not a game over by itself, just a costly reset, plus your fear jumps to 100.</p>
+<h3 id="bob-grumble">What he says</h3>
+<p>Bob has 3 recorded voice lines. Two are the classic "GET BACK TO YOUR CLASSROOM" (when he spots someone) and a scream (on a grab). The third &mdash; <i>"These darn kids, leaving the lights on and making a mess"</i> &mdash; plays (on a 35 second cooldown) whenever he personally switches off a room's lights while patrolling, or walks within about 3.2 units of a mess nobody has cleaned up yet. It's flavour, not a mechanic, but it's a reliable tell that he's nearby.</p>
+
+<h2 id="grump">Grump</h2>
+<p>Grump starts every run as a boy in green dungarees who wants to talk. He becomes "the thing the game is named after" once he "turns" &mdash; on <b>day 4</b> at the latest, or earlier if his resentment meter hits 100 first.</p>
+<h3 id="grump-stages">Stages and resentment</h3>
+<div class="tablewrap">
+<table>
+<tr><th>Stage</th><th>Resentment</th><th>What changes</th></tr>
+<tr><td>0 &mdash; friendly, apparently</td><td>0&ndash;21</td><td>Wanders, occasionally stops to watch and talk. No danger.</td></tr>
+<tr><td>1 &mdash; keeping score</td><td>22&ndash;49</td><td>Same behaviour, harder-edged questions unlock.</td></tr>
+<tr><td>2 &mdash; cold</td><td>50&ndash;74</td><td>Colder questions unlock. Footstep audio starts (once turned, this stage also adds body-camp head-tilt visuals).</td></tr>
+<tr><td>3 &mdash; not speaking to you</td><td>75&ndash;99</td><td>Hostile-tier questions unlock. At night he visibly glows.</td></tr>
+<tr><td>4 &mdash; turned ("Grump the Baby Destroyer")</td><td>100, or day 4 arrives</td><td>Stops asking questions forever. Hunts you in daylight and dark alike. Charges, camps, pops bulbs, relocates, repeats your own answers back to you, and can catch and hurt you.</td></tr>
+</table>
+</div>
+<p>Resentment is capped at 130 internally, but nothing changes above 100 &mdash; once <code>turned</code> is true it stays true for the rest of the run. The game explicitly checks <code>grump.turned</code> everywhere, never the raw number, so hitting 100 early behaves identically to waiting for day 4.</p>
+<h3 id="grump-resentment-sources">What raises or lowers resentment</h3>
+<ul>
+  <li>Every night at nightfall (before he turns): a base amount equal to the difficulty's nightly resentment (Gentle +8, Normal +11, Nasty +15), <b>+6 more if you didn't talk to him at all that day</b>, plus <code>+0.8 &times; number of messes left uncleaned</code>.</li>
+  <li>Answering one of his questions: whatever that specific answer costs (see <a href="questions.html">Grump's Questions</a> &mdash; every option costs something, from 5 up to 20).</li>
+  <li>Giving him back his green crayon: <b>&minus;15</b> (only possible before he turns).</li>
+  <li>Cleaning up any mess, anywhere: <b>&minus;1.5</b> (this is the one thing that reliably calms him &mdash; "tidying up his school").</li>
+  <li>Witnessing the Card Kid get taken: <b>+3</b>, because he notices you did nothing (there was nothing to do).</li>
+</ul>
+<h3 id="grump-behaviours">Behaviours, before he turns</h3>
+<ul>
+  <li><b>Wander</b> (day) &mdash; ambles between rooms and near the player, occasionally settling into Watch for a few seconds if he has line of sight and you're close.</li>
+  <li><b>Stalk</b> (night) &mdash; follows at a distance, never quite arriving, and cannot enter a room lit above 0.62 brightness at all. Occasionally knocks on your classroom door if you're inside it and he's close (every 22&ndash;40s). If the power ever goes out while you're somewhere fully dark, he moves to <b>Loom</b> right next to you, breathing, until the lights come back or you reach some brightness.</li>
+  <li>He can <b>relocate</b> to somewhere unseen and nearer to you if you're far away and out of his line of sight (every 20&ndash;44 seconds) &mdash; he does not need to walk there.</li>
+</ul>
+<h3 id="grump-hunt">Behaviours, once turned</h3>
+<ul>
+  <li><b>Charges</b> the instant he gets a clear line of sight on a target &mdash; speed &times;1.45, plus a stinger and a fear spike for whoever he's charging.</li>
+  <li><b>Camps</b> outside a hiding spot if he ends up within about 4.2 units of someone hidden, breathing (every 2.4s) for 7&ndash;12 seconds, and catches you if you come out early.</li>
+  <li><b>Pops light bulbs</b> he walks under, roughly every 9&ndash;18 seconds, disabling that fixture for 25 seconds.</li>
+  <li>Screen fills with static and a heartbeat/drone rises the closer he gets ("dread").</li>
+  <li><b>Relocates</b> to somewhere nearer and unseen if a target is far away and out of sight (every 20&ndash;34 seconds).</li>
+  <li><b>Repeats your own answers back to you</b> &mdash; about 45% of the time when he speaks, he quotes one of the last 8 things you told him, verbatim.</li>
+  <li>Ceiling lights still slow him at night (half speed while under one), and long enough under them (4&ndash;10 seconds, rising with the night) makes him retreat for 6 seconds. Daylight lights do not slow him at all.</li>
+  <li>Hunt speed: <code>clamp(3.3 + night&times;0.18, 3.3, 5.2)</code>, &times;0.85 during the day.</li>
+</ul>
+<h3 id="grump-catch">If he catches you</h3>
+<p>Grump deals <b>62 damage</b> (versus Bob's 28), a jumpscare of his face fills the screen, your fear maxes out, and 70% of the time he also takes one of your already-safe toddlers back out of the classroom as an extra cost.</p>
+
+<h2 id="cardkid">The Card Kid, and the Taker</h2>
+<p>A boy you've never seen before turns up while you're working at the generator (roughly a 28% chance each time you start it, refuel it, or repair it, at most once per day/night phase). He shows you his card collection; you cannot answer, because you are a baby. After he finishes talking (about 4&ndash;5 seconds, driven by the voice line length), something &mdash; called only <b>the Taker</b> in the code &mdash; closes in from behind, fast and silent, and drags him away backwards into the dark.</p>
+<div class="callout tip"><strong>This is not a threat you can fight, hide from, or outrun.</strong> The game's own comment is explicit about it: it is only ever a thing you watch happen. Watching it spikes your fear by 55 and (if you're the host) raises Grump's resentment by 3 &mdash; he notices you did nothing, because there was nothing to do. It is also purely local: in co-op, every player who triggers it sees their own separate encounter.</div>
+
+<h2 id="toddlers">The Toddlers</h2>
+<p>The other children left behind. There are 10 possible names, cycling as more are spawned: <b>Pip, Moo, Bibi, Tog, Nell, Dot, Wex, Bun, Cricket, Snib</b>.</p>
+<ul>
+  <li><b>How many spawn:</b> <code>clamp(2 + floor(night/2), 2, 5)</code> each morning &mdash; 2 on nights 1&ndash;2, rising to a cap of 5 from night 7. They never spawn behind the staff room's locked door, in the boiler room, in your own classroom, or in a hallway.</li>
+  <li><b>Hunger:</b> rises at 1.5/sec normally (0.75/sec if calmed with a teddy), doubled on a Hungry night. Past 65% hunger they start crying periodically (a noise event &mdash; see <a href="night.html">The Night</a>), unless calmed.</li>
+  <li><b>Rescuing them:</b> pick one up (hands must be free) and carry it to your own classroom to make it "safe" &mdash; worth +120 score. Feeding a hungry one resets its hunger to 0 (+15 score); giving one a teddy calms it permanently for that toddler (+45 score).</li>
+  <li><b>At nightfall, every toddler still out in the building ("lost") is taken by Grump</b> &mdash; one by one, off-screen, for &minus;80 score each, with a "[names] is not here any more" banner. Getting every toddler either safe or already carried before dusk is the only way to prevent this.</li>
+  <li>Once safe in your classroom, a toddler is not entirely risk-free: if Grump (turned) catches you, there's a 70% chance he also takes one already-safe toddler back out, for another &minus;100 score.</li>
+</ul>

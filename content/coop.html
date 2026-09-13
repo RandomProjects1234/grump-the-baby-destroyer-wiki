@@ -1,0 +1,34 @@
+<h1>Co-op</h1>
+<p class="lead">Up to four babies, peer-to-peer, no dedicated server. Multiplayer keeps working on GitHub Pages because it's all PeerJS under the hood.</p>
+
+<h2 id="hosting-joining">Hosting and joining</h2>
+<ul>
+  <li><b>Host Co-op</b> from the main menu gives you a five-letter room code once the room opens, then you pick nights and difficulty and start the day yourself.</li>
+  <li><b>Join Co-op</b> asks for that code (and your name), then waits for the host to start.</li>
+  <li>Names are capped at 12 characters.</li>
+</ul>
+<div class="callout warn"><strong>Keep the host's tab open.</strong> The host is the server. If it closes, everyone else is disconnected and returned to the menu.</div>
+
+<h2 id="host-authority">What the host owns</h2>
+<p>The host runs the actual simulation: the phase clock (day/night timer), the generator, Bob, Grump, the toddlers, all loot rolls, and every job on Mrs. Honeywell's list. It mirrors that state to every other player continuously. A joining client owns only its own body's movement &mdash; literally everything else it does (fuelling, repairing, cleaning a mess, feeding a toddler, dropping an item, hiding, answering Grump) is sent to the host as a request, applied there, and the result comes back in the next update. <b>Nothing a joiner does exists only on their own screen.</b></p>
+<p>The school itself is never transmitted as geometry: the host sends one number (the seed) and the phase/quest/mess/door state, and every client's machine regenerates the identical building locally from that seed. A player joining mid-run is additionally sent the current door, light, mess and quest state on top of the seed, since those can't be recomputed from the seed alone once the run is in progress.</p>
+
+<h2 id="pausing">Pausing doesn't pause the school</h2>
+<p>In solo play, opening the pause menu freezes the whole game. In co-op, it does not: the phase clock, Bob, Grump, and everyone else keep running for the rest of the group even if the host has a menu open. Only your own inputs stop while a menu is open.</p>
+
+<h2 id="downed-dead">Going down, dying, and reviving</h2>
+<ul>
+  <li><b>Downed</b> (health hits 0): you can't move properly and have a timer before you die &mdash; <b>45 seconds in co-op</b> versus 4 seconds in solo, specifically because in co-op a teammate has a real chance to reach you.</li>
+  <li><b>Reviving:</b> stand near a downed teammate and hold <kbd class="key">E</kbd> for 3 seconds ("Pat [name] until they get up") to bring them back with partial health.</li>
+  <li><b>Dead</b> (downed timer runs out): you become a spectator. Click to cycle between your still-living teammates' cameras, including the host's &mdash; whose game keeps simulating for everyone regardless. Both threats can still hurt whoever they actually catch, host or not.</li>
+  <li>The run only ends in defeat once <b>every</b> player is dead.</li>
+</ul>
+
+<h2 id="escaping-together">Escaping together</h2>
+<p>Once the front doors unlock (see <a href="difficulty.html">Nights &amp; Difficulty</a>), any single player reaching them and leaving ends the run as a win for the whole group &mdash; everyone still alive shares the escape, whether or not they personally walked out.</p>
+
+<h2 id="local-encounters">What stays local</h2>
+<p>The Pokémon-card boy (the Card Kid) and his encounter with the Taker are deliberately <b>not</b> networked &mdash; everybody who triggers it gets their own private version, on their own screen, invisible to teammates. See <a href="characters.html#cardkid">Characters</a>.</p>
+
+<h2 id="chat">Chat</h2>
+<p>Press <kbd class="key">T</kbd> to open a chat line (co-op only), type your message, and press Enter to send it to the group.</p>

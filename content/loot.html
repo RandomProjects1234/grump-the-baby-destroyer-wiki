@@ -1,0 +1,179 @@
+<h1>Loot Tables</h1>
+<p class="lead">Every container rolls once per search, on a weighted table. One outcome is "nothing" (empty), and its weight grows every night up to a cap, so searches get leaner as the run goes on.</p>
+<h2 id="how-loot-works">How loot rolls work</h2>
+<p>Each container kind has a fixed list of <code>[item, weight]</code> pairs, rolled once per search. The <code>empty</code> outcome's weight is multiplied by <code>1 + min(7, night&minus;1) &times; 0.32</code> before the roll &mdash; every other weight stays fixed &mdash; so the odds of finding <i>something</i> shrink from night 1 down to a floor reached around night 8, and hold there for the rest of the run. The percentages below are computed directly from the game's own loot-table weights.</p>
+<h2 id="tables">Odds by container</h2>
+<h3 id="loot-locker">Locker <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.6s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#127850; Snack</td><td class="num">11.5%</td><td class="num">6.2%</td></tr>
+<tr><td>&#127857; Lunchbox</td><td class="num">7.7%</td><td class="num">4.1%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">11.5%</td><td class="num">6.2%</td></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">7.7%</td><td class="num">4.1%</td></tr>
+<tr><td>&#10024; Glow Stick</td><td class="num">7.7%</td><td class="num">4.1%</td></tr>
+<tr><td>&#127843; Juice Box</td><td class="num">7.7%</td><td class="num">4.1%</td></tr>
+<tr><td>&#128230; Duct Tape</td><td class="num">7.7%</td><td class="num">4.1%</td></tr>
+<tr><td>Nothing found</td><td class="num">38.5%</td><td class="num">66.9%</td></tr>
+</table></div>
+<h3 id="loot-desk">Desk <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.0s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#127850; Snack</td><td class="num">9.5%</td><td class="num">4.4%</td></tr>
+<tr><td>&#127822; Apple</td><td class="num">14.3%</td><td class="num">6.6%</td></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">14.3%</td><td class="num">6.6%</td></tr>
+<tr><td>&#10024; Glow Stick</td><td class="num">4.8%</td><td class="num">2.2%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">4.8%</td><td class="num">2.2%</td></tr>
+<tr><td>Nothing found</td><td class="num">52.4%</td><td class="num">78.1%</td></tr>
+</table></div>
+<h3 id="loot-teacher">Teacher Desk <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.8s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#128273; Staff Key</td><td class="num">20.0%</td><td class="num">12.0%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">15.0%</td><td class="num">9.0%</td></tr>
+<tr><td>&#128230; Duct Tape</td><td class="num">10.0%</td><td class="num">6.0%</td></tr>
+<tr><td>&#127822; Apple</td><td class="num">15.0%</td><td class="num">9.0%</td></tr>
+<tr><td>&#128262; Torch</td><td class="num">10.0%</td><td class="num">6.0%</td></tr>
+<tr><td>Nothing found</td><td class="num">30.0%</td><td class="num">58.1%</td></tr>
+</table></div>
+<h3 id="loot-cabinet">Cabinet <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.5s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#9881; Spare Part</td><td class="num">21.1%</td><td class="num">11.5%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">15.8%</td><td class="num">8.7%</td></tr>
+<tr><td>&#128230; Duct Tape</td><td class="num">15.8%</td><td class="num">8.7%</td></tr>
+<tr><td>&#128161; Night Light</td><td class="num">10.5%</td><td class="num">5.8%</td></tr>
+<tr><td>Nothing found</td><td class="num">36.8%</td><td class="num">65.4%</td></tr>
+</table></div>
+<h3 id="loot-bin">Bin <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 0.9s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">11.8%</td><td class="num">4.3%</td></tr>
+<tr><td>&#9881; Spare Part</td><td class="num">5.9%</td><td class="num">2.2%</td></tr>
+<tr><td>&#127850; Snack</td><td class="num">5.9%</td><td class="num">2.2%</td></tr>
+<tr><td>Nothing found</td><td class="num">76.5%</td><td class="num">91.3%</td></tr>
+</table></div>
+<h3 id="loot-toy">Toy Box <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.2s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#129725; Teddy</td><td class="num">27.8%</td><td class="num">15.9%</td></tr>
+<tr><td>&#10024; Glow Stick</td><td class="num">16.7%</td><td class="num">9.5%</td></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">11.1%</td><td class="num">6.4%</td></tr>
+<tr><td>&#127850; Snack</td><td class="num">11.1%</td><td class="num">6.4%</td></tr>
+<tr><td>Nothing found</td><td class="num">33.3%</td><td class="num">61.8%</td></tr>
+</table></div>
+<h3 id="loot-book">Bookcase <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.4s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">23.5%</td><td class="num">10.2%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">11.8%</td><td class="num">5.1%</td></tr>
+<tr><td>&#127850; Snack</td><td class="num">5.9%</td><td class="num">2.5%</td></tr>
+<tr><td>Nothing found</td><td class="num">58.8%</td><td class="num">82.2%</td></tr>
+</table></div>
+<h3 id="loot-art">Art Shelf / Cabinet <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.3s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#128230; Duct Tape</td><td class="num">21.1%</td><td class="num">11.5%</td></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">15.8%</td><td class="num">8.7%</td></tr>
+<tr><td>&#10024; Glow Stick</td><td class="num">15.8%</td><td class="num">8.7%</td></tr>
+<tr><td>&#9881; Spare Part</td><td class="num">10.5%</td><td class="num">5.8%</td></tr>
+<tr><td>Nothing found</td><td class="num">36.8%</td><td class="num">65.4%</td></tr>
+</table></div>
+<h3 id="loot-music">Music Shelf / Piano <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.3s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">17.6%</td><td class="num">7.6%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">11.8%</td><td class="num">5.1%</td></tr>
+<tr><td>&#127850; Snack</td><td class="num">11.8%</td><td class="num">5.1%</td></tr>
+<tr><td>Nothing found</td><td class="num">58.8%</td><td class="num">82.2%</td></tr>
+</table></div>
+<h3 id="loot-gym">Gym Ball Cart <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.3s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#127843; Juice Box</td><td class="num">23.5%</td><td class="num">11.5%</td></tr>
+<tr><td>&#127850; Snack</td><td class="num">17.6%</td><td class="num">8.6%</td></tr>
+<tr><td>&#128230; Duct Tape</td><td class="num">11.8%</td><td class="num">5.7%</td></tr>
+<tr><td>Nothing found</td><td class="num">47.1%</td><td class="num">74.2%</td></tr>
+</table></div>
+<h3 id="loot-cafe">Cafeteria Table / Counter <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.1s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#129386; Sandwich</td><td class="num">13.6%</td><td class="num">7.5%</td></tr>
+<tr><td>&#129371; Milk Carton</td><td class="num">18.2%</td><td class="num">10.0%</td></tr>
+<tr><td>&#127850; Snack</td><td class="num">13.6%</td><td class="num">7.5%</td></tr>
+<tr><td>&#127843; Juice Box</td><td class="num">13.6%</td><td class="num">7.5%</td></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">4.5%</td><td class="num">2.5%</td></tr>
+<tr><td>Nothing found</td><td class="num">36.4%</td><td class="num">64.9%</td></tr>
+</table></div>
+<h3 id="loot-vending">Vending Machine <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 2.2s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#127850; Snack</td><td class="num">38.9%</td><td class="num">24.0%</td></tr>
+<tr><td>&#127843; Juice Box</td><td class="num">33.3%</td><td class="num">20.5%</td></tr>
+<tr><td>Nothing found</td><td class="num">27.8%</td><td class="num">55.5%</td></tr>
+</table></div>
+<h3 id="loot-kitchen">Kitchen Counter / Fridge <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.5s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#129386; Sandwich</td><td class="num">19.0%</td><td class="num">10.9%</td></tr>
+<tr><td>&#129371; Milk Carton</td><td class="num">19.0%</td><td class="num">10.9%</td></tr>
+<tr><td>&#127822; Apple</td><td class="num">14.3%</td><td class="num">8.2%</td></tr>
+<tr><td>&#9881; Spare Part</td><td class="num">9.5%</td><td class="num">5.5%</td></tr>
+<tr><td>&#128273; Staff Key</td><td class="num">4.8%</td><td class="num">2.7%</td></tr>
+<tr><td>Nothing found</td><td class="num">33.3%</td><td class="num">61.8%</td></tr>
+</table></div>
+<h3 id="loot-boiler">Boiler Room Crate <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.8s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#9981; Fuel Can</td><td class="num">28.6%</td><td class="num">20.0%</td></tr>
+<tr><td>&#9881; Spare Part</td><td class="num">28.6%</td><td class="num">20.0%</td></tr>
+<tr><td>&#128295; Wrench</td><td class="num">14.3%</td><td class="num">10.0%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">9.5%</td><td class="num">6.7%</td></tr>
+<tr><td>Nothing found</td><td class="num">19.0%</td><td class="num">43.3%</td></tr>
+</table></div>
+<h3 id="loot-storage">Storage Shelf / Crate <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.7s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#9981; Fuel Can</td><td class="num">21.7%</td><td class="num">14.6%</td></tr>
+<tr><td>&#9881; Spare Part</td><td class="num">21.7%</td><td class="num">14.6%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">13.0%</td><td class="num">8.8%</td></tr>
+<tr><td>&#128161; Night Light</td><td class="num">13.0%</td><td class="num">8.8%</td></tr>
+<tr><td>&#128230; Duct Tape</td><td class="num">8.7%</td><td class="num">5.8%</td></tr>
+<tr><td>Nothing found</td><td class="num">21.7%</td><td class="num">47.4%</td></tr>
+</table></div>
+<h3 id="loot-nurse">Nurse Cabinet / Desk <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.5s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#127850; Snack</td><td class="num">22.2%</td><td class="num">12.7%</td></tr>
+<tr><td>&#127843; Juice Box</td><td class="num">22.2%</td><td class="num">12.7%</td></tr>
+<tr><td>&#129725; Teddy</td><td class="num">11.1%</td><td class="num">6.4%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">11.1%</td><td class="num">6.4%</td></tr>
+<tr><td>Nothing found</td><td class="num">33.3%</td><td class="num">61.8%</td></tr>
+</table></div>
+<h3 id="loot-lost">Lost & Found Shelf / Bin <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.4s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#129725; Teddy</td><td class="num">22.7%</td><td class="num">14.1%</td></tr>
+<tr><td>&#10024; Glow Stick</td><td class="num">13.6%</td><td class="num">8.5%</td></tr>
+<tr><td>&#128273; Staff Key</td><td class="num">9.1%</td><td class="num">5.6%</td></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">13.6%</td><td class="num">8.5%</td></tr>
+<tr><td>&#127857; Lunchbox</td><td class="num">13.6%</td><td class="num">8.5%</td></tr>
+<tr><td>Nothing found</td><td class="num">27.3%</td><td class="num">54.9%</td></tr>
+</table></div>
+<h3 id="loot-staff">Staff Room <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 1.8s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#128273; Staff Key</td><td class="num">19.0%</td><td class="num">11.6%</td></tr>
+<tr><td>&#128262; Torch</td><td class="num">14.3%</td><td class="num">8.7%</td></tr>
+<tr><td>&#128267; Battery</td><td class="num">14.3%</td><td class="num">8.7%</td></tr>
+<tr><td>&#129386; Sandwich</td><td class="num">14.3%</td><td class="num">8.7%</td></tr>
+<tr><td>&#129371; Milk Carton</td><td class="num">9.5%</td><td class="num">5.8%</td></tr>
+<tr><td>Nothing found</td><td class="num">28.6%</td><td class="num">56.4%</td></tr>
+</table></div>
+<h3 id="loot-sand">Sandpit <span style="color:var(--ink-faint);font-weight:400;font-size:0.7em">&mdash; search time 2.0s</span></h3>
+<div class="tablewrap"><table>
+<tr><th>Item</th><th class="num">Night 1</th><th class="num">Night 8+</th></tr>
+<tr><td>&#10024; Glow Stick</td><td class="num">11.8%</td><td class="num">4.6%</td></tr>
+<tr><td>&#128196; Crayon Drawing</td><td class="num">11.8%</td><td class="num">4.6%</td></tr>
+<tr><td>&#9881; Spare Part</td><td class="num">5.9%</td><td class="num">2.3%</td></tr>
+<tr><td>Nothing found</td><td class="num">70.6%</td><td class="num">88.6%</td></tr>
+</table></div>

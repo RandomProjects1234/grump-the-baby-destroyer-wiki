@@ -1,0 +1,15 @@
+<h1>Changelog</h1>
+<p class="lead">A summary of the game's own commit history, in plain language. This wiki tracks whichever commit is named in the footer of every page &mdash; when the game changes, this wiki may lag until it's rebuilt against the new commit.</p>
+
+<div class="tablewrap">
+<table>
+<tr><th>Commit</th><th>Date</th><th>Summary</th></tr>
+<tr><td><code>a84a5b6</code></td><td>2026-09-12</td><td><b>Map, Mrs. Honeywell, power and quest fixes.</b> Added Mrs. Honeywell as a real character (stands at the chalkboard, reads the day's list aloud, warns about a dark classroom) and a new minimap/full map. Fixed the generator wearing out about 6&times; too fast and stalling constantly, a prompt bug that hid the starter cord behind "Repair" when carrying a part, playground doors that never reopened after night 1, room-search jobs that could target rooms without enough to search, staff-room jobs needing a key that shouldn't have been required, light-switch jobs being impossible without power, and several co-op/prompt/UI bugs.</td></tr>
+<tr><td><code>d530adb</code></td><td>2026-09-12</td><td><b>Fix co-op, add daily quests and food, more nights, scarier Grump.</b> Rewrote co-op so joiners' actions (fuel, repairs, cleaning, feeding, drops, Grump answers) actually reach the host instead of only existing on the joiner's own screen; fixed the host being unable to see joiners, damage always landing on the host, and several other multiplayer bugs. Added Mrs. Honeywell's daily job list with crib rewards, a hunger/food system, a 3/5/7/10/15/20/Endless night-count choice, difficulty settings, night twists from night 5, and a meaner turned Grump (charges on sight, camps hiding spots, pops bulbs, relocates, quotes your answers, jumpscares).</td></tr>
+<tr><td><code>d17832c</code></td><td>2026-09-11</td><td>Corrected the voice-line count quoted in the game's own README.</td></tr>
+<tr><td><code>f626910</code></td><td>2026-09-11</td><td><b>Bob owns the nights; Grump turns on day 4.</b> Pinned down exactly who is dangerous when: Bob patrols every night from night 1 on every difficulty and gets faster each night; Grump now turns on a fixed schedule (dawn of day 4) rather than purely on resentment, with a maxed resentment meter only able to bring that forward, never delay it.</td></tr>
+<tr><td><code>005e5dc</code></td><td>2026-09-11</td><td><b>Initial release.</b> Grump the Baby Destroyer: a 3D survival-horror school game built with Three.js and PeerJS, fully static with no build step. The school is a pure function of a seed, so co-op only ever needs to send one number.</td></tr>
+</table>
+</div>
+
+<p>Full commit history: <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer/commits/main" target="_blank" rel="noopener">github.com/RandomProjects1234/grump-the-baby-destroyer</a>.</p>

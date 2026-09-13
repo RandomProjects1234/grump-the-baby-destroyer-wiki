@@ -1,0 +1,48 @@
+<h1>Rooms &amp; The School</h1>
+<p class="lead">The school is a pure function of the run's random seed: two long corridors ("North Hall" and "South Hall") crossed by a "Main Hall" spine, with rooms filling the blocks between them, plus a fenced playground to the south.</p>
+
+<h2 id="layout">Layout</h2>
+<ul>
+  <li><b>North band:</b> six classroom-sized rooms (three each side of the spine). Each run, five of the six are randomly reassigned to be your own classroom, the library, the art room, the music room and the nurse office &mdash; the sixth stays a plain classroom.</li>
+  <li><b>Middle band:</b> kitchen and cafeteria on the west side, the gymnasium on the east side.</li>
+  <li><b>South band:</b> six more rooms, but here the types are fixed rather than random &mdash; the west side is always boiler room, storage, and bathroom (in that order), and the east side is always Lost &amp; Found and staff room (the third slot stays a plain classroom).</li>
+  <li><b>South of that:</b> the fenced playground, reached through the spine's two crossroads doors.</li>
+</ul>
+<p>Room numbers (e.g. "Room 101") are assigned in placement order to whichever rooms are left as plain classrooms. The boiler room sits in the far south-west corner deliberately &mdash; the run home at night from the generator is meant to be long.</p>
+
+<h2 id="doors">Doors and locks</h2>
+<ul>
+  <li>Only the <b>staff room's first door</b> starts locked behind a key roll &mdash; every other interior door starts unlocked (the boiler room, which holds the generator, is never sealed behind a key, since that could make a run unwinnable).</li>
+  <li>The <b>front doors</b> (a double door north of the spine) start chained (locked + marked as the exit) and only open once you've survived the required number of nights &mdash; see <a href="difficulty.html">Nights &amp; Difficulty</a>.</li>
+  <li>The <b>playground doors</b> (a double door north of the yard, also on the spine) lock every night and reopen every morning.</li>
+  <li>Windows let daylight in everywhere except four windowless room types: <b>boiler room, storage, bathroom, and kitchen.</b></li>
+</ul>
+
+<h2 id="furniture">Furniture, searching and hiding, by room type</h2>
+<div class="tablewrap">
+<table>
+<tr><th>Room</th><th>Furniture</th><th>Searchable (loot table)</th><th>Hiding spots</th></tr>
+<tr><td>Hallways</td><td>Locker banks, cork boards, bins, water fountains</td><td>Locker banks (<code>locker</code>), bins (<code>bin</code>)</td><td>Some locker banks (~34% of them, randomly)</td></tr>
+<tr><td>Classrooms / Your Classroom</td><td>Desks &amp; chairs in rows, chalkboard, teacher desk, cabinets, cork boards, bin; your own classroom adds a crib, toy boxes and a rug</td><td>Desks (<code>desk</code>), teacher desk (<code>teacher</code>), cabinets (<code>cabinet</code>), bin (<code>bin</code>), toy boxes in your classroom (<code>toy</code>)</td><td>Under a desk, under the teacher desk, inside a cabinet; toy boxes in your own classroom</td></tr>
+<tr><td>Library</td><td>Bookcases, a reading table, beanbags</td><td>Bookcases (<code>book</code>)</td><td>Under the reading table</td></tr>
+<tr><td>Art Room</td><td>Shelves, sinks, easels, cabinets</td><td>Shelves (<code>art</code>), cabinets (<code>art</code>)</td><td>Inside a cabinet</td></tr>
+<tr><td>Music Room</td><td>Piano, chairs, shelves, a drum</td><td>Piano (<code>music</code>), shelves (<code>music</code>)</td><td>Under the piano</td></tr>
+<tr><td>Gymnasium</td><td>Two hoops, mats, bleachers, a ball cart, a vaulting box</td><td>Ball cart (<code>gym</code>)</td><td>Under the bleachers, inside the vaulting box</td></tr>
+<tr><td>Cafeteria</td><td>Lunch tables, a serving counter, bins, vending machines</td><td>Lunch tables (<code>cafe</code>), serving counter (<code>cafe</code>), vending machines (<code>vending</code>), bins (<code>bin</code>)</td><td>Under a lunch table, under the serving counter</td></tr>
+<tr><td>Kitchen</td><td>Counters, a fridge, shelves, a prep table</td><td>Counters, fridge, shelves, prep table (all <code>kitchen</code>)</td><td>Under a counter, inside the fridge, under the prep table</td></tr>
+<tr><td>Boiler Room</td><td>The generator (dead centre), boiler tanks, the fusebox, crates, a pipe rack</td><td>Crates (<code>boiler</code>)</td><td>Inside a crate</td></tr>
+<tr><td>Storage</td><td>Shelves, crates</td><td>Shelves and crates (both <code>storage</code>)</td><td>Inside a crate</td></tr>
+<tr><td>Bathroom</td><td>Stalls, sinks, a bin</td><td>Bin (<code>bin</code>)</td><td>Inside a stall</td></tr>
+<tr><td>Nurse Office</td><td>Cots, a medicine cabinet, a desk, a scale</td><td>Medicine cabinet (<code>nurse</code>), desk (<code>teacher</code>)</td><td>Under a cot</td></tr>
+<tr><td>Lost &amp; Found</td><td>Shelves, lost-property bins</td><td>Shelves (<code>lost</code>), bins (<code>lost</code>)</td><td>Inside a lost-property bin</td></tr>
+<tr><td>Staff Room</td><td>A couch, counters, a fridge, a round table, locker banks</td><td>Couch, counters, fridge, locker banks (all <code>staff</code>)</td><td>Under the couch, under the round table, inside the fridge, inside a locker</td></tr>
+<tr><td>Playground</td><td>Slide, sandpit, swings, a seesaw, a concrete play tube, trees, a bench</td><td>Sandpit (<code>sand</code>)</td><td>Under the slide, inside the play tube, under the bench</td></tr>
+</table>
+</div>
+<p>See <a href="loot.html">Loot Tables</a> for exact odds and search times per container kind.</p>
+
+<h2 id="corridors">Hallways</h2>
+<p>The two long halls (North and South) and the Main Hall spine that crosses them make up the school's circulation space. Bob spends most of his patrol time here, and the spine's two crossroads (where it crosses each long hall) are deliberately kept open in the generation code &mdash; without that fix the east wing would be unreachable.</p>
+
+<h2 id="a-note-on-generation">A note on how it's built</h2>
+<p>Everything about the school &mdash; walls, doors, furniture, which room is which &mdash; comes from a single seed number, and the host shares only that number in co-op; every client rebuilds the identical building from it. On unlucky seeds, furniture can accidentally seal a room off from its own door; a connectivity-repair pass finds and removes the specific offending pieces before the level is ever shown to you.</p>
