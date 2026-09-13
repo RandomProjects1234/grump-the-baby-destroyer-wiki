@@ -408,3 +408,8 @@ td.num, th.num { text-align: right; white-space: nowrap; }
   }
   .sidebar-scrim.show { display: block; }
 }
+
+/* voice line players */
+td.listen { width: 1%; white-space: nowrap; vertical-align: middle; }
+td.listen audio { width: 210px; height: 34px; display: block; }
+p.note { color: var(--muted, #8a8f86); font-size: 0.9rem; }

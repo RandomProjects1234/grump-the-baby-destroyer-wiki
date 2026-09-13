@@ -1,59 +1,61 @@
 <h1>Voice Lines</h1>
-<p class="lead">Everything in the game is procedural &mdash; synthesised footsteps, breathing, ambience &mdash; except <b>13 recorded voice lines</b>. This page is every one of them: who says it, the audio file, and exactly what makes it play.</p>
+<p class="lead">Everything in the game is procedural &mdash; synthesised footsteps, breathing, ambience &mdash; except <b>14 recorded voice lines</b>. This page is every one of them: who says it, the audio file, and exactly what makes it play.</p>
 
 <div class="callout tip"><strong>Recorded vs. synthesised.</strong> Grump's ambient mutters (see <a href="questions.html#ambient">Grump's Questions</a>) and every one-off sound effect (dings, thuds, stingers) are synthesised with Web Audio, not recorded. Only the lines below are actual voice recordings.</div>
 
+<p class="note">Press play to hear each line exactly as it plays in the game. (The clips are Ogg Vorbis: they play in Chrome, Edge and Firefox; older Safari may not play them.)</p>
 <h2 id="grump">Grump &mdash; 3 lines</h2>
 <div class="tablewrap"><table>
-<tr><th>File</th><th>Internal id</th><th>Plays when</th></tr>
-<tr><td><code>audio/grump-greeting.ogg</code></td><td><code>greeting</code></td><td>The instant you open a dialogue with him (before he's turned) &mdash; every single time, regardless of stage.</td></tr>
-<tr><td><code>audio/grump-mean.ogg</code></td><td><code>mean</code></td><td>His reply after you answer a question, if his stage is below Hostile (3); an ambient line when stage is 1&ndash;2; the line "That is mine. You touched it." when you return his crayon; his spoken line during the Big Boys Club cutscene ("Why you being mean?").</td></tr>
-<tr><td><code>audio/grump-angry.ogg</code></td><td><code>angry</code></td><td>His reply after you answer once stage 3+; ambient lines at stage 3+ and once turned; the stage-up reveal sound; a charge; catching you (the jumpscare); refusing to talk once turned.</td></tr>
+<tr><th>Listen</th><th>File</th><th>Internal id</th><th>Plays when</th></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/grump-greeting.ogg"></audio></td><td><code>audio/grump-greeting.ogg</code></td><td><code>greeting</code></td><td>The instant you open a dialogue with him (before he's turned) &mdash; every single time, regardless of stage.</td></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/grump-mean.ogg"></audio></td><td><code>audio/grump-mean.ogg</code></td><td><code>mean</code></td><td>His reply after you answer a question, if his stage is below Hostile (3); an ambient line when stage is 1&ndash;2; the line "That is mine. You touched it." when you return his crayon; his spoken line during the Big Boys Club cutscene ("Why you being mean?").</td></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/grump-angry.ogg"></audio></td><td><code>audio/grump-angry.ogg</code></td><td><code>angry</code></td><td>His reply after you answer once stage 3+; ambient lines at stage 3+ and once turned; the stage-up reveal sound; a charge; catching you (the jumpscare); refusing to talk once turned.</td></tr>
 </table></div>
 
 <h2 id="bob">Bob &mdash; 3 lines</h2>
 <div class="tablewrap"><table>
-<tr><th>File</th><th>Internal id</th><th>Transcript / trigger</th></tr>
-<tr><td><code>audio/bob-class.ogg</code></td><td><code>bobClass</code></td><td><i>"GET BACK TO YOUR CLASSROOM."</i> &mdash; plays the moment he spots and starts chasing someone.</td></tr>
-<tr><td><code>audio/bob-scream.ogg</code></td><td><code>bobScream</code></td><td>A scream, on a successful grab/catch.</td></tr>
-<tr><td><code>audio/bob-mess.ogg</code></td><td><code>bobMess</code></td><td><i>"These darn kids, leaving the lights on and making a mess."</i> &mdash; on a 35-second cooldown, when he personally switches a room's lights off while patrolling, or walks within ~3.2 units of an uncleaned mess.</td></tr>
+<tr><th>Listen</th><th>File</th><th>Internal id</th><th>Transcript / trigger</th></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/bob-class.ogg"></audio></td><td><code>audio/bob-class.ogg</code></td><td><code>bobClass</code></td><td><i>"GET BACK TO YOUR CLASSROOM."</i> &mdash; plays the moment he spots and starts chasing someone.</td></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/bob-scream.ogg"></audio></td><td><code>audio/bob-scream.ogg</code></td><td><code>bobScream</code></td><td>A scream, on a successful grab/catch.</td></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/bob-mess.ogg"></audio></td><td><code>audio/bob-mess.ogg</code></td><td><code>bobMess</code></td><td><i>"These darn kids, leaving the lights on and making a mess."</i> &mdash; on a 35-second cooldown, when he personally switches a room's lights off while patrolling, or walks within ~3.2 units of an uncleaned mess.</td></tr>
 </table></div>
 
 <h2 id="honeywell">Mrs. Honeywell &mdash; 2 lines</h2>
 <div class="tablewrap"><table>
-<tr><th>File</th><th>Internal id</th><th>Transcript / trigger</th></tr>
-<tr><td><code>audio/honeywell-morning.ogg</code></td><td><code>honeywell</code></td><td><i>"Can you get all these quests done for me? You can go home at the end of the day, but look out for Grump. He's kind of a special one."</i> &mdash; plays at the start of every single day, the instant the list is up.</td></tr>
-<tr><td><code>audio/honeywell-dark.ogg</code></td><td><code>honeywellDark</code></td><td><i>"Hey, make sure there's electricity, okay? It's kind of dark in here."</i> &mdash; when your classroom is unlit and you've lingered 45+ seconds, or when you talk to her directly while it's dark. 60-second cooldown between nags.</td></tr>
+<tr><th>Listen</th><th>File</th><th>Internal id</th><th>Transcript / trigger</th></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/honeywell-morning.ogg"></audio></td><td><code>audio/honeywell-morning.ogg</code></td><td><code>honeywell</code></td><td><i>"Can you get all these quests done for me? You can go home at the end of the day, but look out for Grump. He's kind of a special one."</i> &mdash; plays at the start of every single day, the instant the list is up.</td></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/honeywell-dark.ogg"></audio></td><td><code>audio/honeywell-dark.ogg</code></td><td><code>honeywellDark</code></td><td><i>"Hey, make sure there's electricity, okay? It's kind of dark in here."</i> &mdash; when your classroom is unlit and you've lingered 45+ seconds, or when you talk to her directly while it's dark. 60-second cooldown between nags.</td></tr>
 </table></div>
 
-<h2 id="jerry">Jerry &mdash; 2 lines</h2>
+<h2 id="jerry">Jerry &mdash; 3 lines</h2>
 <div class="tablewrap"><table>
-<tr><th>File</th><th>Internal id</th><th>Transcript / trigger</th></tr>
-<tr><td><code>audio/jerry-laps.ogg</code></td><td><code>jerryLaps</code></td><td><i>"Are you slacking off? Three laps around this gym, now!"</i> &mdash; when he picks the Laps minigame.</td></tr>
-<tr><td><code>audio/jerry-2.ogg</code></td><td><code>jerryLift</code></td><td><i>"Yeah, strength! Lift those dumbbells &mdash; it's dumbbell time! Let's go, almost there! Let's go! W, you did it!"</i> &mdash; when he picks the Dumbbells minigame.</td></tr>
+<tr><th>Listen</th><th>File</th><th>Internal id</th><th>Transcript / trigger</th></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/jerry-laps.ogg"></audio></td><td><code>audio/jerry-laps.ogg</code></td><td><code>jerryLaps</code></td><td><i>"Are you slacking off? Three laps around this gym, now!"</i> &mdash; when he picks the Laps minigame.</td></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/jerry-2.ogg"></audio></td><td><code>audio/jerry-2.ogg</code></td><td><code>jerryLift</code></td><td><i>"Yeah, strength! Lift those dumbbells &mdash; it's dumbbell time! Let's go, almost there! Let's go! W, you did it!"</i> &mdash; when he picks the Dumbbells minigame.</td></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/jerry-3.ogg"></audio></td><td><code>audio/jerry-3.ogg</code></td><td><code>jerryRope</code></td><td><i>"Jump rope time! One, two, three, four, five, six &mdash; let's go!"</i> &mdash; when he picks the Jump Rope minigame (six jumps in a row to pass).</td></tr>
 </table></div>
 <p>The <b>Jump Rope</b> minigame has no recorded line &mdash; Jerry instead gets a synthesised whistle tone plus the text cue: <i>"Jerry: *FWEEEET* 'Jump rope! Six in a row! Nobody leaves until I see six!'"</i></p>
 
 <h2 id="meredith">Meredith &mdash; 1 line</h2>
 <div class="tablewrap"><table>
-<tr><th>File</th><th>Internal id</th><th>Transcript / trigger</th></tr>
-<tr><td><code>audio/meredith-lunch.ogg</code></td><td><code>meredith</code></td><td><i>"Here's your reward for being so good at your quests. Have some lunch, kid!"</i> &mdash; when she hands you your tray at the end of the lunch-line minigame, whatever your score was.</td></tr>
+<tr><th>Listen</th><th>File</th><th>Internal id</th><th>Transcript / trigger</th></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/meredith-lunch.ogg"></audio></td><td><code>audio/meredith-lunch.ogg</code></td><td><code>meredith</code></td><td><i>"Here's your reward for being so good at your quests. Have some lunch, kid!"</i> &mdash; when she hands you your tray at the end of the lunch-line minigame, whatever your score was.</td></tr>
 </table></div>
 
 <h2 id="cardkid">The Card Kid &mdash; 2 lines</h2>
 <div class="tablewrap"><table>
-<tr><th>File</th><th>Internal id</th><th>Trigger</th></tr>
-<tr><td><code>audio/kid-line.ogg</code></td><td><code>kidLine</code></td><td>When he begins showing you his card collection (its length sets how long the Talk phase of the encounter lasts &mdash; minimum 3.4 seconds).</td></tr>
-<tr><td><code>audio/kid-scream.ogg</code></td><td><code>kidScream</code></td><td>The moment the Taker drags him away. This same file is reused for the Big Boys Club leader's cry when Grump lands the first hit on him.</td></tr>
+<tr><th>Listen</th><th>File</th><th>Internal id</th><th>Trigger</th></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/kid-line.ogg"></audio></td><td><code>audio/kid-line.ogg</code></td><td><code>kidLine</code></td><td>When he begins showing you his card collection (its length sets how long the Talk phase of the encounter lasts &mdash; minimum 3.4 seconds).</td></tr>
+<tr><td class="listen"><audio controls preload="none" src="audio/kid-scream.ogg"></audio></td><td><code>audio/kid-scream.ogg</code></td><td><code>kidScream</code></td><td>The moment the Taker drags him away. This same file is reused for the Big Boys Club leader's cry when Grump lands the first hit on him.</td></tr>
 </table></div>
 
-<h2 id="summary">All 13, at a glance</h2>
+<h2 id="summary">All 14, at a glance</h2>
 <div class="tablewrap"><table>
 <tr><th>Character</th><th>Count</th></tr>
 <tr><td>Grump</td><td>3</td></tr>
 <tr><td>Bob</td><td>3 (pitched down)</td></tr>
 <tr><td>Mrs. Honeywell</td><td>2</td></tr>
-<tr><td>Jerry</td><td>2</td></tr>
+<tr><td>Jerry</td><td>3</td></tr>
 <tr><td>Meredith</td><td>1</td></tr>
 <tr><td>The Card Kid</td><td>2</td></tr>
 <tr><td><b>Total</b></td><td><b>13</b></td></tr>
