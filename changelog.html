@@ -77,7 +77,7 @@
 </ul>
     <div class="sidebar-foot">
       Fan wiki, not an official site.<br>
-      Matches game commit <code>82362e5</code><br>
+      Matches game commit <code>c0bc4ce</code><br>
       Updated 2026-09-13
     </div>
   </nav>
@@ -89,6 +89,7 @@
 <div class="tablewrap">
 <table>
 <tr><th>Commit</th><th>Date</th><th>Summary</th></tr>
+<tr><td><code>c0bc4ce</code></td><td>2026-09-13</td><td><b>Door and interaction overhaul, one connection per device, playground fixes.</b> <u>Interaction</u> was rewritten: the prompt is now exactly what your crosshair points at &mdash; the nearest thing along your line of sight within reach &mdash; and walls and closed doors block it, so nothing can be used through a wall any more (lockers could be, from the room behind). Look down to grab things at your feet. The card boy no longer freezes every prompt while he talks. <u>Doors</u>: walking into an unlocked door pushes it open, doors refuse to close on anyone standing in them, and the host checks joiners' door changes. <u>Co-op</u>: one body per device &mdash; a double-clicked Join or a second tab used to create a duplicate player (double loot, damage on a ghost body); now the old connection is closed with a message, and a host can't join their own room. The generator switching on or off reaches joiners instantly. <u>Outside</u>: walls facing the playground had no outside face, so from the playground you could see straight into the halls with doors floating in mid-air; and round things (tree canopies, bins) were built inside-out and rendered black. Both fixed.</td></tr>
 <tr><td><code>82362e5</code></td><td>2026-09-13</td><td><b>AI and pathfinding overhaul; Bob stays out of lit rooms.</b> Bob used to walk <em>into</em> lit rooms to switch their lights off &mdash; even with you inside. Now he never enters a lit room, backs out if the lights come on around him, and only turns lights off from the doorway of rooms nobody is in, so a lit room really is safe from him. He also patrols the rooms he hasn't checked recently, aims ahead of a running target, searches the hiding spots nearest a noise, hears less through walls and ignores noises inside lit rooms. Everyone who walks (Bob, Grump, the kids, Jerry, the card boy) uses new pathfinding: eight directions without cutting wall corners, straight-line paths instead of zig-zags, stepping round furniture, and freeing themselves if stuck &mdash; in testing 240 of 240 trips across the school arrived (was 121 of 125). Also: game files are now stamped with a version so browsers can't mix old cached files with new ones, and co-op refuses to join players on different versions (the menu shows your version).</td></tr>
 <tr><td><code>4606670</code></td><td>2026-09-13</td><td><b>Co-op doors fixed.</b> Door and light states are now re-sent with every host update, so a joiner who missed a door change is corrected within a second. Joining a host on a different game version (which builds a slightly different school, so doors don't match) now shows a message telling both players to refresh.</td></tr>
 <tr><td><code>81471bd</code></td><td>2026-09-13</td><td><b>Playground, staff key, and Jerry's jump rope line.</b> A tree could be planted right outside a playground door, blocking the way in &mdash; trees now never grow in front of a playground door. Unlocking the staff room with a staff key is now a short hold of <kbd class="key">E</kbd> (half a second, and the prompt says "Unlock with your staff key"); you can also select the key and press <kbd class="key">R</kbd> next to a locked door. Playground doors locked at night now say "Locked for the night" and that they open again in the morning. Jerry has a new recorded line for Jump Rope: "Jump rope time! One, two, three, four, five, six &mdash; let's go!" The game now has 14 voice lines, and every one can be played on <a href="voicelines.html">Voice Lines</a>.</td></tr>
@@ -111,7 +112,7 @@
 <p>Full commit history: <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer/commits/main" target="_blank" rel="noopener">github.com/RandomProjects1234/grump-the-baby-destroyer</a>.</p>
 
     <div class="pagefoot">
-      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>82362e5</code></span>
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>c0bc4ce</code></span>
       <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
     </div>
   </main>

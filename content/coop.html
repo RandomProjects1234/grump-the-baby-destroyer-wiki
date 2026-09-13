@@ -9,6 +9,10 @@
 </ul>
 <div class="callout warn"><strong>Keep the host's tab open.</strong> The host is the server. If it closes, everyone else is disconnected and returned to the menu.</div>
 
+<h2 id="one-per-device">One player per device, same version</h2>
+<p>Each browser counts as one player. If the same device joins a room twice (a double-clicked Join button, or a second tab), the older connection is closed with a message and only the newest one keeps a body &mdash; no duplicate players finding double loot or taking damage twice. A host cannot join their own room from another tab.</p>
+<p>Everyone must be on the <b>same version</b> of the game (shown at the bottom of the main menu). A different version builds a slightly different school, so doors and furniture would not line up; joining a mismatched host shows a message telling both players to refresh (Ctrl+F5).</p>
+
 <h2 id="host-authority">What the host owns</h2>
 <p>The host runs the actual simulation: the phase clock (day/night timer), the generator, Bob, Grump, the toddlers, all loot rolls, and every job on Mrs. Honeywell's list. It mirrors that state to every other player continuously. A joining client owns only its own body's movement &mdash; literally everything else it does (fuelling, repairing, cleaning a mess, feeding a toddler, dropping an item, hiding, answering Grump) is sent to the host as a request, applied there, and the result comes back in the next update. <b>Nothing a joiner does exists only on their own screen.</b></p>
 <p>The school itself is never transmitted as geometry: the host sends one number (the seed) and the phase/quest/mess/door state, and every client's machine regenerates the identical building locally from that seed. A player joining mid-run is additionally sent the current door, light, mess and quest state on top of the seed, since those can't be recomputed from the seed alone once the run is in progress.</p>
