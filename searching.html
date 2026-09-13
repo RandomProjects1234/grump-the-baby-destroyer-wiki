@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Searching · Grump the Baby Destroyer Wiki</title>
+<meta name="description" content="How searching furniture actually works: repeat searches, aiming, and the always-searchable rule.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230d1210'/><rect x='3' y='5' width='3' height='3' fill='%23e5a83a'/><rect x='10' y='5' width='3' height='3' fill='%23e5a83a'/><rect x='4' y='11' width='8' height='2' fill='%236f8f5a'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-base="">
+<div class="navtoggle">&#9776;&nbsp; Grump Wiki</div>
+<div class="sidebar-scrim"></div>
+<div class="wrap">
+  <nav class="sidebar">
+    <a class="brand" href="index.html">GRUMP<span class="sub">the baby destroyer &middot; wiki</span></a>
+    <a class="playbtn" href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">&#9654; Play the game</a>
+<div class="searchbox">
+<input id="search-input" type="text" placeholder="Search the wiki..." autocomplete="off">
+<div id="search-results" class="searchresults"></div>
+</div>
+<ul class="navlist">
+<li><a href="index.html">Home</a></li>
+</ul>
+<h5 style="margin-top:16px">Playing</h5>
+<ul class="navlist">
+<li><a href="controls.html"><span class="num">01</span>Controls</a></li>
+<li><a href="day.html"><span class="num">02</span>The Day</a></li>
+<li><a href="night.html"><span class="num">03</span>The Night</a></li>
+<li><a href="difficulty.html"><span class="num">04</span>Nights & Difficulty</a></li>
+<li><a href="generator.html"><span class="num">05</span>The Generator & Power</a></li>
+<li><a href="coop.html"><span class="num">06</span>Co-op</a></li>
+</ul>
+<h5 style="margin-top:16px">Mechanics</h5>
+<ul class="navlist">
+<li><a href="events.html"><span class="num">07</span>Events & Encounters</a></li>
+<li><a href="minigames.html"><span class="num">08</span>Minigames</a></li>
+<li><a href="jobs.html"><span class="num">09</span>Mrs. Honeywell's Jobs</a></li>
+<li><a href="searching.html" class="active"><span class="num">10</span>Searching</a></li>
+<li><a href="food.html"><span class="num">11</span>Food & Hunger</a></li>
+<li><a href="hiding.html"><span class="num">12</span>Hiding</a></li>
+<li><a href="toddlers.html"><span class="num">13</span>The Toddlers</a></li>
+<li><a href="voicelines.html"><span class="num">14</span>Voice Lines</a></li>
+</ul>
+<h5 style="margin-top:16px">Characters</h5>
+<ul class="navlist">
+<li><a href="characters.html"><span class="num">15</span>Characters (Index)</a></li>
+<li><a href="grump.html"><span class="num">16</span>Grump</a></li>
+<li><a href="bob.html"><span class="num">17</span>Bob the Janitor</a></li>
+<li><a href="honeywell.html"><span class="num">18</span>Mrs. Honeywell</a></li>
+<li><a href="jerry.html"><span class="num">19</span>Jerry</a></li>
+<li><a href="meredith.html"><span class="num">20</span>Meredith</a></li>
+<li><a href="cardkid.html"><span class="num">21</span>Card Boy & the Taker</a></li>
+<li><a href="bullies.html"><span class="num">22</span>The Big Boys Club</a></li>
+<li><a href="player.html"><span class="num">23</span>You (the Baby)</a></li>
+</ul>
+<h5 style="margin-top:16px">Reference</h5>
+<ul class="navlist">
+<li><a href="items.html"><span class="num">24</span>Items</a></li>
+<li><a href="loot.html"><span class="num">25</span>Loot Tables</a></li>
+<li><a href="questions.html"><span class="num">26</span>Grump's Questions</a></li>
+<li><a href="rooms.html"><span class="num">27</span>Rooms & The School</a></li>
+<li><a href="lore.html"><span class="num">28</span>Lore</a></li>
+<li><a href="map.html"><span class="num">29</span>The Map</a></li>
+</ul>
+<h5 style="margin-top:16px">Guides</h5>
+<ul class="navlist">
+<li><a href="walkthrough.html"><span class="num">30</span>Walkthrough</a></li>
+<li><a href="beginners.html"><span class="num">31</span>Beginner's Guide</a></li>
+<li><a href="tips.html"><span class="num">32</span>Tips & Strategy</a></li>
+<li><a href="glossary.html"><span class="num">33</span>Glossary</a></li>
+<li><a href="faq.html"><span class="num">34</span>FAQ / Troubleshooting</a></li>
+<li><a href="changelog.html"><span class="num">35</span>Changelog</a></li>
+</ul>
+    <div class="sidebar-foot">
+      Fan wiki, not an official site.<br>
+      Matches game commit <code>78b81f5</code><br>
+      Updated 2026-09-13
+    </div>
+  </nav>
+  <main>
+    <div class="breadcrumb"><a href="index.html">Wiki</a> / Searching</div>
+    <h1>Searching</h1>
+<p class="lead">How rummaging through furniture actually works, mechanically: aiming, holding, repeat searches, and what happens in co-op. For the odds of what you actually find, see <a href="loot.html">Loot Tables</a>.</p>
+
+<h2 id="always-searchable">Anything can always be searched</h2>
+<p>Every searchable prop can be searched again and again, as many times as you like, all day. There's no "(empty)" dead end any more &mdash; that was removed in commit <code>5735ca2</code>. The first search of the day is a normal roll against that container's loot table; each search after that finds less:</p>
+<div class="tablewrap"><table>
+<tr><th>Search number (today)</th><th>Chance to actually keep whatever the loot roll finds</th></tr>
+<tr><td>1st (fresh)</td><td>100% &mdash; the normal loot table applies in full</td></tr>
+<tr><td>2nd</td><td>45%</td></tr>
+<tr><td>3rd</td><td>20.25% (0.45<sup>2</sup>)</td></tr>
+<tr><td>4th</td><td>9.1% (0.45<sup>3</sup>)</td></tr>
+<tr><td>5th+</td><td>keeps shrinking by &times;0.45 each time</td></tr>
+</table></div>
+<p>Mechanically: on repeat searches, the game still rolls the normal loot table first, then rolls again against <code>0.45<sup>n</sup></code> (n = number of times already searched this day) to decide whether you actually get to keep it. Search counts reset to zero at the start of every day, alongside every other prop-state reset. In co-op, two players can search the same container back to back &mdash; the host tracks one shared search count per prop, so it runs out for everyone, not per-player.</p>
+<p>The interaction prompt tells you where you stand: <i>"Search the &lt;thing&gt;"</i> the first time, <i>"Search the &lt;thing&gt; again"</i> after, with hints escalating from nothing, to <i>"Already searched once &mdash; might be something left at the back,"</i> to <i>"Searched a lot today. Probably picked clean."</i></p>
+<p>Only the first search of a given container in a day awards the flat <b>+8 score</b> for searching &mdash; repeats don't add more score even when they do turn something up.</p>
+
+<h2 id="aiming">Aiming at furniture</h2>
+<p>Since commit <code>5735ca2</code>, the game checks your whole line of sight against the furniture's entire box (any side, any rotation, any size) rather than one fixed point in front of it. Concretely: it walks a ray out from your eye along your look direction, up to your 2.5-unit reach, and looks for the first point that lands inside the prop's footprint (padded by 0.18 units) with a clear line of sight. That means a long sandpit, a lunch table, or a serving counter can be searched from anywhere along its side, not just dead-centre in front &mdash; you no longer have to walk to one exact spot. If you're not looking straight at it, the game falls back to scoring the nearest point on its edge, so near-misses still register something, just at a lower priority than a clean look.</p>
+
+<h2 id="holding">Holding your target</h2>
+<p>Holding <kbd class="key">E</kbd> now locks onto whatever you started interacting with until you let go (also fixed in <code>5735ca2</code>). Before that fix, a toddler wandering past, or Grump drifting into view, could silently reset your hold progress on a furniture search mid-way through. Now, the thing you're already holding on gets a scoring bonus so it keeps winning against anything else that briefly enters your view.</p>
+
+<h2 id="priority">Priority: small things beat furniture behind them</h2>
+<p>Toddlers, dropped items, and messes sitting in front of a piece of furniture take the interaction prompt over the furniture itself, provided they're within your reach and roughly in your look direction (checked against a narrow cylinder along your sightline, not just the same cone-and-distance score furniture uses). This stops the awkward case of standing right in front of a hungry toddler and getting a "Search the cabinet" prompt instead because the cabinet was technically a fraction closer to dead centre.</p>
+
+<h2 id="search-times">Search times per container</h2>
+<p>Every container kind takes a fixed amount of time to hold <kbd class="key">E</kbd> through, from 0.9s (a bin) to 2.2s (a vending machine). See the per-container table on <a href="loot.html">Loot Tables</a> for the full list alongside each container's odds.</p>
+
+<h2 id="hide-while-searching">Furniture that's both searchable and a hiding spot</h2>
+<p>Some props (certain lockers, toy boxes) let you either search them or hide inside &mdash; the game offers "Hide" as a secondary option on <kbd class="key">R</kbd> alongside the main search prompt, so you don't have to choose one interaction type over the other in the moment.</p>
+
+    <div class="pagefoot">
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>78b81f5</code></span>
+      <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
+    </div>
+  </main>
+</div>
+<script src="js/site.js"></script>
+</body>
+</html>

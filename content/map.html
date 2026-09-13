@@ -16,10 +16,20 @@
   <div class="legend-row"><span class="swatch" style="background:#a0c0e0;border-radius:1px"></span> The fusebox</div>
   <div class="legend-row"><span class="swatch" style="background:none;border:2px solid #9fd8f0;border-radius:50%"></span> The crib, in your classroom</div>
   <div class="legend-row"><span class="swatch" style="background:#e8c060;border-radius:50%"></span> Mrs. Honeywell, while she's present</div>
+  <div class="legend-row"><span class="swatch" style="background:#6ad0b0;border-radius:50%"></span> Meredith, while she's at the counter</div>
+  <div class="legend-row"><span class="swatch" style="background:#ff5a3a;border-radius:50%"></span> Jerry, while he's out of the gym</div>
   <div class="legend-row"><span class="swatch" style="background:#6f8f5a;border-radius:50%"></span> Grump &mdash; only shown in daylight, and only before day 4</div>
   <div class="legend-row"><span class="swatch" style="background:none;border:2px solid #e5a83a;border-radius:2px"></span> A room today's list wants you to visit (pulsing outline)</div>
   <div class="legend-row"><span class="swatch" style="background:#c4342a;border-radius:1px"></span> A locked door, or the front doors while still chained (green once open)</div>
 </div>
+
+<h2 id="on-the-big-map-only">What only shows on the full map (M)</h2>
+<p>The corner minimap draws every marker above except text labels. Open the full map (<kbd class="key">M</kbd>) and you additionally get:</p>
+<ul>
+  <li><b>Room names</b>, printed centred in every room that has one (your classroom in cyan, today's job rooms in amber, everything else a dim cream), automatically shrunk to fit the room's width.</li>
+  <li><b>Named labels</b> next to every marker &mdash; friends by name (with "(down)" appended if they're downed), lost toddlers by name, the generator's live fuel percentage, and "EXIT (open)" or "EXIT (chained)" over the front doors.</li>
+</ul>
+<p>Both maps share the same drawing code and update roughly 10 times a second; the corner minimap is simply the same picture clipped to a circle and zoomed in around your own position, always north-up.</p>
 
 <h2 id="what-is-never-shown">What is never shown</h2>
 <ul>

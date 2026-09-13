@@ -1,0 +1,44 @@
+<h1>You (the Baby)</h1>
+<p class="lead">Everyone got picked up. Except you. Here's everything about the character you actually control.</p>
+
+<h2 id="stats">Stats</h2>
+<div class="tablewrap"><table>
+<tr><th>Stat</th><th>Range</th><th>Notes</th></tr>
+<tr><td>Health</td><td>0&ndash;100</td><td>Starts at 100. Regenerates +0.9/s during the day while not downed and not starving. At 0, you go down.</td></tr>
+<tr><td>Stamina</td><td>0&ndash;100</td><td>Starts at 100. Drains 21/s while sprinting (10.5/s while "fit" from passing a Jerry class), refills 9/s standing or walking, 15/s while crawling.</td></tr>
+<tr><td>Fear</td><td>0&ndash;100</td><td>Starts at 0. See <a href="night.html#fear">Fear and crying</a> for the full formula.</td></tr>
+<tr><td>Food</td><td>0&ndash;100</td><td>Starts at 100, drains 0.25/s. See <a href="food.html">Food &amp; Hunger</a>.</td></tr>
+<tr><td>Torch battery</td><td>0&ndash;100</td><td>Starts at 55%.</td></tr>
+</table></div>
+
+<h2 id="movement">Movement speeds</h2>
+<div class="tablewrap"><table>
+<tr><th>State</th><th>Speed</th></tr>
+<tr><td>Walk</td><td>2.55 units/s</td></tr>
+<tr><td>Sprint</td><td>4.25 units/s (loud, drains stamina)</td></tr>
+<tr><td>Crawl</td><td>1.35 units/s (quiet)</td></tr>
+<tr><td>Downed</td><td>0.55 units/s</td></tr>
+</table></div>
+<p>Modifiers stack multiplicatively: carrying a big item &times;0.87 (&times;0.76 if it's a toddler specifically), food below 20% &times;0.82, fear above 80 &times;0.92.</p>
+
+<h2 id="carrying">Carrying</h2>
+<p>You can hold exactly one "big" item in your hands &mdash; a fuel can, Mr. Wiggles, a teddy, or a toddler &mdash; plus six small items in your bag (selectable with <kbd class="key">1</kbd>&ndash;<kbd class="key">6</kbd>). See <a href="items.html">Items</a> and <a href="controls.html#carrying">Controls</a>.</p>
+
+<h2 id="damage">Taking damage</h2>
+<p>Getting hurt sets a brief 1.2-second invulnerability window (so the same hit can't double-tick), adds camera shake proportional to the damage, and adds <code>amount &times; 0.8</code> fear. Health reaching 0 while not already downed triggers going down.</p>
+
+<h2 id="downed">Going down and dying</h2>
+<ul>
+  <li><b>Downed:</b> can't move properly, drops whatever's in your hands (a carried toddler is released back onto the floor at your position), torch forced off, hidden status cleared. A down timer starts: <b>45 seconds in co-op</b>, just <b>4 seconds in solo</b> &mdash; deliberately longer online because a teammate has a real chance to reach you.</li>
+  <li><b>Revived:</b> a nearby teammate holds <kbd class="key">E</kbd> for 3 seconds to bring you back at 45 health, with a brief invulnerability window.</li>
+  <li><b>Dead:</b> the down timer running out. In solo, this ends the run. In co-op, you become a spectator who can click to cycle between living teammates' cameras (including the host's) until someone escapes or everyone is gone.</li>
+</ul>
+
+<h2 id="hiding-state">While hidden</h2>
+<p>Movement is disabled, your eye height and posture adjust to the hiding spot, noise generation stops entirely, and fear drops an extra 3/second. Full detail on <a href="hiding.html">Hiding</a>.</p>
+
+<h2 id="camera">Camera and view</h2>
+<p>Mouse look is standard FPS-style, sensitivity and invert-look adjustable in Settings. Getting hurt or otherwise shaken adds a screen-shake effect that decays at 1.8/second. Peeking while hidden offsets your eye 0.45 units toward the front of the hiding spot without actually leaving it.</p>
+
+<h2 id="stats-tracked">Stats tracked for your end screen</h2>
+<p>Containers searched, messes cleaned, toddlers saved, drawings found, fuel poured, and repairs made all feed into the win/loss summary screen at the end of a run.</p>

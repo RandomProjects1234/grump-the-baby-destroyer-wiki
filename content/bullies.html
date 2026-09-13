@@ -1,0 +1,49 @@
+<h1>The Big Boys Club</h1>
+<p class="lead">Three big kids from the top year, jackets stitched "BIG BOYS CLUB." A leader and two flankers. Once a run, they corner you in a hallway &mdash; and for the first and only time in the game, Grump is on your side.</p>
+
+<div class="spoiler-gate"><strong>Spoiler warning.</strong> This page describes the full cutscene, script included.</div>
+
+<h2 id="trigger">Trigger conditions</h2>
+<p>Happens exactly once per run, on <b>day 2 or 3</b> (decided randomly, 50/50, at the start of the run), always <b>before Grump turns on day 4</b>. Beyond the day requirement, it needs: the day phase active and Grump not yet turned; at least 35 seconds into the day and at least 54 seconds of day remaining; you not dead, downed, hidden, or carrying a toddler; no overlay open, no one currently speaking, and the Card Kid encounter not active; you standing in a real room that isn't your own classroom. Even once every condition is met, it only has an 8% chance to actually fire in any given second-long check &mdash; so it triggers "soon after" you become eligible, not the instant you do.</p>
+
+<h2 id="staging">How it picks where to happen</h2>
+<p>The game searches in a circle around you for a direction with at least 3 units of clear space ahead (room for the three bullies to walk in and flank you) and at least 2.5 units clear behind (room for Grump to arrive from), picking the option with the most combined clear space. If nowhere around you qualifies, the scene simply doesn't start that check.</p>
+
+<h2 id="script">The scene, beat by beat</h2>
+<div class="tablewrap"><table>
+<tr><th>Time</th><th>What happens</th></tr>
+<tr><td>0.0s</td><td>Your camera is taken over; letterbox bars slide in; big-line banner "THE BIG BOYS CLUB"; a stinger sound.</td></tr>
+<tr><td>1.2s</td><td>Subtitle: "Three big kids from the top year block the hall. Their jackets say BIG BOYS CLUB."</td></tr>
+<tr><td>3.8s</td><td>Leader: "Well, well. Look. The baby nobody came to pick up."</td></tr>
+<tr><td>6.6s</td><td>Big kid: "Aww. Is it gonna cry? Go on. Cry, baby."</td></tr>
+<tr><td>7.3s</td><td>The leader shoves you. Camera shake, a hurt flash and sound, you're knocked back slightly.</td></tr>
+<tr><td>8.9s</td><td>Big kid: "Ew, it's Grump. Hey Grump! Still eating the crayons?"</td></tr>
+<tr><td>8.4&ndash;11.2s</td><td>Grump walks in from behind you, around your side (not through you), and takes up a spot beside you.</td></tr>
+<tr><td>11.6s</td><td>Leader: "Get lost, freak. This is Big Boys Club business."</td></tr>
+<tr><td>11.9s</td><td>The leader shoves Grump too.</td></tr>
+<tr><td>13.8s</td><td>Grump: "Why you being mean?" (recorded "mean" voice line)</td></tr>
+<tr><td>15.4&ndash;16.6s</td><td>Grump grows &mdash; his model scales up to at least his stage-3 size for the fight, with a reveal sound and screen flash.</td></tr>
+<tr><td>17.0s</td><td>Grump hits the first big kid so hard his shoe comes off. (Kid screams &mdash; reusing the Card Kid's scream recording.)</td></tr>
+<tr><td>18.0s</td><td>The second one goes into the lockers.</td></tr>
+<tr><td>19.0s</td><td>The leader tries to run. He does not get far &mdash; hit third.</td></tr>
+<tr><td>20.6&ndash;24.5s</td><td>All three scramble up and flee, away from Grump.</td></tr>
+<tr><td>22.6s</td><td>Leader (running): "We're telling Mrs. Honeywell!"</td></tr>
+<tr><td>21.6&ndash;22.8s</td><td>Grump shrinks back down to his normal size for his current stage.</td></tr>
+<tr><td>24.4s</td><td>Grump: "Nobody is mean to the baby. Nobody but Grump." (a giggle sound)</td></tr>
+<tr><td>24.6&ndash;27.5s</td><td>Grump pats you on the head.</td></tr>
+<tr><td>27.0s</td><td>Final subtitle: "(Grump stood up for you. He looks very pleased with himself.)"</td></tr>
+<tr><td>29.0s</td><td>Scene ends; camera and controls return to you.</td></tr>
+</table></div>
+
+<h2 id="consequences">Consequences</h2>
+<ul>
+  <li>If Grump hasn't turned yet, his resentment drops by <b>20</b>, once.</li>
+  <li>You get <b>+50 score</b>.</li>
+  <li>A toast: "Grump likes you a bit more now. For now."</li>
+  <li>The stand-in Grump used in the cutscene is placed at his final cutscene position afterward &mdash; the real Grump was hidden from view while it played, so there's no visual seam.</li>
+</ul>
+
+<h2 id="local">Local, like the Card Kid</h2>
+<p>Like the Card Kid encounter, this is entirely local &mdash; every player gets their own version, with a stand-in Grump for the scene while the real one is hidden. In co-op, a joining player's Big Boys Club moment still lowers the shared, real Grump's resentment by 20, reported to the host.</p>
+
+<div class="callout tip"><strong>Interactions with other systems.</strong> While the scene plays, Mrs. Honeywell's dark-classroom nag is suppressed, and (playing alone) the real Grump AI pauses rather than continuing to simulate off-screen.</div>

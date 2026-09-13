@@ -34,26 +34,51 @@
 <li><a href="generator.html"><span class="num">05</span>The Generator & Power</a></li>
 <li><a href="coop.html"><span class="num">06</span>Co-op</a></li>
 </ul>
+<h5 style="margin-top:16px">Mechanics</h5>
+<ul class="navlist">
+<li><a href="events.html"><span class="num">07</span>Events & Encounters</a></li>
+<li><a href="minigames.html"><span class="num">08</span>Minigames</a></li>
+<li><a href="jobs.html"><span class="num">09</span>Mrs. Honeywell's Jobs</a></li>
+<li><a href="searching.html"><span class="num">10</span>Searching</a></li>
+<li><a href="food.html"><span class="num">11</span>Food & Hunger</a></li>
+<li><a href="hiding.html"><span class="num">12</span>Hiding</a></li>
+<li><a href="toddlers.html"><span class="num">13</span>The Toddlers</a></li>
+<li><a href="voicelines.html"><span class="num">14</span>Voice Lines</a></li>
+</ul>
+<h5 style="margin-top:16px">Characters</h5>
+<ul class="navlist">
+<li><a href="characters.html"><span class="num">15</span>Characters (Index)</a></li>
+<li><a href="grump.html"><span class="num">16</span>Grump</a></li>
+<li><a href="bob.html"><span class="num">17</span>Bob the Janitor</a></li>
+<li><a href="honeywell.html"><span class="num">18</span>Mrs. Honeywell</a></li>
+<li><a href="jerry.html"><span class="num">19</span>Jerry</a></li>
+<li><a href="meredith.html"><span class="num">20</span>Meredith</a></li>
+<li><a href="cardkid.html"><span class="num">21</span>Card Boy & the Taker</a></li>
+<li><a href="bullies.html"><span class="num">22</span>The Big Boys Club</a></li>
+<li><a href="player.html"><span class="num">23</span>You (the Baby)</a></li>
+</ul>
 <h5 style="margin-top:16px">Reference</h5>
 <ul class="navlist">
-<li><a href="items.html"><span class="num">07</span>Items</a></li>
-<li><a href="loot.html"><span class="num">08</span>Loot Tables</a></li>
-<li><a href="characters.html"><span class="num">09</span>Characters</a></li>
-<li><a href="questions.html"><span class="num">10</span>Grump's Questions</a></li>
-<li><a href="rooms.html"><span class="num">11</span>Rooms & The School</a></li>
-<li><a href="lore.html"><span class="num">12</span>Lore</a></li>
-<li><a href="map.html"><span class="num">13</span>The Map</a></li>
+<li><a href="items.html"><span class="num">24</span>Items</a></li>
+<li><a href="loot.html"><span class="num">25</span>Loot Tables</a></li>
+<li><a href="questions.html"><span class="num">26</span>Grump's Questions</a></li>
+<li><a href="rooms.html"><span class="num">27</span>Rooms & The School</a></li>
+<li><a href="lore.html"><span class="num">28</span>Lore</a></li>
+<li><a href="map.html"><span class="num">29</span>The Map</a></li>
 </ul>
 <h5 style="margin-top:16px">Guides</h5>
 <ul class="navlist">
-<li><a href="tips.html"><span class="num">14</span>Tips & Strategy</a></li>
-<li><a href="faq.html"><span class="num">15</span>FAQ / Troubleshooting</a></li>
-<li><a href="changelog.html" class="active"><span class="num">16</span>Changelog</a></li>
+<li><a href="walkthrough.html"><span class="num">30</span>Walkthrough</a></li>
+<li><a href="beginners.html"><span class="num">31</span>Beginner's Guide</a></li>
+<li><a href="tips.html"><span class="num">32</span>Tips & Strategy</a></li>
+<li><a href="glossary.html"><span class="num">33</span>Glossary</a></li>
+<li><a href="faq.html"><span class="num">34</span>FAQ / Troubleshooting</a></li>
+<li><a href="changelog.html" class="active"><span class="num">35</span>Changelog</a></li>
 </ul>
     <div class="sidebar-foot">
       Fan wiki, not an official site.<br>
-      Matches game commit <code>a84a5b6</code><br>
-      Updated 2026-09-12
+      Matches game commit <code>78b81f5</code><br>
+      Updated 2026-09-13
     </div>
   </nav>
   <main>
@@ -64,6 +89,10 @@
 <div class="tablewrap">
 <table>
 <tr><th>Commit</th><th>Date</th><th>Summary</th></tr>
+<tr><td><code>78b81f5</code></td><td>2026-09-12</td><td><b>Jerry the gym teacher, Meredith the lunch lady, and minigames.</b> Added Jerry (red tracksuit, whistle) who runs at you during the day and forces one of three pop-up 2D minigames &mdash; Laps, Dumbbells, or Jump Rope (see <a href="minigames.html">Minigames</a>). Added Meredith (hairnet, apron), who stands at the cafeteria counter all day and gives you a tray of lunch after a three-lane rhythm minigame, tray quality scaling with accuracy. Both appear on the map with legend entries. New "Lunch from Meredith" job on Mrs. Honeywell's list. Nothing hunts a player while they're in a minigame; solo pauses the world for it, co-op does not. Fixed a crash where silent sound effects threw a Web Audio error. The game now has 13 recorded voice lines (was 10).</td></tr>
+<tr><td><code>f23bc48</code></td><td>2026-09-12</td><td><b>Big Boys Club cutscene: Grump stands up for you.</b> Added a one-per-run cutscene, triggered on day 2 or 3 before Grump turns: three big kids from the top year corner you in a hallway, shove you, and mock Grump &mdash; who walks up, says "Why you being mean?", grows, and puts all three on the floor before they run off shouting "We're telling Mrs. Honeywell!" Letterboxed, camera-locked, local to each player. Lowers the real Grump's resentment by 20 and adds +50 score. See <a href="bullies.html">The Big Boys Club</a>.</td></tr>
+<tr><td><code>5735ca2</code></td><td>2026-09-12</td><td><b>Searching always works.</b> Any searchable container can now be searched again and again the same day; each repeat search finds less (a normal roll on the first search, then a 45% / 20% / 9%&hellip; chance to keep whatever the roll finds on repeats). Aiming at furniture now checks the whole box from any side instead of one fixed point in front, so odd-shaped furniture like sandpits and lunch tables works from any angle. Holding <kbd class="key">E</kbd> now keeps its original target, so a kid or Grump walking through your view no longer resets the hold bar. Toddlers, dropped items and messes sitting in front of furniture now correctly take the interaction prompt over the furniture behind them. In co-op, two players can search the same container at once. See <a href="searching.html">Searching</a>.</td></tr>
+<tr><td><code>df20bce</code></td><td>2026-09-12</td><td><b>Fixed friends walking backwards, short quest lists, Grump spawning in furniture.</b> Co-op teammates' models were rotated 180&deg; from the direction they were actually walking. Mrs. Honeywell's daily job list could come up short a job if it picked a job template that needed a room type the generated school didn't have (jobs now skip unavailable rooms while the list is being planned, instead of being dropped afterwards). Grump's morning wander spot and his "he is closer" night-start spot could land inside furniture or somewhere unreachable; both are now required to be clear of furniture and have a walkable path to your classroom, and the "closer" placement can no longer land him inside your own classroom.</td></tr>
 <tr><td><code>a84a5b6</code></td><td>2026-09-12</td><td><b>Map, Mrs. Honeywell, power and quest fixes.</b> Added Mrs. Honeywell as a real character (stands at the chalkboard, reads the day's list aloud, warns about a dark classroom) and a new minimap/full map. Fixed the generator wearing out about 6&times; too fast and stalling constantly, a prompt bug that hid the starter cord behind "Repair" when carrying a part, playground doors that never reopened after night 1, room-search jobs that could target rooms without enough to search, staff-room jobs needing a key that shouldn't have been required, light-switch jobs being impossible without power, and several co-op/prompt/UI bugs.</td></tr>
 <tr><td><code>d530adb</code></td><td>2026-09-12</td><td><b>Fix co-op, add daily quests and food, more nights, scarier Grump.</b> Rewrote co-op so joiners' actions (fuel, repairs, cleaning, feeding, drops, Grump answers) actually reach the host instead of only existing on the joiner's own screen; fixed the host being unable to see joiners, damage always landing on the host, and several other multiplayer bugs. Added Mrs. Honeywell's daily job list with crib rewards, a hunger/food system, a 3/5/7/10/15/20/Endless night-count choice, difficulty settings, night twists from night 5, and a meaner turned Grump (charges on sight, camps hiding spots, pops bulbs, relocates, quotes your answers, jumpscares).</td></tr>
 <tr><td><code>d17832c</code></td><td>2026-09-11</td><td>Corrected the voice-line count quoted in the game's own README.</td></tr>
@@ -75,7 +104,7 @@
 <p>Full commit history: <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer/commits/main" target="_blank" rel="noopener">github.com/RandomProjects1234/grump-the-baby-destroyer</a>.</p>
 
     <div class="pagefoot">
-      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-12 &middot; matches game commit <code>a84a5b6</code></span>
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>78b81f5</code></span>
       <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
     </div>
   </main>

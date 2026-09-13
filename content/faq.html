@@ -18,7 +18,7 @@
 <p>This is by design and gets more noticeable the longer a run goes: the odds of a container actually holding something drop every night, hitting their leanest around night 8 and staying there. See <a href="loot.html">Loot Tables</a> for the exact percentages per container and per night.</p>
 
 <h2 id="grump-turned-early">Grump turned before day 4 &mdash; is that a bug?</h2>
-<p>No. Pushing his resentment to 100 through rude answers, ignoring him, or leaving messes uncleaned brings his turn forward; being polite never delays it past day 4. Day 4 is a hard ceiling, not a fixed trigger point &mdash; see <a href="characters.html#grump-stages">Characters</a> for the full resentment math.</p>
+<p>No. Pushing his resentment to 100 through rude answers, ignoring him, or leaving messes uncleaned brings his turn forward; being polite never delays it past day 4. Day 4 is a hard ceiling, not a fixed trigger point &mdash; see <a href="grump.html#stages">Grump</a> for the full resentment math.</p>
 
 <h2 id="bob-not-appearing">I can't find Bob on the map</h2>
 <p>That's intentional &mdash; Bob is never shown on the map, at any time, in any circumstance. See <a href="map.html">The Map</a>.</p>
@@ -28,6 +28,15 @@
 
 <h2 id="performance">The game runs slowly</h2>
 <p>Open Settings and lower Quality (Low/Medium/High). The renderer only actively shades a handful of point lights at once regardless of setting (there are roughly 75 light fixtures across the school, but you can typically only see one or two rooms' worth at a time), so quality mostly affects other rendering costs.</p>
+
+<h2 id="jerry-wont-stop">Jerry keeps chasing me down</h2>
+<p>Hide. Getting into any hiding spot before he reaches you makes him give up on the spot ("I know you're in there! Next time, champ!"), and he's capped at 2 attempts a day regardless. He also never comes in the last 110 seconds of the day. See <a href="jerry.html">Jerry</a>.</p>
+
+<h2 id="search-empty">I searched the same locker twice and got nothing the second time &mdash; is that normal?</h2>
+<p>Yes. Every repeat search of the same container on the same day has a shrinking chance of finding anything at all &mdash; 45% on the second search, 20% on the third, and so on. See <a href="searching.html">Searching</a> for the exact numbers, and note the container's search count resets fresh every morning.</p>
+
+<h2 id="bullies-when">When does the Big Boys Club scene happen?</h2>
+<p>Once per run, on day 2 or 3 (chosen randomly at the start), always before Grump turns on day 4. It's scripted and unavoidable once its conditions are met &mdash; you can't skip it, fail it, or trigger it a second time. See <a href="bullies.html">The Big Boys Club</a>.</p>
 
 <h2 id="who-made-it">Who made this?</h2>
 <p>Grump the Baby Destroyer is an original game; see the <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">game's source repository</a> for authorship and history. This wiki is an unofficial fan reference, built from that source code &mdash; see the <a href="changelog.html">Changelog</a> for what's changed recently.</p>

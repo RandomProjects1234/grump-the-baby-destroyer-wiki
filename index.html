@@ -34,26 +34,51 @@
 <li><a href="generator.html"><span class="num">05</span>The Generator & Power</a></li>
 <li><a href="coop.html"><span class="num">06</span>Co-op</a></li>
 </ul>
+<h5 style="margin-top:16px">Mechanics</h5>
+<ul class="navlist">
+<li><a href="events.html"><span class="num">07</span>Events & Encounters</a></li>
+<li><a href="minigames.html"><span class="num">08</span>Minigames</a></li>
+<li><a href="jobs.html"><span class="num">09</span>Mrs. Honeywell's Jobs</a></li>
+<li><a href="searching.html"><span class="num">10</span>Searching</a></li>
+<li><a href="food.html"><span class="num">11</span>Food & Hunger</a></li>
+<li><a href="hiding.html"><span class="num">12</span>Hiding</a></li>
+<li><a href="toddlers.html"><span class="num">13</span>The Toddlers</a></li>
+<li><a href="voicelines.html"><span class="num">14</span>Voice Lines</a></li>
+</ul>
+<h5 style="margin-top:16px">Characters</h5>
+<ul class="navlist">
+<li><a href="characters.html"><span class="num">15</span>Characters (Index)</a></li>
+<li><a href="grump.html"><span class="num">16</span>Grump</a></li>
+<li><a href="bob.html"><span class="num">17</span>Bob the Janitor</a></li>
+<li><a href="honeywell.html"><span class="num">18</span>Mrs. Honeywell</a></li>
+<li><a href="jerry.html"><span class="num">19</span>Jerry</a></li>
+<li><a href="meredith.html"><span class="num">20</span>Meredith</a></li>
+<li><a href="cardkid.html"><span class="num">21</span>Card Boy & the Taker</a></li>
+<li><a href="bullies.html"><span class="num">22</span>The Big Boys Club</a></li>
+<li><a href="player.html"><span class="num">23</span>You (the Baby)</a></li>
+</ul>
 <h5 style="margin-top:16px">Reference</h5>
 <ul class="navlist">
-<li><a href="items.html"><span class="num">07</span>Items</a></li>
-<li><a href="loot.html"><span class="num">08</span>Loot Tables</a></li>
-<li><a href="characters.html"><span class="num">09</span>Characters</a></li>
-<li><a href="questions.html"><span class="num">10</span>Grump's Questions</a></li>
-<li><a href="rooms.html"><span class="num">11</span>Rooms & The School</a></li>
-<li><a href="lore.html"><span class="num">12</span>Lore</a></li>
-<li><a href="map.html"><span class="num">13</span>The Map</a></li>
+<li><a href="items.html"><span class="num">24</span>Items</a></li>
+<li><a href="loot.html"><span class="num">25</span>Loot Tables</a></li>
+<li><a href="questions.html"><span class="num">26</span>Grump's Questions</a></li>
+<li><a href="rooms.html"><span class="num">27</span>Rooms & The School</a></li>
+<li><a href="lore.html"><span class="num">28</span>Lore</a></li>
+<li><a href="map.html"><span class="num">29</span>The Map</a></li>
 </ul>
 <h5 style="margin-top:16px">Guides</h5>
 <ul class="navlist">
-<li><a href="tips.html"><span class="num">14</span>Tips & Strategy</a></li>
-<li><a href="faq.html"><span class="num">15</span>FAQ / Troubleshooting</a></li>
-<li><a href="changelog.html"><span class="num">16</span>Changelog</a></li>
+<li><a href="walkthrough.html"><span class="num">30</span>Walkthrough</a></li>
+<li><a href="beginners.html"><span class="num">31</span>Beginner's Guide</a></li>
+<li><a href="tips.html"><span class="num">32</span>Tips & Strategy</a></li>
+<li><a href="glossary.html"><span class="num">33</span>Glossary</a></li>
+<li><a href="faq.html"><span class="num">34</span>FAQ / Troubleshooting</a></li>
+<li><a href="changelog.html"><span class="num">35</span>Changelog</a></li>
 </ul>
     <div class="sidebar-foot">
       Fan wiki, not an official site.<br>
-      Matches game commit <code>a84a5b6</code><br>
-      Updated 2026-09-12
+      Matches game commit <code>78b81f5</code><br>
+      Updated 2026-09-13
     </div>
   </nav>
   <main>
@@ -68,7 +93,7 @@
 <p>Everything in the school is procedural: textures are painted into canvases at load time, models are built from boxes, and the school itself is a pure function of a random seed &mdash; the same seed always builds the exact same building, which is what makes co-op possible without a real server.</p>
 
 <h2 id="premise">The premise</h2>
-<p>You are a baby. Everyone else went home. There is a janitor named <b>Bob</b> who wants you back in your classroom and will hurt you if he catches you out of one at night. There is a boy in green dungarees named <b>Grump</b> who wants to ask you questions &mdash; and who, after day 4, stops asking and starts hunting. There is a generator that will not feed itself, a teacher's to-do list that never runs out, and other toddlers who need carrying home before dark.</p>
+<p>You are a baby. Everyone else went home. There is a janitor named <b>Bob</b> who wants you back in your classroom and will hurt you if he catches you out of one at night. There is a boy in green dungarees named <b>Grump</b> who wants to ask you questions &mdash; and who, after day 4, stops asking and starts hunting. There is a generator that will not feed itself, a teacher's to-do list that never runs out, and other toddlers who need carrying home before dark. There is a gym teacher named <b>Jerry</b> who will make you exercise whether you like it or not, a lunch lady named <b>Meredith</b> who feeds you if you can keep a beat, and &mdash; once, every run &mdash; three older kids who corner you in a hallway and find out the hard way that Grump doesn't like bullies.</p>
 
 <h2 id="the-loop">The loop</h2>
 <div class="grid">
@@ -95,21 +120,46 @@
 
 <h2 id="contents">Wiki contents</h2>
 <div class="toc">
+  <h4>Playing</h4>
   <ol>
     <li><a href="controls.html">Controls</a> &mdash; the full key table.</li>
     <li><a href="day.html">The Day</a> &mdash; the day loop, every job type, food and hunger.</li>
     <li><a href="night.html">The Night</a> &mdash; light as safety, hiding, noise, fear.</li>
     <li><a href="difficulty.html">Nights &amp; Difficulty</a> &mdash; night counts, the difficulty table, night modifiers, escaping.</li>
     <li><a href="generator.html">The Generator &amp; Power</a> &mdash; the fuel burn formula with a worked example.</li>
+    <li><a href="coop.html">Co-op</a> &mdash; hosting, joining, host authority, spectating, revives.</li>
+  </ol>
+  <h4>Mechanics</h4>
+  <ol>
+    <li><a href="events.html">Events &amp; Encounters</a> &mdash; every cutscene, jumpscare and ambient scare.</li>
+    <li><a href="minigames.html">Minigames</a> &mdash; Jerry's laps/dumbbells/jump rope, Meredith's lunch line.</li>
+    <li><a href="jobs.html">Mrs. Honeywell's Jobs</a> &mdash; every job template, goals and reward pools.</li>
+    <li><a href="searching.html">Searching</a> &mdash; repeat searches, aiming, and the always-searchable rule.</li>
+    <li><a href="food.html">Food &amp; Hunger</a></li>
+    <li><a href="hiding.html">Hiding</a> &mdash; spots, taping, peeking, how Bob and Grump check them.</li>
+    <li><a href="toddlers.html">The Toddlers</a> &mdash; hunger, crying, carrying, feeding, being taken.</li>
+    <li><a href="voicelines.html">Voice Lines</a> &mdash; all 13 recorded lines, transcribed.</li>
+  </ol>
+  <h4>Characters</h4>
+  <ol>
+    <li><a href="characters.html">Characters</a> &mdash; the index page.</li>
+    <li><a href="grump.html">Grump</a>, <a href="bob.html">Bob</a>, <a href="honeywell.html">Mrs. Honeywell</a>, <a href="jerry.html">Jerry</a>, <a href="meredith.html">Meredith</a>, <a href="cardkid.html">Card Boy &amp; the Taker</a>, <a href="bullies.html">The Big Boys Club</a>, <a href="player.html">You (the Baby)</a>.</li>
+  </ol>
+  <h4>Reference</h4>
+  <ol>
     <li><a href="items.html">Items</a> &mdash; every item, with numbers.</li>
     <li><a href="loot.html">Loot Tables</a> &mdash; odds per container kind, and search times.</li>
-    <li><a href="characters.html">Characters</a> &mdash; Bob, Grump, the Card Kid, the Taker, the toddlers.</li>
     <li><a href="questions.html">Grump's Questions</a> &mdash; every question, answer and cost. <b>Spoilers.</b></li>
     <li><a href="rooms.html">Rooms &amp; The School</a> &mdash; every room, its furniture and hiding spots.</li>
     <li><a href="lore.html">Lore</a> &mdash; all twelve crayon drawings. <b>Spoilers.</b></li>
-    <li><a href="coop.html">Co-op</a> &mdash; hosting, joining, host authority, spectating, revives.</li>
-    <li><a href="map.html">The Map</a> &mdash; the legend.</li>
+    <li><a href="map.html">The Map</a> &mdash; the full legend.</li>
+  </ol>
+  <h4>Guides</h4>
+  <ol>
+    <li><a href="walkthrough.html">Walkthrough</a> &mdash; a day-by-day guide through a full run.</li>
+    <li><a href="beginners.html">Beginner's Guide</a> &mdash; new here? start here.</li>
     <li><a href="tips.html">Tips &amp; Strategy</a> &mdash; derived from the real mechanics.</li>
+    <li><a href="glossary.html">Glossary</a> &mdash; every term, defined.</li>
     <li><a href="faq.html">FAQ / Troubleshooting</a></li>
     <li><a href="changelog.html">Changelog</a> &mdash; what's changed in the game, commit by commit.</li>
   </ol>
@@ -120,7 +170,7 @@
 </div>
 
     <div class="pagefoot">
-      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-12 &middot; matches game commit <code>a84a5b6</code></span>
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>78b81f5</code></span>
       <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
     </div>
   </main>

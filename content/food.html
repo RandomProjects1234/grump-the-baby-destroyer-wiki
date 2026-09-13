@@ -1,0 +1,40 @@
+<h1>Food &amp; Hunger</h1>
+<p class="lead">Your tummy (food stat), what refills it, and what happens when you let it run out.</p>
+
+<h2 id="drain">How hunger works</h2>
+<p>Food drains at a flat <b>0.25 per second</b> &mdash; by the game's own comment, roughly one full meal's worth over a complete day-and-night cycle. There is no separate "hunger" stat for the player &mdash; it's the same 0&ndash;100 food number throughout.</p>
+<div class="tablewrap"><table>
+<tr><th>Food level</th><th>Effect</th></tr>
+<tr><td>Below 25%</td><td>A one-time warning toast: "Your tummy hurts. Find something to eat." (re-arms once you climb back over 40%)</td></tr>
+<tr><td>Below 20%</td><td>Movement speed &times;0.82</td></tr>
+<tr><td>Below 15%</td><td>Fear rises an extra +1.5/second, on top of the normal rate</td></tr>
+<tr><td>0%</td><td>You lose 1.6 health per second until you eat or go down</td></tr>
+</table></div>
+<p>Health regenerates slowly during the day (+0.9/second, only while not downed and food isn't at zero), which is one more reason to fix your food before dusk rather than during the night.</p>
+
+<h2 id="food-items">Food items</h2>
+<div class="tablewrap">
+<table>
+<tr><th>Food</th><th>Restores</th></tr>
+<tr><td>Snack</td><td>+30 food</td></tr>
+<tr><td>Apple</td><td>+22 food</td></tr>
+<tr><td>Sandwich</td><td>+55 food (the best food in the building)</td></tr>
+<tr><td>Milk Carton</td><td>+28 food, +35 stamina</td></tr>
+<tr><td>Juice Box</td><td>+10 food, +100 stamina (fully restores stamina)</td></tr>
+</table>
+</div>
+<p>Eating (<kbd class="key">R</kbd> with food selected) also knocks <b>6 points</b> off your fear meter, on top of restoring food &mdash; a small but real reason to eat proactively rather than only when desperate.</p>
+
+<h2 id="where">Where food comes from</h2>
+<ul>
+  <li><b>Search containers</b> in the cafeteria, kitchen, and staff room &mdash; see <a href="loot.html">Loot Tables</a> for exact odds per container type. Vending machines are the single richest food source (snack/juice only, but a combined ~44&ndash;72% chance depending on the night).</li>
+  <li><b>Lunchboxes:</b> 2&ndash;3 spawn loose around the school every morning (<code>2 + night % 2</code>, so it alternates between 2 and 3), in the cafeteria, library, gym, classrooms, playground, music, or art rooms. Open one with <kbd class="key">R</kbd> for 2 items (60% chance) or 3 (40% chance), randomly drawn from sandwich/apple/milk/snack/juice. If your bag is full, the extras spill onto the floor next to you.</li>
+  <li><b>Meredith's lunch line:</b> one tray a day, quality scaling with a rhythm minigame. See <a href="meredith.html">Meredith</a> and <a href="minigames.html">Minigames</a>.</li>
+  <li><b>Mrs. Honeywell's job rewards:</b> several reward pools include food. See <a href="jobs.html">Mrs. Honeywell's Jobs</a>.</li>
+  <li><b>Feeding toddlers</b> spends your food items on them, not the other way around &mdash; see <a href="toddlers.html">The Toddlers</a>.</li>
+</ul>
+
+<h2 id="jobs">Food-related jobs</h2>
+<p>"Lunch time" (eat 1&ndash;2 things), "Snack time for the little ones" (feed a hungry toddler), and "Lunch from Meredith" (get a tray) are all drawn from Mrs. Honeywell's job pool &mdash; see <a href="jobs.html">Mrs. Honeywell's Jobs</a> for the full templates.</p>
+
+<div class="callout tip"><strong>Fear interaction.</strong> Because low food both slows you down and speeds up your fear gain, letting your tummy run dry compounds every other night-time problem at once &mdash; see <a href="night.html#fear">Fear and crying</a>.</div>

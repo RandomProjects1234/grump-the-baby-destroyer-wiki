@@ -1,0 +1,31 @@
+<h1>Searching</h1>
+<p class="lead">How rummaging through furniture actually works, mechanically: aiming, holding, repeat searches, and what happens in co-op. For the odds of what you actually find, see <a href="loot.html">Loot Tables</a>.</p>
+
+<h2 id="always-searchable">Anything can always be searched</h2>
+<p>Every searchable prop can be searched again and again, as many times as you like, all day. There's no "(empty)" dead end any more &mdash; that was removed in commit <code>5735ca2</code>. The first search of the day is a normal roll against that container's loot table; each search after that finds less:</p>
+<div class="tablewrap"><table>
+<tr><th>Search number (today)</th><th>Chance to actually keep whatever the loot roll finds</th></tr>
+<tr><td>1st (fresh)</td><td>100% &mdash; the normal loot table applies in full</td></tr>
+<tr><td>2nd</td><td>45%</td></tr>
+<tr><td>3rd</td><td>20.25% (0.45<sup>2</sup>)</td></tr>
+<tr><td>4th</td><td>9.1% (0.45<sup>3</sup>)</td></tr>
+<tr><td>5th+</td><td>keeps shrinking by &times;0.45 each time</td></tr>
+</table></div>
+<p>Mechanically: on repeat searches, the game still rolls the normal loot table first, then rolls again against <code>0.45<sup>n</sup></code> (n = number of times already searched this day) to decide whether you actually get to keep it. Search counts reset to zero at the start of every day, alongside every other prop-state reset. In co-op, two players can search the same container back to back &mdash; the host tracks one shared search count per prop, so it runs out for everyone, not per-player.</p>
+<p>The interaction prompt tells you where you stand: <i>"Search the &lt;thing&gt;"</i> the first time, <i>"Search the &lt;thing&gt; again"</i> after, with hints escalating from nothing, to <i>"Already searched once &mdash; might be something left at the back,"</i> to <i>"Searched a lot today. Probably picked clean."</i></p>
+<p>Only the first search of a given container in a day awards the flat <b>+8 score</b> for searching &mdash; repeats don't add more score even when they do turn something up.</p>
+
+<h2 id="aiming">Aiming at furniture</h2>
+<p>Since commit <code>5735ca2</code>, the game checks your whole line of sight against the furniture's entire box (any side, any rotation, any size) rather than one fixed point in front of it. Concretely: it walks a ray out from your eye along your look direction, up to your 2.5-unit reach, and looks for the first point that lands inside the prop's footprint (padded by 0.18 units) with a clear line of sight. That means a long sandpit, a lunch table, or a serving counter can be searched from anywhere along its side, not just dead-centre in front &mdash; you no longer have to walk to one exact spot. If you're not looking straight at it, the game falls back to scoring the nearest point on its edge, so near-misses still register something, just at a lower priority than a clean look.</p>
+
+<h2 id="holding">Holding your target</h2>
+<p>Holding <kbd class="key">E</kbd> now locks onto whatever you started interacting with until you let go (also fixed in <code>5735ca2</code>). Before that fix, a toddler wandering past, or Grump drifting into view, could silently reset your hold progress on a furniture search mid-way through. Now, the thing you're already holding on gets a scoring bonus so it keeps winning against anything else that briefly enters your view.</p>
+
+<h2 id="priority">Priority: small things beat furniture behind them</h2>
+<p>Toddlers, dropped items, and messes sitting in front of a piece of furniture take the interaction prompt over the furniture itself, provided they're within your reach and roughly in your look direction (checked against a narrow cylinder along your sightline, not just the same cone-and-distance score furniture uses). This stops the awkward case of standing right in front of a hungry toddler and getting a "Search the cabinet" prompt instead because the cabinet was technically a fraction closer to dead centre.</p>
+
+<h2 id="search-times">Search times per container</h2>
+<p>Every container kind takes a fixed amount of time to hold <kbd class="key">E</kbd> through, from 0.9s (a bin) to 2.2s (a vending machine). See the per-container table on <a href="loot.html">Loot Tables</a> for the full list alongside each container's odds.</p>
+
+<h2 id="hide-while-searching">Furniture that's both searchable and a hiding spot</h2>
+<p>Some props (certain lockers, toy boxes) let you either search them or hide inside &mdash; the game offers "Hide" as a secondary option on <kbd class="key">R</kbd> alongside the main search prompt, so you don't have to choose one interaction type over the other in the moment.</p>

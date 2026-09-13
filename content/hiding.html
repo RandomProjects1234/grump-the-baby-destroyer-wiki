@@ -1,0 +1,35 @@
+<h1>Hiding</h1>
+<p class="lead">Every rule around getting into, staying in, and being found inside a hiding spot.</p>
+
+<h2 id="spots">What counts as a hiding spot</h2>
+<p>Certain furniture can be hidden in or under: some lockers, desks, teacher desks, cabinets, toy boxes, reading tables, pianos, bleachers, vaulting boxes, cafeteria tables, serving counters, kitchen counters, fridges, storage crates, bathroom stalls, nurse cots, Lost &amp; Found bins, staff couches, a round table, and a few playground props. See <a href="rooms.html#furniture">Rooms &amp; The School</a> for exactly which furniture, in which room. Each hiding prop is flagged either <code>under</code> (you crouch under it &mdash; a desk, a piano, bleachers) or as an enclosed container (a locker, a crate, a cabinet), which changes your eye height and posture while hidden.</p>
+
+<h2 id="entering">Entering and leaving</h2>
+<ul>
+  <li>Getting in takes a <b>0.7-second hold</b> on <kbd class="key">E</kbd> (or the "Hide" secondary option shown alongside a search prompt, on <kbd class="key">R</kbd>), and only emits a small noise: <b>0.18</b> (versus 0.5 for a normal footstep).</li>
+  <li>While hidden, your only actions are <b>Get out</b> (a 0.45-second hold) and, if you're in a locker with duct tape in your bag, <b>Tape the door shut</b> (see below).</li>
+  <li>Leaving makes a slightly bigger noise, <b>0.3</b>, as the game steps you out to a free spot roughly 0.85&ndash;1.6 units in front of the container.</li>
+  <li>Your fear rate drops by <b>3 per second</b> while hidden, on top of whatever the room's light level is already doing to it.</li>
+</ul>
+
+<h2 id="peeking">Peeking</h2>
+<p>Hold the right mouse button while hidden to lean your eye out to the edge of the container (offset ~0.45 units toward its front) without actually leaving &mdash; useful for checking whether it's safe to come out, at the cost of being visible again while you do it.</p>
+
+<h2 id="tape">Taping a locker shut</h2>
+<p>If you're hidden in a <b>locker</b> specifically and have duct tape in your bag, a secondary <kbd class="key">R</kbd> option appears: "Tape the door shut." It consumes the tape and makes that locker <b>un-openable by anything for 30 seconds</b> &mdash; a hard, guaranteed block, not a probability. Once it wears off you can exit normally again.</p>
+
+<h2 id="bob-checks">How Bob checks hiding spots</h2>
+<ul>
+  <li><b>He personally watched you get in, within the last 1.6 seconds:</b> he goes straight to that exact spot and opens it &mdash; a guaranteed, 100% find. There is no way to out-luck a spot Bob directly witnessed.</li>
+  <li><b>He's investigating a noise (didn't see you get in):</b> he heads for the nearest unchecked hiding spot to the noise, and his chance of actually finding whoever's inside is <code>clamp(0.18 + night &times; 0.025, 0.18, 0.42)</code> &mdash; about 18% on night 1, rising to a capped 42% around night 10, further multiplied by 1.6 on an Overtime night. If he doesn't find you, that specific spot is marked "checked" and won't be re-checked during that same investigation, so hiding somewhere he already searched (in the same alarm) is briefly safer.</li>
+  <li>Every hiding spot in the school has its "checked" flag reset the moment any new noise triggers an investigation, so a spot he cleared five minutes ago is fair game again on the next alarm.</li>
+</ul>
+
+<h2 id="grump-camp">How Grump handles hiding spots (once turned)</h2>
+<p>Grump doesn't roll a find chance the way Bob does. If he ends up within about <b>4.2 units</b> of someone hidden while hunting, he stops and <b>camps</b> right outside that hiding spot's door, breathing, for <b>7&ndash;12 seconds</b>. Coming out early (within ~2.8 units of him) gets you caught; staying hidden until he gives up is completely safe &mdash; he then avoids camping that same person again for 8 seconds and moves off toward a dark room. See <a href="events.html#camping">Events &amp; Encounters</a> and <a href="grump.html">Grump</a> for the full sequence.</p>
+
+<h2 id="jerry">Hiding to avoid Jerry</h2>
+<p>If Jerry is running at you for a gym class and you manage to hide before he reaches you, he gives up and heads back to the gym, with the line <i>"I know you're in there! Next time, champ!"</i> &mdash; one of the few uses for a hiding spot that has nothing to do with Bob or Grump. See <a href="jerry.html">Jerry</a>.</p>
+
+<h2 id="quest">The "Hide and seek" job</h2>
+<p>One of Mrs. Honeywell's job templates simply asks you to hide in <b>3 places</b> that day &mdash; any hiding spot counts, and it's tracked by the same event as an actual hide (getting in), regardless of whether anything was hunting you at the time. See <a href="jobs.html">Mrs. Honeywell's Jobs</a>.</p>

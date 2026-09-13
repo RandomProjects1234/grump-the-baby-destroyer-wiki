@@ -1,0 +1,50 @@
+<h1>Minigames</h1>
+<p class="lead">Four little 2D pop-up games, drawn on a flat canvas over the 3D school. Jerry the gym teacher forces one of the first three on you; Meredith the lunch lady runs the fourth herself. While one is open you cannot move, nothing hunts you, and (playing alone) the rest of the school waits &mdash; in co-op it keeps running for everyone else.</p>
+
+<div class="callout tip"><strong>Controls that work in every minigame.</strong> Click, <kbd class="key">Space</kbd>, or <kbd class="key">E</kbd> generally act as the "press" button; the lunch game uses <kbd class="key">A</kbd> <kbd class="key">S</kbd> <kbd class="key">D</kbd> (or the arrow keys) for its three lanes instead. Every game ends in a 1.6-second result banner before control returns to you.</div>
+
+<h2 id="dumbbells">Dumbbells</h2>
+<p>Triggered by Jerry. Goal: get the weight bar to the top <b>4 times</b> (4 reps) within <b>60 seconds</b>.</p>
+<ul>
+  <li><b>Controls:</b> spam click, <kbd class="key">Space</kbd>, or <kbd class="key">E</kbd> to lift.</li>
+  <li><b>How it works:</b> each press adds 0.062 to a 0&ndash;1 lift meter; the meter constantly sinks back down at <code>0.1 + 0.18 &times; lift</code> per second &mdash; so it gets harder to hold up the higher it is. Hitting 1.0 counts as a rep and resets the meter to 0.3 (not 0), so consecutive reps come faster than the first.</li>
+  <li><b>Tip:</b> keep a steady rapid click rate rather than bursts &mdash; the meter's sink rate scales with how high it already is, so bursts followed by pauses waste presses fighting the same decay repeatedly.</li>
+  <li><b>Reward:</b> pass &rarr; "fit" status (150s of half-rate stamina drain), full stamina refill, +60 score. Fail &rarr; &minus;8 food.</li>
+</ul>
+
+<h2 id="laps">Laps</h2>
+<p>Triggered by Jerry. Goal: complete <b>3 laps</b> of an oval track within <b>75 seconds</b>, passing four checkpoints (bottom/finish, right, top, left) in order each lap.</p>
+<ul>
+  <li><b>Controls:</b> <kbd class="key">W</kbd> / <kbd class="key">&uarr;</kbd> accelerate &middot; <kbd class="key">S</kbd> / <kbd class="key">&darr;</kbd> brake/reverse &middot; <kbd class="key">A</kbd> <kbd class="key">D</kbd> / <kbd class="key">&larr;</kbd> <kbd class="key">&rarr;</kbd> steer.</li>
+  <li><b>How the physics work:</b> real car-ish model &mdash; forward speed and sideways slip are tracked separately; steering "bites" harder the faster you're going (turn rate scales with speed, capped); grip lets sideways velocity bleed off gradually rather than snapping straight, so there's a little drift; going off-track onto the grass roughly triples rolling drag and caps your top speed at 95 (versus 250 on the track).</li>
+  <li><b>Tip:</b> the on-screen flag shows your next checkpoint in yellow; staying near the painted centre line avoids clipping the grass on tight turns, which is the single biggest speed loss in the game.</li>
+  <li><b>Reward:</b> pass &rarr; "fit" status, full stamina refill, +60 score. Fail (out of time) &rarr; &minus;8 food.</li>
+</ul>
+
+<h2 id="rope">Jump Rope</h2>
+<p>Triggered by Jerry. Goal: land <b>6 jumps in a row</b> within <b>60 seconds</b>. A miss resets your streak to 0.</p>
+<ul>
+  <li><b>Controls:</b> press <kbd class="key">Space</kbd>, click, or <kbd class="key">E</kbd> when the rope reaches your feet.</li>
+  <li><b>How the timing works:</b> the rope swings on a repeating 0&ndash;1 phase; feet-contact is phase 0.5, and a press within &plusmn;0.16 of that phase (a window of about 0.32 out of the full swing) counts as a clean jump. The rope's period starts at 1.25 seconds and speeds up by 0.03s per point of your current streak, so it's easiest at streak 0 and hardest right before your 6th jump. Missing the window when the rope passes your feet without a press also breaks your streak.</li>
+  <li><b>Tip:</b> the timing ring around your feet lights up green exactly inside the hit window &mdash; watch the ring, not the rope's height, since the ring's brightness gives more warning than the rope's swing does.</li>
+  <li><b>Reward:</b> pass &rarr; "fit" status, full stamina refill, +60 score. Fail (out of time) &rarr; &minus;8 food.</li>
+</ul>
+
+<h2 id="lunch">Meredith's Lunch Line</h2>
+<p>Triggered by talking to Meredith. Goal: hit as many of <b>16 notes</b> as you can within a ~30-second, 104 BPM tune, across <b>3 lanes</b>.</p>
+<ul>
+  <li><b>Controls:</b> <kbd class="key">A</kbd> <kbd class="key">S</kbd> <kbd class="key">D</kbd> (or <kbd class="key">&larr;</kbd> <kbd class="key">&darr;</kbd> <kbd class="key">&rarr;</kbd>) for the left/middle/right lane as each food item reaches the plate line.</li>
+  <li><b>How it works:</b> a note counts as hit if you press its lane within &plusmn;0.16 seconds of its exact beat; hits within &plusmn;0.06 seconds show "YUM!" instead of "OK" (cosmetic only &mdash; both count the same). A note you never press for is marked MISS once it's 0.16 seconds past due.</li>
+  <li><b>Scoring &rarr; tray:</b> your score is hits / 16 notes.</li>
+  <div class="tablewrap"><table>
+    <tr><th>Score</th><th>Tray</th><th>Contents</th></tr>
+    <tr><td>&ge; 90%</td><td>Gold tray</td><td>Sandwich, apple, milk, snack</td></tr>
+    <tr><td>&ge; 60%</td><td>Nice tray</td><td>Sandwich, apple, milk</td></tr>
+    <tr><td>&lt; 60%</td><td>Soggy tray</td><td>Snack, milk</td></tr>
+  </table></div>
+  <li>Score below 60% still counts as a "fail" for the win/lose flag, but you're never sent away empty-handed &mdash; Meredith always gives you the Soggy tray at minimum.</li>
+  <li><b>Reward:</b> the tray's items (dropped on the floor near you if your bag is full), plus <code>round(20 + score &times; 40)</code> score &mdash; 20 at 0% up to 60 at a perfect run.</li>
+  <li>One tray per player, per day; closes for the day once fewer than 50 seconds of daylight remain.</li>
+</ul>
+
+<div class="callout warn"><strong>Nothing hunts you while a minigame is open</strong> &mdash; the game explicitly excludes any player who is "busy" with a minigame from every threat's target list. That's true in co-op too, even though the school itself keeps running for your teammates.</div>

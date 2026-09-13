@@ -1,0 +1,49 @@
+<h1>Mrs. Honeywell's Jobs</h1>
+<p class="lead">The full mechanics behind the daily list: how it's planned, every job template with its exact goal formula, and the reward pools. See <a href="day.html">The Day</a> for the loop this fits into, and <a href="honeywell.html">Mrs. Honeywell</a> for the character.</p>
+
+<h2 id="planning">How the list is planned</h2>
+<p>The host plans the day's list from a seeded RNG (<code>seed:quests:night</code>), so every player in co-op sees an identical list without it ever being invented client-side.</p>
+<ul>
+  <li><b>Day 1</b> is always the fixed three: <i>Get the lights working</i>, <i>Lunch time</i>, <i>Round them up</i> &mdash; deliberately teaching fuel, food, and toddlers before anything harder shows up.</li>
+  <li><b>Day 2 onward</b>, jobs are drawn from a shared pool: <code>fuel, repair, clean, eat, lunch, feed, rescue, searchRoom, lights, visit, hide, drawing, hamster, holocard</code>, plus <code>crayon</code> twice (only while Grump hasn't turned) and <code>fuel</code>, <code>eat</code>, <code>rescue</code> each added an extra time &mdash; weighting the "big three" survival jobs above the flavour ones. The pool is shuffled, then picked through in order.</li>
+  <li><b>List length:</b> 3 jobs, rising to <b>4 from night/day 6</b> onward.</li>
+  <li><b>A job that can't happen in this school is skipped, not left broken.</b> Each candidate is resolved to a real room before being accepted: <code>lunch</code> needs a cafeteria or kitchen; <code>searchRoom</code> needs a room type with at least 3 searchable props; every room-specific job (<code>searchRoom, lights, visit, drawing, hamster, crayon, holocard</code>) needs at least one room of an eligible type to actually exist in this generated school. If a candidate resolves to nothing, the planner moves to the next pool entry instead of shipping a list one job short &mdash; a bug fixed in commit <code>df20bce</code> where quest lists could previously come up short.</li>
+</ul>
+
+<h2 id="templates">Every job template</h2>
+<div class="tablewrap">
+<table>
+<tr><th>Job</th><th>Event it listens for</th><th>Goal</th><th>Eligible rooms</th><th>Reward tier</th></tr>
+<tr><td><b>Get the lights working</b> (<code>genStart</code>)</td><td>Pulling the generator's starter cord successfully</td><td>1 (day 1 only)</td><td>Boiler room</td><td>Good</td></tr>
+<tr><td><b>Feed the generator</b> (<code>fuel</code>)</td><td>Pouring fuel in</td><td>1 can (night &lt; 4), 2 cans (night &ge; 4)</td><td>&mdash;</td><td>Great</td></tr>
+<tr><td><b>Patch it up</b> (<code>repair</code>)</td><td>Fitting a spare part</td><td>1 part (night &lt; 5), 2 parts (night &ge; 5)</td><td>&mdash;</td><td>Good</td></tr>
+<tr><td><b>Tidy up</b> (<code>clean</code>)</td><td>Cleaning a mess</td><td><code>min(5, 2 + floor(night/3))</code></td><td>&mdash;</td><td>Good</td></tr>
+<tr><td><b>Lunch from Meredith</b> (<code>lunch</code>)</td><td>Getting served a tray</td><td>1</td><td>Requires a cafeteria or kitchen to exist</td><td>Basic</td></tr>
+<tr><td><b>Lunch time</b> (<code>eat</code>)</td><td>Eating something</td><td>1 (night &le; 1), 2 (night &gt; 1)</td><td>&mdash;</td><td>Basic</td></tr>
+<tr><td><b>Snack time for the little ones</b> (<code>fed</code>)</td><td>Feeding a hungry toddler</td><td>1 (capped at 2)</td><td>&mdash;</td><td>Good</td></tr>
+<tr><td><b>Round them up</b> (<code>saved</code>)</td><td>Carrying a toddler to your classroom</td><td>1 (night &le; 1), 2 (night &gt; 1, capped at 2)</td><td>&mdash;</td><td>Great</td></tr>
+<tr><td><b>Rummage through &hellip;</b> (<code>search</code>, matched to the target room)</td><td>Searching a container in the target room</td><td>3</td><td>Library, art, music, cafeteria, kitchen, nurse, Lost &amp; Found, storage &mdash; only rooms with 3+ searchable props qualify</td><td>Basic</td></tr>
+<tr><td><b>Brighten &hellip;</b> (<code>lights</code>, matched to the target room)</td><td>Switching that room's lights on</td><td>1</td><td>Library, art, music, gym, cafeteria, kitchen, nurse</td><td>Basic</td></tr>
+<tr><td><b>Go and look at &hellip;</b> (<code>visit</code>, matched to the target room)</td><td>Entering that room</td><td>1</td><td>Playground, gym, library, music, bathroom, kitchen</td><td>Basic</td></tr>
+<tr><td><b>Hide and seek</b> (<code>hide</code>)</td><td>Entering a hiding spot</td><td>3</td><td>&mdash;</td><td>Basic</td></tr>
+<tr><td><b>Read the walls</b> (<code>drawing</code>)</td><td>Reading a crayon drawing (spawns one)</td><td>1</td><td>Library, art, music, cafeteria, gym</td><td>Basic</td></tr>
+<tr><td><b>Find Mr. Wiggles</b> (<code>deliver</code>: hamster, spawns one)</td><td>Carrying the hamster to your classroom</td><td>1</td><td>Gym, library, art, music, cafeteria, nurse, playground</td><td>Great</td></tr>
+<tr><td><b>Grump's crayon</b> (<code>deliver</code>: crayon, spawns one)</td><td>Giving Grump back his crayon &mdash; only offered before he turns</td><td>1</td><td>Art, library, cafeteria, gym, bathroom</td><td>Good</td></tr>
+<tr><td><b>The shiny card</b> (<code>deliver</code>: holocard, spawns one)</td><td>Leaving the card in Lost &amp; Found</td><td>1</td><td>Gym, playground, cafeteria, music, library</td><td>Good</td></tr>
+</table>
+</div>
+<p>The crayon template is pushed into the day's pool <b>twice</b> on any day Grump hasn't turned yet, making it noticeably more likely to be picked than a single-copy template.</p>
+
+<h2 id="rewards">Reward pools</h2>
+<p>On completion, a job's reward is drawn from its tier's pool using a per-job seeded RNG (<code>seed:reward:night:index</code>), then placed in the crib.</p>
+<div class="tablewrap">
+<table>
+<tr><th>Tier</th><th>Possible rewards (one set chosen at random)</th></tr>
+<tr><td><b>Basic</b></td><td>1 battery &middot; 1 snack + 1 apple &middot; 2 glow sticks &middot; 1 juice box &middot; 1 duct tape</td></tr>
+<tr><td><b>Good</b></td><td>1 sandwich &middot; 1 night light + 1 battery &middot; 1 teddy &middot; 1 spare part &middot; 1 milk + 1 apple</td></tr>
+<tr><td><b>Great</b></td><td>1 fuel can &middot; 1 staff key + 1 sandwich &middot; 1 wrench &middot; 2 spare parts &middot; 1 night light + 1 battery + 1 snack</td></tr>
+</table>
+</div>
+
+<h2 id="progress">How progress is tracked</h2>
+<p>Each job on the list listens for exactly one event type (shown above). Progress only advances when that event fires <i>and</i>, for room-specific jobs, the event's room matches the job's assigned room. A job completes the instant its progress reaches its goal &mdash; there's no need to finish everything at once, and jobs can be worked in any order or in parallel.</p>

@@ -1,0 +1,30 @@
+<h1>Jerry</h1>
+<p class="lead">Red tracksuit, whistle, headband, moustache, clipboard. He lives in the gym, and every so often during the day he comes sprinting out to find you &mdash; because you are slacking off, and you are doing gym class now, like it or not.</p>
+
+<h2 id="when">When he comes for you</h2>
+<p>Jerry can only come during the <b>day</b>, and never once the day is within 110 seconds of ending (he "never runs into the dark"). Beyond that, he won't approach if you're dead, downed, hidden, carrying a toddler, already in a minigame or another overlay, in the middle of the Card Kid or Big Boys Club encounters, if Meredith is currently serving you, or if something is actively hunting you nearby (threat pressure above a small threshold). He's capped at <b>2 classes a day</b>, and each attempt is spaced 60&ndash;100 seconds apart, with a further 110&ndash;180 second cooldown after a successful class.</p>
+<p>When he does come, he appears either from the gym doors (if you're not already in the gym) or, if you're too far to path to easily, round a corner somewhere 9&ndash;22 units away that you can't currently see directly &mdash; with a distant whistle tone and the subtitle <i>"A whistle. Somebody in a red tracksuit is running at you."</i></p>
+
+<h2 id="chase">The run-up</h2>
+<p>He runs at 4.6 units/second for up to 25 seconds. Catching you (within 1.7 units) starts the class immediately. You can escape him three ways: <b>hide</b> (he gives up with <i>"I know you're in there! Next time, champ!"</i> and heads back to the gym), run out the clock on his 25-second pursuit, or have something else interrupt (a menu, the Big Boys Club starting).</p>
+
+<h2 id="games">The three games</h2>
+<p>He picks randomly between Laps, Dumbbells, and Jump Rope &mdash; never the same one twice in a row. Full mechanics, controls and tips for each are on the <a href="minigames.html">Minigames</a> page.</p>
+<div class="tablewrap"><table>
+<tr><th>Game</th><th>Call line</th></tr>
+<tr><td>Laps</td><td>"Are you slacking off? Three laps around this gym, now!" (recorded)</td></tr>
+<tr><td>Dumbbells</td><td>"Yeah, strength! Lift those dumbbells — it's dumbbell time! Let's go, almost there! Let's go! W, you did it!" (recorded)</td></tr>
+<tr><td>Jump Rope</td><td>*FWEEEET* "Jump rope! Six in a row! Nobody leaves until I see six!" (synthesised whistle, no recorded line)</td></tr>
+</table></div>
+
+<h2 id="rewards">Pass or fail</h2>
+<ul>
+  <li><b>Pass:</b> "fit" status for <b>150 seconds</b> (sprint stamina drains at half rate &mdash; 10.5/second instead of 21), a full stamina refill, <b>+60 score</b>, and a toast: "Gym class passed! You feel fit: stamina lasts longer for a while."</li>
+  <li><b>Fail:</b> <b>&minus;8 food</b>, and the toast "Jerry is not impressed. All that effort made you hungry."</li>
+</ul>
+<p>Either way, the "gym" quest event fires, progressing any job that listens for it.</p>
+
+<h2 id="local">Local, like the Card Kid</h2>
+<p>Jerry is a purely local encounter &mdash; nobody else sees your Jerry, or the game he makes you play. In co-op, nothing hunts a busy player, but the world keeps running for everyone else while you're stuck in his class.</p>
+
+<div class="callout tip"><strong>See also.</strong> <a href="minigames.html">Minigames</a> for the games in full detail, and <a href="hiding.html#jerry">Hiding</a> for how hiding cancels his approach.</div>

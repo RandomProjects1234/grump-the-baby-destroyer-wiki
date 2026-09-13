@@ -1,0 +1,24 @@
+<h1>The Card Kid, and the Taker</h1>
+<p class="lead">A boy you've never seen before turns up while you're working at the generator. He shows you his card collection; you cannot answer, because you are a baby.</p>
+
+<h2 id="trigger">Trigger</h2>
+<p>Roughly a <b>28% chance</b> each time you start, refuel, or repair the generator, at most once per day/night phase. He approaches from somewhere 8&ndash;20 units away that has a walkable path to you.</p>
+
+<h2 id="sequence">What happens</h2>
+<ol>
+  <li><b>Approach</b> (up to 16 seconds): he walks toward you.</li>
+  <li><b>Talk</b> (his voice line's length, minimum 3.4s, plus 0.9s buffer): subtitles cycle through <i>"A boy you have not seen before holds up a fan of cards." &rarr; "He is telling you about them. All of them. In order." &rarr; "He does not seem to need you to answer." &rarr; "(you are a baby. you have no words yet.)"</i></li>
+  <li><b>Grab</b> (up to 2.6 seconds): something the code calls only <b>the Taker</b> closes in from behind him, fast and silent, at 7.5 units/second, arriving from the darkest direction that isn't through you.</li>
+  <li><b>Drag</b> (2.4 seconds): both of them are pulled backwards into the dark.</li>
+</ol>
+
+<div class="callout danger"><strong>This is not a threat you can fight, hide from, or outrun.</strong> The game's own comment is explicit about it: it is only ever a thing you watch happen. Watching it spikes your fear by 55 and (if you're the host) raises Grump's resentment by 3 &mdash; he notices you did nothing, because there was nothing to do. You get +25 score for witnessing it.</div>
+
+<h2 id="taker">The Taker</h2>
+<p>Never named on-screen &mdash; only ever referred to as "the Taker" in the game's own source. It never touches or interacts with the player directly; its entire purpose is dragging the Card Kid away. It appears only during this one sequence and is otherwise invisible.</p>
+
+<h2 id="local">Purely local</h2>
+<p>It is also purely local: in co-op, every player who triggers it sees their own separate encounter, invisible to teammates &mdash; deliberately not networked, unlike almost everything else in the game.</p>
+
+<h2 id="voice">Voice acting</h2>
+<p>The Card Kid has 2 of the game's 13 recorded lines: his talking line, and his scream as he's dragged away. See <a href="voicelines.html#cardkid">Voice Lines</a>. His scream recording is reused elsewhere, for the Big Boys Club leader's cry when Grump lands his first hit &mdash; see <a href="bullies.html">The Big Boys Club</a>.</p>

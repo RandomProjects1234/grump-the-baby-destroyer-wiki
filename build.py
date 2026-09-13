@@ -29,20 +29,44 @@ GAME_DIR = r"D:\code stuff\dma ai\baby-destroyer"
 # (id, filename, nav label, section heading) -- order is the sidebar order.
 PAGES = [
     ('home', 'index.html', 'Home', None),
+
     ('controls', 'controls.html', 'Controls', 'Playing'),
     ('day', 'day.html', 'The Day', 'Playing'),
     ('night', 'night.html', 'The Night', 'Playing'),
     ('difficulty', 'difficulty.html', 'Nights & Difficulty', 'Playing'),
     ('generator', 'generator.html', 'The Generator & Power', 'Playing'),
+    ('coop', 'coop.html', 'Co-op', 'Playing'),
+
+    ('events', 'events.html', 'Events & Encounters', 'Mechanics'),
+    ('minigames', 'minigames.html', 'Minigames', 'Mechanics'),
+    ('jobs', 'jobs.html', "Mrs. Honeywell's Jobs", 'Mechanics'),
+    ('searching', 'searching.html', 'Searching', 'Mechanics'),
+    ('food', 'food.html', 'Food & Hunger', 'Mechanics'),
+    ('hiding', 'hiding.html', 'Hiding', 'Mechanics'),
+    ('toddlers', 'toddlers.html', 'The Toddlers', 'Mechanics'),
+    ('voicelines', 'voicelines.html', 'Voice Lines', 'Mechanics'),
+
+    ('characters', 'characters.html', 'Characters (Index)', 'Characters'),
+    ('grump', 'grump.html', 'Grump', 'Characters'),
+    ('bob', 'bob.html', 'Bob the Janitor', 'Characters'),
+    ('honeywell', 'honeywell.html', 'Mrs. Honeywell', 'Characters'),
+    ('jerry', 'jerry.html', 'Jerry', 'Characters'),
+    ('meredith', 'meredith.html', 'Meredith', 'Characters'),
+    ('cardkid', 'cardkid.html', 'Card Boy & the Taker', 'Characters'),
+    ('bullies', 'bullies.html', 'The Big Boys Club', 'Characters'),
+    ('player', 'player.html', 'You (the Baby)', 'Characters'),
+
     ('items', 'items.html', 'Items', 'Reference'),
     ('loot', 'loot.html', 'Loot Tables', 'Reference'),
-    ('characters', 'characters.html', 'Characters', 'Reference'),
     ('questions', 'questions.html', "Grump's Questions", 'Reference'),
     ('rooms', 'rooms.html', 'Rooms & The School', 'Reference'),
     ('lore', 'lore.html', 'Lore', 'Reference'),
-    ('coop', 'coop.html', 'Co-op', 'Playing'),
     ('map', 'map.html', 'The Map', 'Reference'),
+
+    ('walkthrough', 'walkthrough.html', 'Walkthrough', 'Guides'),
+    ('beginners', 'beginners.html', "Beginner's Guide", 'Guides'),
     ('tips', 'tips.html', 'Tips & Strategy', 'Guides'),
+    ('glossary', 'glossary.html', 'Glossary', 'Guides'),
     ('faq', 'faq.html', 'FAQ / Troubleshooting', 'Guides'),
     ('changelog', 'changelog.html', 'Changelog', 'Guides'),
 ]
@@ -83,7 +107,7 @@ def sidebar(active_id):
         out.append('<li><a href="%s"%s>%s</a></li>' % (fname, cls, label))
     out.append('</ul>')
     n = 1
-    for section in ['Playing', 'Reference', 'Guides']:
+    for section in ['Playing', 'Mechanics', 'Characters', 'Reference', 'Guides']:
         if section not in sections:
             continue
         out.append('<h5 style="margin-top:16px">%s</h5>' % section)
@@ -143,15 +167,34 @@ DESCRIPTIONS = {
     'night': "How the night phase works: light, hiding, noise and fear.",
     'difficulty': "Nights, difficulty settings, night modifiers and escaping.",
     'generator': "The generator fuel burn formula, wear, stalling, starting and portable lights.",
+    'coop': "Hosting and joining co-op, host authority, spectating, revives and escaping together.",
+    'events': "Every event and encounter in the game: cutscenes, jumpscares, ambient scares, and what triggers them.",
+    'minigames': "Jerry's laps, dumbbells and jump rope, and Meredith's lunch rhythm game, controls and rewards.",
+    'jobs': "Every job Mrs. Honeywell can put on the list, with goals, rooms and reward pools.",
+    'searching': "How searching furniture actually works: repeat searches, aiming, and the always-searchable rule.",
+    'food': "Hunger, food items, and where to find them.",
+    'hiding': "Every hiding spot rule: peeking, taping lockers shut, and how Bob and Grump check them.",
+    'toddlers': "The other children: hunger, crying, carrying, feeding, safe spots, and being taken.",
+    'voicelines': "All thirteen recorded voice lines in the game, who says them and when.",
+    'characters': "Every character in the game, with links to a full page on each.",
+    'grump': "Grump: stages, resentment, behaviours before and after he turns.",
+    'bob': "Bob the Janitor: patrol, investigate, chase, and what he says.",
+    'honeywell': "Mrs. Honeywell: the morning list, the dark-classroom nag, and her talk lines.",
+    'jerry': "Jerry the gym teacher: when he comes for you, and his three minigames.",
+    'meredith': "Meredith the lunch lady: the lunch-line rhythm game and tray tiers.",
+    'cardkid': "The boy with the Pokémon cards, and the thing that takes him: the Taker.",
+    'bullies': "The Big Boys Club: the day 2/3 cutscene where Grump stands up for you.",
+    'player': "You, the baby: stats, carrying, hiding, hunger, fear, and what happens when you go down.",
     'items': "Every item in Grump the Baby Destroyer, with exact numbers.",
     'loot': "Loot tables for every container kind, with search times and odds.",
-    'characters': "Bob the Janitor, Grump, the Card Kid, the Taker, and the toddlers.",
     'questions': "Every question Grump asks, every answer, and its cost. Spoilers.",
     'rooms': "Every room in the school, its furniture, hiding spots and locked doors.",
     'lore': "All twelve crayon drawings, in order. Spoilers.",
-    'coop': "Hosting and joining co-op, host authority, spectating, revives and escaping together.",
-    'map': "The in-game map legend.",
+    'map': "The in-game map legend, in full detail.",
+    'walkthrough': "A day-by-day guide through a full 7-night run.",
+    'beginners': "New to the game? Start here.",
     'tips': "Strategy derived from the actual game mechanics.",
+    'glossary': "Every game-specific term in the wiki, defined in one place.",
     'faq': "Common problems and questions, answered.",
     'changelog': "What changed in the game, commit by commit.",
 }

@@ -1,0 +1,57 @@
+<h1>Grump</h1>
+<p class="lead">A boy in green dungarees who wants to talk. He becomes "the thing the game is named after" once he "turns" &mdash; on day 4 at the latest, or earlier if you make him angry enough.</p>
+
+<div class="spoiler-gate"><strong>Spoiler warning.</strong> This page covers his full behaviour, including what happens once he turns. See <a href="questions.html">Grump's Questions</a> for every line he can say to you.</div>
+
+<h2 id="stages">Stages and resentment</h2>
+<div class="tablewrap">
+<table>
+<tr><th>Stage</th><th>Resentment</th><th>What changes</th></tr>
+<tr><td>0 &mdash; friendly, apparently</td><td>0&ndash;21</td><td>Wanders, occasionally stops to watch and talk. No danger.</td></tr>
+<tr><td>1 &mdash; keeping score</td><td>22&ndash;49</td><td>Same behaviour, harder-edged questions unlock.</td></tr>
+<tr><td>2 &mdash; cold</td><td>50&ndash;74</td><td>Colder questions unlock. Footstep audio starts (once turned, this stage also adds body-camp head-tilt visuals).</td></tr>
+<tr><td>3 &mdash; not speaking to you</td><td>75&ndash;99</td><td>Hostile-tier questions unlock. At night he visibly glows.</td></tr>
+<tr><td>4 &mdash; turned ("Grump the Baby Destroyer")</td><td>100, or day 4 arrives</td><td>Stops asking questions forever. Hunts you in daylight and dark alike. Charges, camps, pops bulbs, relocates, repeats your own answers back to you, and can catch and hurt you.</td></tr>
+</table>
+</div>
+<p>Resentment is capped at 130 internally, but nothing changes above 100 &mdash; once <code>turned</code> is true it stays true for the rest of the run. The game explicitly checks <code>grump.turned</code> everywhere, never the raw number, so hitting 100 early behaves identically to waiting for day 4.</p>
+
+<h2 id="resentment-sources">What raises or lowers resentment</h2>
+<ul>
+  <li>Every night at nightfall (before he turns): the difficulty's nightly resentment (Gentle +8, Normal +11, Nasty +15), <b>+6 more if you didn't talk to him at all that day</b>, plus <code>+0.8 &times; number of messes left uncleaned</code>.</li>
+  <li>Answering one of his questions: whatever that specific answer costs &mdash; see <a href="questions.html">Grump's Questions</a> &mdash; every option costs something, from 5 up to 20.</li>
+  <li>Giving him back his green crayon: <b>&minus;15</b> (only possible before he turns).</li>
+  <li>Cleaning up any mess, anywhere: <b>&minus;1.5</b> (this is the one thing that reliably calms him &mdash; "tidying up his school").</li>
+  <li>Witnessing the Card Kid get taken: <b>+3</b>, because he notices you did nothing (there was nothing to do).</li>
+  <li>The Big Boys Club cutscene resolving: <b>&minus;20</b>, once, per run &mdash; see <a href="bullies.html">The Big Boys Club</a>.</li>
+</ul>
+
+<h2 id="behaviours-pre">Behaviours, before he turns</h2>
+<ul>
+  <li><b>Wander</b> (day) &mdash; ambles between rooms and near the player, occasionally settling into Watch for a few seconds if he has line of sight and you're close.</li>
+  <li><b>Stalk</b> (night) &mdash; follows at a distance, never quite arriving, and cannot enter a room lit above 0.62 brightness at all. Occasionally knocks on your classroom door if you're inside it and he's close (every 22&ndash;40s). If the power ever goes out while you're somewhere fully dark, he moves to <b>Loom</b> right next to you, breathing, until the lights come back or you reach some brightness.</li>
+  <li>He can <b>relocate</b> to somewhere unseen and nearer to you if you're far away and out of his line of sight (every 20&ndash;44 seconds) &mdash; he does not need to walk there.</li>
+</ul>
+
+<h2 id="behaviours-post">Behaviours, once turned</h2>
+<ul>
+  <li><b>Charges</b> the instant he gets a clear line of sight on a target &mdash; speed &times;1.45, plus a stinger and a fear spike for whoever he's charging.</li>
+  <li><b>Camps</b> outside a hiding spot if he ends up within about 4.2 units of someone hidden, breathing (every 2.4s) for 7&ndash;12 seconds, and catches you if you come out early.</li>
+  <li><b>Pops light bulbs</b> he walks under, roughly every 9&ndash;18 seconds, disabling that fixture for 25 seconds.</li>
+  <li>Screen fills with static and a heartbeat/drone rises the closer he gets ("dread").</li>
+  <li><b>Relocates</b> to somewhere nearer and unseen if a target is far away and out of sight (every 20&ndash;34 seconds).</li>
+  <li><b>Repeats your own answers back to you</b> &mdash; about 45% of the time when he speaks, he quotes one of the last 8 things you told him, verbatim.</li>
+  <li>Ceiling lights still slow him at night (half speed while under one), and long enough under them (4&ndash;10 seconds, rising with the night) makes him retreat for 6 seconds. Daylight lights do not slow him at all.</li>
+  <li>Hunt speed: <code>clamp(3.3 + night&times;0.18, 3.3, 5.2)</code>, &times;0.85 during the day.</li>
+</ul>
+
+<h2 id="catch">If he catches you</h2>
+<p>Grump deals <b>62 damage</b> (versus Bob's 28), a jumpscare of his face fills the screen, your fear maxes out, and 70% of the time he also takes one of your already-safe toddlers back out of the classroom as an extra cost. See <a href="events.html#jumpscare">Events &amp; Encounters</a> for the exact jumpscare mechanics.</p>
+
+<h2 id="placement">Where he starts the day and night</h2>
+<p>Every morning he's placed inside a random non-hallway, non-outdoor, non-your-classroom room, at a random point inside it &mdash; but only after checking the spot is clear of furniture and has a walkable path to your classroom (fixed in commit <code>df20bce</code>, which also stopped his placement from ever landing him inside furniture). On a night with the <b>He Is Closer</b> modifier, he instead starts just outside your classroom door, subject to the same clear-and-reachable check, and is guaranteed never to start inside your own classroom.</p>
+
+<h2 id="visibility">Where he can be seen</h2>
+<p>Grump only appears on the map while it's daylight and before he's turned &mdash; see <a href="map.html">The Map</a>.</p>
+
+<div class="callout tip"><strong>Voice acting.</strong> Grump has 3 recorded lines (greeting, mean, angry) &mdash; see <a href="voicelines.html">Voice Lines</a> for exactly when each plays.</div>
