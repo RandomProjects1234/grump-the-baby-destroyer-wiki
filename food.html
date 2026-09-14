@@ -77,7 +77,7 @@
 </ul>
     <div class="sidebar-foot">
       Fan wiki, not an official site.<br>
-      Matches game commit <code>af3955c</code><br>
+      Matches game commit <code>8e3fca2</code><br>
       Updated 2026-09-13
     </div>
   </nav>
@@ -96,6 +96,17 @@
 <tr><td>0%</td><td>You lose 1.6 health per second until you eat or go down</td></tr>
 </table></div>
 <p>Health regenerates slowly during the day (+0.9/second, only while not downed and food isn't at zero), which is one more reason to fix your food before dusk rather than during the night.</p>
+
+<h2 id="warnings">Hunger warnings</h2>
+<p>The game warns you louder and louder as your food drops:</p>
+<div class="tablewrap"><table>
+<tr><th>Food</th><th>What happens</th></tr>
+<tr><td>below 50%</td><td>A reminder toast: "You are getting hungry", with how to eat.</td></tr>
+<tr><td>below 25%</td><td>The food bar flashes red, your stomach growls, an orange edge flash, and a pulsing <b>HUNGRY</b> badge stays on screen above your bars. It repeats every 22 seconds.</td></tr>
+<tr><td>below 10%</td><td>Big <b>YOU ARE STARVING</b> across the screen; the badge turns red and nags every 12 seconds.</td></tr>
+<tr><td>0%</td><td><b>STARVING: LOSING HEALTH</b>, a pulsing red edge round the screen, and an alarm every 6 seconds while your health drains.</td></tr>
+</table></div>
+<p>The badge always tells you what to do: if you are carrying food, "pick it with 1&ndash;6 and press R to eat"; otherwise where to find some &mdash; Meredith in the cafeteria (if she hasn't served you today), or lockers, desks, the kitchen and lunchboxes.</p>
 
 <h2 id="food-items">Food items</h2>
 <div class="tablewrap">
@@ -125,7 +136,7 @@
 <div class="callout tip"><strong>Fear interaction.</strong> Because low food both slows you down and speeds up your fear gain, letting your tummy run dry compounds every other night-time problem at once &mdash; see <a href="night.html#fear">Fear and crying</a>.</div>
 
     <div class="pagefoot">
-      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>af3955c</code></span>
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>8e3fca2</code></span>
       <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
     </div>
   </main>
