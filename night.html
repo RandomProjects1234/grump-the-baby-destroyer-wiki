@@ -77,7 +77,7 @@
 </ul>
     <div class="sidebar-foot">
       Fan wiki, not an official site.<br>
-      Matches game commit <code>c0bc4ce</code><br>
+      Matches game commit <code>af3955c</code><br>
       Updated 2026-09-13
     </div>
   </nav>
@@ -114,11 +114,11 @@
 <tr><td>Resetting the fusebox</td><td>0.6</td></tr>
 <tr><td>Sprinting footstep</td><td>1.0</td></tr>
 <tr><td>Starting the generator</td><td>1.0</td></tr>
-<tr><td>A hungry toddler crying (safe / lost)</td><td>0.5 / 0.9</td></tr>
+<tr><td>A hurt toddler whimpering</td><td>0.6</td></tr>
 <tr><td>A baby crying at maximum fear</td><td>1.6</td></tr>
 </table>
 </div>
-<p>Bob hears within a radius of <code>(7 + level &times; 16) &times; hearMult</code> units (hearMult is 1.6 on an Overtime night, otherwise 1). Grump, once hunting, reacts to noise within <code>10 + level &times; 22</code> units, redirecting toward it. Sprinting and crying are the two most dangerous sounds you can make.</p>
+<p>Bob hears within a radius of <code>(7 + level &times; 16) &times; hearMult</code> units (hearMult is 1.6 on an Overtime night, otherwise 1). Grump, once hunting, reacts to noise within <code>10 + level &times; 22</code> units, redirecting toward it. Sprinting and crying are the two most dangerous sounds you can make. On an <b>Echoes</b> night, every noise level in the table above is multiplied by &times;1.35 before either of those radii are worked out &mdash; see <a href="difficulty.html#night-modifiers">Nights &amp; Difficulty</a>.</p>
 
 <h2 id="fear">Fear and crying</h2>
 <p>Fear runs 0&ndash;100. At night it rises by <code>(1 &minus; room brightness) &times; 7.5</code> per second and falls by <code>brightness &times; 5.5</code> per second, plus a further <code>threat pressure &times; 16</code> per second when Bob or Grump are nearby and hunting/chasing. Hiding subtracts 3/sec; holding a teddy subtracts 5/sec; having your torch on subtracts 2.2/sec; being below 15% food adds 1.5/sec. During the day, fear instead drains at a flat 9/sec (plus threat pressure &times; 6/sec if something is actively after you).</p>
@@ -128,7 +128,7 @@
 <p>Bob is a threat from <b>night 1</b> onward, in every difficulty. Grump does not hurt you at all until he has "turned" &mdash; see <a href="bob.html">Bob the Janitor</a>, <a href="grump.html">Grump</a>, and <a href="difficulty.html">Nights &amp; Difficulty</a> for exactly when that happens.</p>
 
     <div class="pagefoot">
-      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>c0bc4ce</code></span>
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>af3955c</code></span>
       <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
     </div>
   </main>

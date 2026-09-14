@@ -29,11 +29,11 @@
 <tr><td>Resetting the fusebox</td><td>0.6</td></tr>
 <tr><td>Sprinting footstep</td><td>1.0</td></tr>
 <tr><td>Starting the generator</td><td>1.0</td></tr>
-<tr><td>A hungry toddler crying (safe / lost)</td><td>0.5 / 0.9</td></tr>
+<tr><td>A hurt toddler whimpering</td><td>0.6</td></tr>
 <tr><td>A baby crying at maximum fear</td><td>1.6</td></tr>
 </table>
 </div>
-<p>Bob hears within a radius of <code>(7 + level &times; 16) &times; hearMult</code> units (hearMult is 1.6 on an Overtime night, otherwise 1). Grump, once hunting, reacts to noise within <code>10 + level &times; 22</code> units, redirecting toward it. Sprinting and crying are the two most dangerous sounds you can make.</p>
+<p>Bob hears within a radius of <code>(7 + level &times; 16) &times; hearMult</code> units (hearMult is 1.6 on an Overtime night, otherwise 1). Grump, once hunting, reacts to noise within <code>10 + level &times; 22</code> units, redirecting toward it. Sprinting and crying are the two most dangerous sounds you can make. On an <b>Echoes</b> night, every noise level in the table above is multiplied by &times;1.35 before either of those radii are worked out &mdash; see <a href="difficulty.html#night-modifiers">Nights &amp; Difficulty</a>.</p>
 
 <h2 id="fear">Fear and crying</h2>
 <p>Fear runs 0&ndash;100. At night it rises by <code>(1 &minus; room brightness) &times; 7.5</code> per second and falls by <code>brightness &times; 5.5</code> per second, plus a further <code>threat pressure &times; 16</code> per second when Bob or Grump are nearby and hunting/chasing. Hiding subtracts 3/sec; holding a teddy subtracts 5/sec; having your torch on subtracts 2.2/sec; being below 15% food adds 1.5/sec. During the day, fear instead drains at a flat 9/sec (plus threat pressure &times; 6/sec if something is actively after you).</p>

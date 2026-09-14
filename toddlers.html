@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Toddlers · Grump the Baby Destroyer Wiki</title>
-<meta name="description" content="The other children: hunger, crying, carrying, feeding, safe spots, and being taken.">
+<meta name="description" content="The other children: injuries, the nurse's office, carrying, calming, safe spots, and being taken.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230d1210'/><rect x='3' y='5' width='3' height='3' fill='%23e5a83a'/><rect x='10' y='5' width='3' height='3' fill='%23e5a83a'/><rect x='4' y='11' width='8' height='2' fill='%236f8f5a'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,7 +77,7 @@
 </ul>
     <div class="sidebar-foot">
       Fan wiki, not an official site.<br>
-      Matches game commit <code>c0bc4ce</code><br>
+      Matches game commit <code>af3955c</code><br>
       Updated 2026-09-13
     </div>
   </nav>
@@ -90,52 +90,63 @@
 <p>There are 10 possible names, cycled through as more toddlers spawn over a run: <b>Pip, Moo, Bibi, Tog, Nell, Dot, Wex, Bun, Cricket, Snib.</b></p>
 
 <h2 id="spawning">Spawning</h2>
-<p>Every morning, a fresh batch scatters into rooms away from your classroom: <code>clamp(2 + floor(night/2), 2, 5)</code> &mdash; 2 on nights 1&ndash;2, rising to a cap of 5 from night 7 onward. They never spawn behind the staff room's locked door, in the boiler room, in your own classroom, or in a hallway. Any toddler still marked "taken" from the previous night is removed first, so the count each day is always the fresh batch, not an accumulation.</p>
+<p>Every morning, a fresh batch scatters into rooms away from your classroom: <code>clamp(2 + floor(night/2), 2, 5)</code> &mdash; 2 on nights 1&ndash;2, rising to a cap of 5 from night 7 onward. They never spawn behind the staff room's locked door, in the boiler room, in your own classroom, or in a hallway. Any toddler still marked "taken" from the previous night is removed first, so the count each day is always the fresh batch, not an accumulation. Each toddler in that fresh batch is rolled independently for <a href="#injuries">an injury</a> &mdash; a flat <b>25% chance</b> &mdash; the instant it spawns.</p>
 
-<h2 id="hunger">Hunger</h2>
-<p>Each toddler has its own hunger stat, 0&ndash;100, rising at <b>1.5 per second</b> normally (<b>0.75/second</b> if it's been given a teddy and calmed), doubled on a <b>Hungry</b> night modifier. Past <b>65% hunger</b>, an uncalmed toddler starts crying periodically &mdash; a real noise event, not just a visual cue.</p>
+<h2 id="injuries">Injuries</h2>
+<p>About one in four toddlers spawns <b>hurt</b>: a red cross floats and bobs over their head, and a red scrape shows on one knee. A hurt toddler behaves differently from a healthy one:</p>
+<ul>
+  <li><b>They don't wander.</b> A healthy "lost" toddler wanders a little during the day; a hurt one just sits still where it spawned, all day and night.</li>
+  <li><b>They whimper.</b> Starting <b>4&ndash;12 seconds</b> after spawning, then every <b>12&ndash;20 seconds</b> after that, a hurt toddler emits a real noise event at level <b>0.6</b> &mdash; loud enough for Bob or Grump to hear &mdash; with the subtitle <i>"[name] is hurt and crying. The nurse's office has plasters."</i> if you're within 14 units.</li>
+  <li><b>Calming still works.</b> Giving a hurt toddler a teddy sets it <code>calm</code> and suppresses the whimpering entirely, exactly like it does for a healthy one &mdash; but it does not heal them. A calmed, hurt, un-bandaged toddler still can't be kept safe (see below).</li>
+  <li><b>They show red on the map</b> instead of the usual orange, labelled "(hurt)". See <a href="map.html">The Map</a>.</li>
+  <li><b>They cannot be made safe until bandaged.</b> Carrying a hurt toddler into your own classroom and putting them down does <i>not</i> mark them safe &mdash; they're set back to "lost" on the floor, a deny sound plays, and a toast reads <i>"[name] is hurt. Take them to the nurse's office for a plaster first."</i></li>
+</ul>
 
-<h2 id="crying">Crying</h2>
-<p>A crying toddler emits noise every 6 seconds if lost (out in the building) or every 9 seconds if already safe in your classroom, at noise level <b>0.9</b> (lost) or <b>0.5</b> (safe) &mdash; both loud enough for Bob or Grump to potentially hear, which is the actual cost of leaving one hungry. Calming a toddler (giving it a teddy) suppresses this entirely for as long as the calm status holds.</p>
+<h2 id="nurse">The nurse's office</h2>
+<p>The fix for a hurt toddler is always the same: get them to a <b>nurse's office</b> and play the plaster minigame.</p>
+<ul>
+  <li><b>Carrying one there:</b> once you're inside a nurse's office with a hurt toddler in your arms, the prompt changes to <i>"Sit [name] on the nurse's bed"</i> &mdash; a 0.3-second hold that puts them down on the spot and immediately opens the minigame.</li>
+  <li><b>Already there:</b> if a hurt toddler is standing (not being carried) inside a nurse's office &mdash; because you put them down there, or they happened to spawn there &mdash; walking up to them prompts <i>"Put a plaster on [name]"</i> directly, no pick-up required.</li>
+  <li><b>Anywhere else while carrying one:</b> the put-down prompt instead reads <i>"They are hurt: carry them to the nurse's office (red cross on the map)."</i></li>
+  <li><b>Winning</b> the minigame (see <a href="minigames.html#bandage">The Nurse's Office</a> on the Minigames page) bandages them permanently: the cross disappears, a plaster and a head band appear instead, and it's worth <b>+60 score</b>. They can then be carried home and put down safely like any other toddler. <b>Losing</b> just ends the attempt &mdash; the toddler is still hurt and un-bandaged, and you can try again as many times as you like.</li>
+  <li><b>Co-op:</b> whichever player is holding the toddler plays the minigame on their own screen; if that player isn't the host, a win is sent to the host as a request (<code>act: 'bandage'</code>), which the host applies and then progresses the "Patch someone up" job from.</li>
+</ul>
 
 <h2 id="carrying">Picking up and carrying</h2>
 <ul>
-  <li>Your hands must be free (no fuel can, teddy, or other toddler already held) to pick one up &mdash; a 0.45-second hold.</li>
+  <li>Your hands must be free (no fuel can, teddy, or other toddler already held) to pick one up &mdash; a 0.45-second hold. Picking up a hurt one shows "(hurt)" on the prompt, with a hint pointing you at the nurse's office.</li>
   <li>Carrying a toddler slows your movement more than any other big item: speed &times;0.76 (versus &times;0.87 for a fuel can, teddy, or hamster).</li>
   <li>A carried toddler rides along with you and doesn't need to be "aimed" &mdash; it just follows your position.</li>
   <li>If you go down while carrying one, it's released back onto the floor at your position rather than vanishing or staying stuck to you.</li>
 </ul>
 
-<h2 id="feeding-calming">Feeding and calming</h2>
-<ul>
-  <li><b>Feed a hungry one</b> (over 40% hunger, with any food item in your bag): a 0.7-second hold, resets its hunger straight to 0 and its cry timer to 20 seconds. Worth <b>+15 score</b> and progresses the "Snack time for the little ones" job.</li>
-  <li><b>Give it a teddy:</b> an 0.8-second hold while holding a teddy in your hands. Marks it <code>calm</code> permanently for that toddler &mdash; halves its hunger gain rate and raises its cry threshold effectively to never (since <code>!calm</code> gates crying entirely). Worth <b>+45 score</b>.</li>
-</ul>
+<h2 id="calming">Calming with a teddy</h2>
+<p><b>Give it a teddy:</b> an 0.8-second hold while holding a teddy in your hands. Marks the toddler <code>calm</code> permanently &mdash; for a hurt toddler this stops the whimpering (see <a href="#injuries">Injuries</a>), and it's simply a kindness for a healthy one, since healthy toddlers make no noise on their own either way. Worth <b>+45 score</b>.</p>
 
 <h2 id="safe">Getting them safe</h2>
-<p>Carry a toddler into your own classroom and put them down (<kbd class="key">E</kbd>, or automatically detected on entry) to mark them <b>safe</b>. This is worth <b>+120 score</b> the first time, plays a ding sound, and a toast confirms it by name. Putting one down anywhere else just sets them back to "lost" on the floor there.</p>
+<p>Carry a healthy toddler &mdash; or a hurt one that's already been bandaged &mdash; into your own classroom and put them down (<kbd class="key">E</kbd>, or automatically detected on entry) to mark them <b>safe</b>. This is worth <b>+120 score</b> the first time, plays a ding sound, and a toast confirms it by name. Putting one down anywhere else just sets them back to "lost" on the floor there. A hurt, un-bandaged toddler is refused, as described under <a href="#injuries">Injuries</a> above &mdash; the nurse's office has to come first.</p>
 
 <h2 id="risk-when-safe">Safe isn't risk-free</h2>
 <p>If Grump (turned) catches you, there's a <b>70% chance</b> he also drags one already-safe toddler back out of your classroom as an extra cost &mdash; another <b>&minus;100 score</b>, on top of whatever the catch itself did to you. See <a href="grump.html#catch">Grump</a>.</p>
 
 <h2 id="taken">Being taken at nightfall</h2>
-<p>The instant night falls, every toddler still marked <b>lost</b> (not carried home, not already safe) is taken by Grump, one at a time, off-screen: <b>&minus;80 score</b> each. If any were taken, a big-line banner reads <i>"[names] is not here any more"</i> with a stinger sound. Getting every toddler either safe or actively being carried before dusk is the only way to prevent this &mdash; there is no saving a lost toddler once night has actually begun.</p>
+<p>The instant night falls, every toddler still marked <b>lost</b> (not carried home, not already safe) is taken by Grump, one at a time, off-screen: <b>&minus;80 score</b> each &mdash; hurt or not, bandaged or not, it makes no difference once night has actually begun. If any were taken, a big-line banner reads <i>"[names] is not here any more"</i> with a stinger sound. Getting every toddler either safe or actively being carried before dusk is the only way to prevent this.</p>
 
 <h2 id="scoring-summary">Scoring summary</h2>
 <div class="tablewrap"><table>
 <tr><th>Event</th><th>Score</th></tr>
 <tr><td>Carried into your classroom (safe)</td><td>+120</td></tr>
-<tr><td>Fed while hungry</td><td>+15</td></tr>
+<tr><td>Patched up at the nurse's office (bandage minigame won)</td><td>+60</td></tr>
 <tr><td>Given a teddy (calmed)</td><td>+45</td></tr>
 <tr><td>Taken at nightfall (still lost)</td><td>&minus;80</td></tr>
 <tr><td>Taken back out of your classroom by a Grump catch</td><td>&minus;100</td></tr>
 <tr><td>End-of-run bonus per toddler saved (on a win)</td><td>+150 (plus +60 per saved toddler already folded into the per-night dawn bonus)</td></tr>
 </table></div>
 
-<div class="callout tip"><strong>See also.</strong> <a href="jobs.html">Mrs. Honeywell's Jobs</a> for the "Round them up" and "Snack time" job templates, and <a href="night.html">The Night</a> for how noise and fear interact with a crying toddler nearby.</div>
+<div class="callout tip"><strong>See also.</strong> <a href="jobs.html">Mrs. Honeywell's Jobs</a> for the "Round them up" and "Patch someone up" job templates, <a href="minigames.html#bandage">Minigames</a> for the plaster minigame in full, and <a href="night.html">The Night</a> for how noise and fear interact with a whimpering toddler nearby.</div>
 
     <div class="pagefoot">
-      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>c0bc4ce</code></span>
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>af3955c</code></span>
       <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
     </div>
   </main>

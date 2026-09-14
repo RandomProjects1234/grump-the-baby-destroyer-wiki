@@ -1,5 +1,5 @@
 <h1>Minigames</h1>
-<p class="lead">Four little 2D pop-up games, drawn on a flat canvas over the 3D school. Jerry the gym teacher forces one of the first three on you; Meredith the lunch lady runs the fourth herself. While one is open you cannot move, nothing hunts you, and (playing alone) the rest of the school waits &mdash; in co-op it keeps running for everyone else.</p>
+<p class="lead">Five little 2D pop-up games, drawn on a flat canvas over the 3D school. Jerry the gym teacher forces one of the first three on you; Meredith the lunch lady runs the fourth herself; the fifth is yours to start, whenever you carry a hurt toddler into the nurse's office. While one is open you cannot move, nothing hunts you, and (playing alone) the rest of the school waits &mdash; in co-op it keeps running for everyone else.</p>
 
 <div class="callout tip"><strong>Controls that work in every minigame.</strong> Click, <kbd class="key">Space</kbd>, or <kbd class="key">E</kbd> generally act as the "press" button; the lunch game uses <kbd class="key">A</kbd> <kbd class="key">S</kbd> <kbd class="key">D</kbd> (or the arrow keys) for its three lanes instead. Every game ends in a 1.6-second result banner before control returns to you.</div>
 
@@ -45,6 +45,16 @@
   <li>Score below 60% still counts as a "fail" for the win/lose flag, but you're never sent away empty-handed &mdash; Meredith always gives you the Soggy tray at minimum.</li>
   <li><b>Reward:</b> the tray's items (dropped on the floor near you if your bag is full), plus <code>round(20 + score &times; 40)</code> score &mdash; 20 at 0% up to 60 at a perfect run.</li>
   <li>One tray per player, per day; closes for the day once fewer than 50 seconds of daylight remain.</li>
+</ul>
+
+<h2 id="bandage">The Nurse's Office</h2>
+<p>Triggered by carrying a hurt toddler into a nurse's office (or walking up to one already sitting there) and starting the plaster minigame. Goal: clean the scrape, then stick <b>2 plasters</b> on, within <b>30 seconds</b>. Two stages, back to back.</p>
+<ul>
+  <li><b>Stage 1 &mdash; wipe it clean.</b> Tap <kbd class="key">A</kbd> and <kbd class="key">D</kbd> (or <kbd class="key">&larr;</kbd> <kbd class="key">&rarr;</kbd>) alternately &mdash; the same side twice in a row doesn't count. <b>8 alternating taps</b> clears the dirt and moves you to stage 2.</li>
+  <li><b>Stage 2 &mdash; stick the plaster on.</b> A plaster slides back and forth above the knee, which is itself wriggling side to side. Press <kbd class="key">Space</kbd>, click, or <kbd class="key">E</kbd> the instant it's over the scrape &mdash; a hit window of about <b>&plusmn;38 pixels</b>. A hit sticks a plaster down and speeds the slide up for the next one (<b>2 plasters</b> needed to finish); a miss doesn't cost you the attempt, but it does make the toddler cry.</li>
+  <li><b>Win:</b> "ALL BETTER!" &mdash; the toddler is bandaged (see <a href="toddlers.html#injuries">The Toddlers</a>), <b>+60 score</b>, and you can carry them home as normal.</li>
+  <li><b>Lose</b> (time runs out): "THEY WRIGGLED FREE" &mdash; nothing is lost except time; try the minigame again whenever you're ready.</li>
+  <li><b>Tip:</b> the wipe stage is pure rhythm &mdash; settle into a steady A-D-A-D beat rather than mashing, since a repeated side doesn't register at all. On the plaster stage, watch the knee's wriggle rather than the plaster's straight-line slide; the hit window follows the knee, not a fixed spot on screen.</li>
 </ul>
 
 <div class="callout warn"><strong>Nothing hunts you while a minigame is open</strong> &mdash; the game explicitly excludes any player who is "busy" with a minigame from every threat's target list. That's true in co-op too, even though the school itself keeps running for your teammates.</div>

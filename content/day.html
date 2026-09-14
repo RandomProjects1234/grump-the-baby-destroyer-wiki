@@ -1,5 +1,5 @@
 <h1>The Day</h1>
-<p class="lead">Days are for work: search the school, feed the generator, clean up, feed and carry the other toddlers home, and get through Mrs. Honeywell's list. See <a href="jobs.html">Mrs. Honeywell's Jobs</a> for the full mechanics behind the list, <a href="searching.html">Searching</a> for how repeat searches work, and <a href="events.html">Events &amp; Encounters</a> for everything that can interrupt you (Jerry, Meredith, the Big Boys Club, the Card Kid).</p>
+<p class="lead">Days are for work: search the school, feed the generator, clean up, carry the other toddlers home (patching up any that are hurt), and get through Mrs. Honeywell's list. See <a href="jobs.html">Mrs. Honeywell's Jobs</a> for the full mechanics behind the list, <a href="searching.html">Searching</a> for how repeat searches work, and <a href="events.html">Events &amp; Encounters</a> for everything that can interrupt you (Jerry, Meredith, the Big Boys Club, the Card Kid).</p>
 
 <h2 id="the-day-loop">The day loop</h2>
 <p>At the start of each day: the previous night's messes are cleared and a fresh batch spawns, every toddler still "taken" from the previous night is removed and a new batch is scattered around the school, the day's job list is drawn up, and 2&ndash;3 lunchboxes appear (the count is <code>2 + (night % 2)</code>, so it alternates between 2 and 3). Every prop in the school is reset to unsearched, and every container's search count resets to zero (see <a href="searching.html">Searching</a>).</p>
@@ -20,7 +20,7 @@
 <tr><td><b>Patch it up</b></td><td>Fit N spare parts to the generator.</td><td>1 part (night &lt; 5), 2 parts (night &ge; 5)</td><td>&mdash;</td><td>Good</td></tr>
 <tr><td><b>Tidy up</b></td><td>Clean up N messes.</td><td><code>min(5, 2 + floor(night/3))</code></td><td>&mdash;</td><td>Good</td></tr>
 <tr><td><b>Lunch time</b></td><td>Eat N things.</td><td>1 (night &le; 1), 2 (night &gt; 1)</td><td>&mdash;</td><td>Basic</td></tr>
-<tr><td><b>Snack time for the little ones</b></td><td>Feed N hungry toddlers.</td><td>1 (capped at 2)</td><td>&mdash;</td><td>Good</td></tr>
+<tr><td><b>Patch someone up</b></td><td>Bandage a hurt toddler at the nurse's office.</td><td>1</td><td>Requires a nurse's office and a hurt toddler that day</td><td>Good</td></tr>
 <tr><td><b>Round them up</b></td><td>Carry N toddlers back to your classroom.</td><td>1 (night &le; 1), 2 (night &gt; 1, capped at 2)</td><td>&mdash;</td><td>Great</td></tr>
 <tr><td><b>Rummage through &hellip;</b></td><td>Search 3 things in a specific room.</td><td>3</td><td>Library, art, music, cafeteria, kitchen, nurse, Lost &amp; Found, storage &mdash; only rooms with 3+ searchable props are eligible</td><td>Basic</td></tr>
 <tr><td><b>Brighten &hellip;</b></td><td>Switch the lights on in a specific room.</td><td>1</td><td>Library, art, music, gym, cafeteria, kitchen, nurse</td><td>Basic</td></tr>

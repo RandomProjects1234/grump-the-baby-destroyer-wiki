@@ -77,7 +77,7 @@
 </ul>
     <div class="sidebar-foot">
       Fan wiki, not an official site.<br>
-      Matches game commit <code>c0bc4ce</code><br>
+      Matches game commit <code>af3955c</code><br>
       Updated 2026-09-13
     </div>
   </nav>
@@ -90,9 +90,9 @@
 <p>The host plans the day's list from a seeded RNG (<code>seed:quests:night</code>), so every player in co-op sees an identical list without it ever being invented client-side.</p>
 <ul>
   <li><b>Day 1</b> is always the fixed three: <i>Get the lights working</i>, <i>Lunch time</i>, <i>Round them up</i> &mdash; deliberately teaching fuel, food, and toddlers before anything harder shows up.</li>
-  <li><b>Day 2 onward</b>, jobs are drawn from a shared pool: <code>fuel, repair, clean, eat, lunch, feed, rescue, searchRoom, lights, visit, hide, drawing, hamster, holocard</code>, plus <code>crayon</code> twice (only while Grump hasn't turned) and <code>fuel</code>, <code>eat</code>, <code>rescue</code> each added an extra time &mdash; weighting the "big three" survival jobs above the flavour ones. The pool is shuffled, then picked through in order.</li>
+  <li><b>Day 2 onward</b>, jobs are drawn from a shared pool: <code>fuel, repair, clean, eat, lunch, bandage, rescue, searchRoom, lights, visit, hide, drawing, hamster, holocard</code>, plus <code>bandage</code> a second time, <code>crayon</code> twice (only while Grump hasn't turned), and <code>fuel</code>, <code>eat</code>, <code>rescue</code> each added an extra time &mdash; weighting the "big three" survival jobs (and "Patch someone up") above the flavour ones. The pool is shuffled, then picked through in order.</li>
   <li><b>List length:</b> 3 jobs, rising to <b>4 from night/day 6</b> onward.</li>
-  <li><b>A job that can't happen in this school is skipped, not left broken.</b> Each candidate is resolved to a real room before being accepted: <code>lunch</code> needs a cafeteria or kitchen; <code>searchRoom</code> needs a room type with at least 3 searchable props; every room-specific job (<code>searchRoom, lights, visit, drawing, hamster, crayon, holocard</code>) needs at least one room of an eligible type to actually exist in this generated school. If a candidate resolves to nothing, the planner moves to the next pool entry instead of shipping a list one job short &mdash; a bug fixed in commit <code>df20bce</code> where quest lists could previously come up short.</li>
+  <li><b>A job that can't happen in this school is skipped, not left broken.</b> Each candidate is resolved to a real room before being accepted: <code>lunch</code> needs a cafeteria or kitchen; <code>bandage</code> needs a nurse's office <i>and</i> at least one toddler actually hurt that day; <code>searchRoom</code> needs a room type with at least 3 searchable props; every room-specific job (<code>searchRoom, lights, visit, drawing, hamster, crayon, holocard</code>) needs at least one room of an eligible type to actually exist in this generated school. If a candidate resolves to nothing, the planner moves to the next pool entry instead of shipping a list one job short &mdash; a bug fixed in commit <code>df20bce</code> where quest lists could previously come up short.</li>
 </ul>
 
 <h2 id="templates">Every job template</h2>
@@ -105,7 +105,7 @@
 <tr><td><b>Tidy up</b> (<code>clean</code>)</td><td>Cleaning a mess</td><td><code>min(5, 2 + floor(night/3))</code></td><td>&mdash;</td><td>Good</td></tr>
 <tr><td><b>Lunch from Meredith</b> (<code>lunch</code>)</td><td>Getting served a tray</td><td>1</td><td>Requires a cafeteria or kitchen to exist</td><td>Basic</td></tr>
 <tr><td><b>Lunch time</b> (<code>eat</code>)</td><td>Eating something</td><td>1 (night &le; 1), 2 (night &gt; 1)</td><td>&mdash;</td><td>Basic</td></tr>
-<tr><td><b>Snack time for the little ones</b> (<code>fed</code>)</td><td>Feeding a hungry toddler</td><td>1 (capped at 2)</td><td>&mdash;</td><td>Good</td></tr>
+<tr><td><b>Patch someone up</b> (<code>bandaged</code>)</td><td>Winning the plaster minigame on a hurt toddler</td><td>1</td><td>Requires a nurse's office to exist, and at least one hurt toddler that day</td><td>Good</td></tr>
 <tr><td><b>Round them up</b> (<code>saved</code>)</td><td>Carrying a toddler to your classroom</td><td>1 (night &le; 1), 2 (night &gt; 1, capped at 2)</td><td>&mdash;</td><td>Great</td></tr>
 <tr><td><b>Rummage through &hellip;</b> (<code>search</code>, matched to the target room)</td><td>Searching a container in the target room</td><td>3</td><td>Library, art, music, cafeteria, kitchen, nurse, Lost &amp; Found, storage &mdash; only rooms with 3+ searchable props qualify</td><td>Basic</td></tr>
 <tr><td><b>Brighten &hellip;</b> (<code>lights</code>, matched to the target room)</td><td>Switching that room's lights on</td><td>1</td><td>Library, art, music, gym, cafeteria, kitchen, nurse</td><td>Basic</td></tr>
@@ -134,7 +134,7 @@
 <p>Each job on the list listens for exactly one event type (shown above). Progress only advances when that event fires <i>and</i>, for room-specific jobs, the event's room matches the job's assigned room. A job completes the instant its progress reaches its goal &mdash; there's no need to finish everything at once, and jobs can be worked in any order or in parallel.</p>
 
     <div class="pagefoot">
-      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>c0bc4ce</code></span>
+      <span>Grump the Baby Destroyer Wiki &middot; last updated 2026-09-13 &middot; matches game commit <code>af3955c</code></span>
       <span><a href="https://randomprojects1234.github.io/grump-the-baby-destroyer/" target="_blank" rel="noopener">Play the game</a> &middot; <a href="https://github.com/RandomProjects1234/grump-the-baby-destroyer" target="_blank" rel="noopener">Game source</a></span>
     </div>
   </main>
